@@ -1,0 +1,138 @@
+<?xml version="1.0" ?> 
+<XML_DIZ_INFO>
+<MASTER_PAD_VERSION_INFO>
+ <MASTER_PAD_VERSION>2.01</MASTER_PAD_VERSION>
+<MASTER_PAD_EDITOR>PAD Creator version: 2.0.1 available for FREE at http://www.padcreator.com </MASTER_PAD_EDITOR>
+ <MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
+</MASTER_PAD_VERSION_INFO>
+
+<Company_Info>
+ <Company_Name>AdSapient Inc.</Company_Name>
+ <Address_1>Voronjanskogo Str., 7a–706</Address_1>
+ <Address_2>220039 Minsk, Belarus</Address_2>
+ <City_Town>Minsk</City_Town>
+ <State_Province>Minsk</State_Province>
+ <Zip_Postal_Code>220039</Zip_Postal_Code>
+ <Country>Belarus</Country>
+ <Company_WebSite_URL>http://www.adsapient.com</Company_WebSite_URL>
+  <Contact_Info>
+  <Author_First_Name>AdSapient Inc.</Author_First_Name>
+  <Author_Last_Name>AdSapient Inc.</Author_Last_Name>
+  <Author_Email>contact@adsapient.com</Author_Email>
+  <Contact_First_Name>Vitaly</Contact_First_Name>
+  <Contact_Last_Name>Sazanovich</Contact_Last_Name>
+  <Contact_Email>vitaly@adsapient.com</Contact_Email>
+ </Contact_Info>
+ <Support_Info>
+  <Sales_Email>sales@adsapient.com</Sales_Email>
+  <Support_Email>support@adsapient.com</Support_Email>
+  <General_Email>contact@adsapient.com</General_Email>
+  <Sales_Phone>+375 17 2281257</Sales_Phone>
+  <Support_Phone>+375 17 2281257</Support_Phone>
+  <General_Phone>+375 17 2281257</General_Phone>
+  <Fax_Phone>+375 17 2281258</Fax_Phone>
+ </Support_Info>
+</Company_Info>
+
+<Program_Info>
+ <Program_Name>AdSapient Ad Network</Program_Name>
+ <Program_Version>2.0</Program_Version>
+ <Program_Release_Month>12</Program_Release_Month>
+ <Program_Release_Day>01</Program_Release_Day>
+ <Program_Release_Year>2004</Program_Release_Year>
+ <Program_Cost_Dollars>0</Program_Cost_Dollars>
+ <Program_Cost_Other_Code />
+ <Program_Cost_Other />
+ <Program_Type>Demo</Program_Type>
+ <Program_Release_Status>Alpha</Program_Release_Status>
+ <Program_Install_Support>Install and Uninstall</Program_Install_Support>
+ <Program_OS_Support>WinXP,Windows2000,Windows2003,Unix,Linux,OS/2,Mac OS X</Program_OS_Support>
+ <Program_Language>English</Program_Language>
+ <Program_Change_Info />
+ <Program_Specific_Category />
+ <Program_Category_Class>Servers::Other Server Applications</Program_Category_Class>
+ <Program_Categories />
+ <Program_System_Requirements>CPU 1Ghz,RAM 512 Mb</Program_System_Requirements>
+ <Includes_JAVA_VM>N</Includes_JAVA_VM>
+ <Includes_VB_Runtime>N</Includes_VB_Runtime>
+ <Includes_DirectX>N</Includes_DirectX>
+ <File_Info>
+  <Filename_Versioned>adsapient13.</Filename_Versioned>
+  <Filename_Previous>adsapient13.</Filename_Previous>
+  <Filename_Generic>adsapient1</Filename_Generic>
+  <Filename_Long>adsapient13.exe</Filename_Long>
+  <File_Size_Bytes>2000000</File_Size_Bytes>
+  <File_Size_K>1953</File_Size_K>
+  <File_Size_MB>1.91</File_Size_MB>
+ </File_Info>
+ <Expire_Info>
+  <Has_Expire_Info>N</Has_Expire_Info>
+  <Expire_Count>10</Expire_Count>
+  <Expire_Based_On>Days</Expire_Based_On>
+  <Expire_Other_Info />
+ </Expire_Info>
+</Program_Info>
+
+<Program_Descriptions>
+ <English>
+  <Keywords>ad network software, advertising agency software, ad management, adserver, ad server, ad serve, ad serving, ad delivery, banner software, desktop advertising, desktop advertising software, advertising delivery, banner exchange software, ad banners</Keywords>
+  <Char_Desc_45>AdSapient Ad Network</Char_Desc_45>
+  <Char_Desc_80>AdSapient Ad Network enables you to launch your own ad network</Char_Desc_80>
+  <Char_Desc_250>AdSapient Ad Network enables you to launch your own ad network with the reachest set of targeting, tracking and performance optimization features on the market.</Char_Desc_250>
+  <Char_Desc_450>AdSapient Ad Network allows to easily create and manage online advertising campaigns delivering creatives in the most efficient and smart way. The advanced audience targeting and reporting modules will help you to encrease campaigns' ROI greatly leaving both the advertiser and the publisher satisfied with the advertising results. The audience targeting is divided different filters: geo, content, context, traffic, time, keyword, behavior.</Char_Desc_450>
+  <Char_Desc_2000>AdSapient Ad Network allows to easily create and manage online advertising campaigns delivering creatives in the most efficient and smart way. The advanced audience targeting and reporting modules will help you to encrease campaigns' ROI greatly leaving both the advertiser and the publisher satisfied with the advertising results. The audience targeting is conveniently divided different filters: geo, content, context, traffic, time, keyword, behavior. Reporting is visually presented in pie charts and bar charts. In-build anti-fraud mechanism prevents abuse in publishing and ad serving. Campaigns' self-adjustment mechanism allow the marketer to encrease campaign's ROI without  constantly changing the settings. Secure authorization and payment transactions modules provide for smooth and stable functioning of your ad network. Users can play different roles in the system: advertiser, publisher, advertiser+publisher, exchange participant, advertiser+exchange participant, account manager, guest which makes this system truely universal in terms of online advertising.</Char_Desc_2000>
+ </English>
+</Program_Descriptions>
+
+<Web_Info>
+ <Application_URLs>
+  <Application_Info_URL>http://www.adsapient.com</Application_Info_URL>
+  <Application_Order_URL>http://www.adsapient.com</Application_Order_URL>
+  <Application_Screenshot_URL>http://adsapient.com/screenshot.gif</Application_Screenshot_URL>
+  <Application_Icon_URL>http://adsapient.com/images/logo.gif</Application_Icon_URL>
+  <Application_XML_File_URL>http://adsapient.com/adsapient2.xml</Application_XML_File_URL>
+ </Application_URLs>
+ <Download_URLs>
+  <Primary_Download_URL>http://www.adsapient.com/adsapient.zip</Primary_Download_URL>
+  <Secondary_Download_URL>http://www.adsapient.com/adsapient.zip</Secondary_Download_URL>
+  <Additional_Download_URL_1 />
+  <Additional_Download_URL_2 />
+ </Download_URLs>
+</Web_Info>
+
+<Permissions>
+ <Distribution_Permissions>Shareware Terms of Use
+
+General
+
+As part of our service, AdSapient Inc. agrees to provide freely downloadable evaluation versions of this software. AdSapient Inc. agrees to provide this service free of charge. Upon notice published by AdSapient Inc., AdSapient Inc. may amend or modify these Terms of Service at any time. You agree to use the service in accordance with the Terms of Service.
+
+Copyright Notices
+
+The product is owned by AdSapient. All rights in the product including License Agreement Number, copyrights, licensing rights, patents, trademarks, trade secrets, design rights, engineering rights, moral rights, and any other intellectual property rights belong to AdSapient. These rights are not transferred as part of this agreement.
+
+No part of the product including the License Agreement may be reproduced, published, transmitted electronically, mechanically or otherwise, transcribed, stored in a retrieval system or translated into any language in any form, by any means, for any purpose other than the purchaser's personal use, without the express written permission of AdSapient.
+
+End User License Agreement
+
+This license agreement is a legal agreement between you the end user (either as an individual or an entity) and AdSapient Inc. The software and any of its supporting documentation and associated hardware are herein after referred to as the product .
+
+By installing or using the product, you indicate your complete and unconditional acceptance of these terms and conditions. If you do not agree to the terms and conditions of this agreement promptly remove the product from your computer and destroy associated documentation.
+
+Should there be any conflict between the terms and conditions of this agreement and the terms and conditions of any other agreement between you and AdSapient or their servants or agents in relation to the product the terms and conditions of this agreement shall apply.
+
+If any provision of this agreement is found to be unlaw</Distribution_Permissions>
+ <EULA />
+</Permissions>
+
+<ASP>
+ <ASP_FORM>Y</ASP_FORM>
+ <ASP_Member>N</ASP_Member>
+ <ASP_Member_Number></ASP_Member_Number>
+</ASP>
+
+
+
+
+</XML_DIZ_INFO>
+
