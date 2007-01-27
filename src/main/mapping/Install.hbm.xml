@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.adsapient.api_impl.install.InstallItem" table="setupfiles" lazy="false">
+	 <cache usage="read-write" />
+       
+        <id name="Id" type="int" unsaved-value="null"  >
+            <column name="ID" sql-type="int(11)" not-null="true" />
+            <generator class="increment"/>
+        </id>
+
+       
+        <property name="serverURL">
+            <column name="URL_PATH" sql-type="varchar(200)"  not-null="true"/>
+        </property>
+        
+         <property name="filePath">
+            <column name="SERVER_PATH"  not-null="true"  sql-type="varchar(200)" />
+        </property>
+        <property name="command">
+            <column name="COMMAND"  not-null="true"  sql-type="varchar(200)" />
+        </property>
+        
+     
+    </class>
+    
+</hibernate-mapping>

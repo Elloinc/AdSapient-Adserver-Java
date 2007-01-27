@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+    <form-beans>
+        <form-bean name="editUserForm"
+                   type="com.adsapient.gui.forms.EditUserForm">
+        </form-bean>
+        <form-bean name="viewUsersForm"
+                   type="com.adsapient.gui.forms.ViewUsersForm">
+        </form-bean>
+        <form-bean name="loginActionForm"
+                   type="com.adsapient.gui.forms.LoginActionForm">
+        </form-bean>
+        <form-bean name="passReminderForm"
+                   type="com.adsapient.gui.forms.PassReminderForm">
+        </form-bean>
+        <form-bean name="contactForm"
+                   type="com.adsapient.gui.forms.ContactForm">
+        </form-bean>
+        <form-bean name="campainActionForm"
+                   type="com.adsapient.gui.forms.CampainActionForm">
+        </form-bean>
+
+        <form-bean name="editCampainActionForm"
+                   type="com.adsapient.gui.forms.EditCampainActionForm">
+        </form-bean>
+
+        <form-bean name="publisherActionForm"
+                   type="com.adsapient.gui.forms.PublisherActionForm">
+        </form-bean>
+
+
+        <form-bean name="editPublisherSiteActionForm"
+                   type="com.adsapient.gui.forms.EditPublisherSiteActionForm">
+        </form-bean>
+        <form-bean name="bannerUploadActionForm"
+                   type="com.adsapient.gui.forms.BannerUploadFormAction">
+        </form-bean>
+
+
+        <form-bean name="placesEditActionForm"
+                   type="com.adsapient.gui.forms.PlacesEditActionForm">
+        </form-bean>
+        <form-bean name="viewStatisticActionForm"
+                   type="com.adsapient.gui.forms.ViewStatisticActionForm">
+        </form-bean>
+        <form-bean name="filterActionForm"
+                   type="com.adsapient.gui.forms.FilterActionForm">
+        </form-bean>
+        <form-bean name="viewSitesActionForm"
+                   type="com.adsapient.web.campain.buy.ViewSitesActionForm">
+        </form-bean>
+        <form-bean name="buyActionsActionForm"
+                   type="com.adsapient.web.campain.buy.actions.BuyActionsActionForm">
+        </form-bean>
+        <form-bean name="viewAccountActionForm"
+                   type="com.adsapient.gui.forms.ViewAccountActionForm">
+        </form-bean>
+        <form-bean name="adminsTuningActionForm"
+                   type="com.adsapient.gui.forms.AdminsTuningActionForm">
+        </form-bean>
+        <!-- (vira) added form for bannerSizeActionForm -->
+        <form-bean name="bannerSizeActionForm"
+                   type="com.adsapient.gui.actions.BannerSizeActionForm">
+        </form-bean>
+        <form-bean name="adminActionForm"
+                   type="com.adsapient.gui.forms.AdminActionForm">
+        </form-bean>
+        <form-bean name="publisherStatisticActionForm"
+                   type="com.adsapient.gui.forms.PublisherStatisticActionForm">
+        </form-bean>
+        <form-bean name="advertizerStatisticActionForm"
+                   type="com.adsapient.gui.forms.AdvertizerStatisticActionForm">
+        </form-bean>
+        <form-bean name="hTMLBannerUploadActionForm"
+                   type="com.adsapient.web.campain.upload.HTMLBannerUploadActionForm">
+        </form-bean>
+        <form-bean name="defaultBannerActionForm"
+                   type="com.adsapient.gui.actions.DefaultBannerActionForm">
+        </form-bean>
+        <form-bean name="adminOptionsActionForm"
+                   type="com.adsapient.gui.actions.AdminOptionsActionForm">
+        </form-bean>
+        <form-bean name="profileEditActionForm"
+                   type="com.adsapient.gui.forms.ProfileEditActionForm"/>
+        <form-bean name="generalReportActionForm"
+                   type="com.adsapient.gui.forms.GeneralReportActionForm"/>
+        <form-bean name="filtersTemplateActionForm"
+                   type="com.adsapient.gui.forms.FiltersTemplateActionForm"/>
+        <form-bean name="accountProfileActionForm"
+                   type="com.adsapient.gui.forms.AccountProfileActionForm"/>
+        <form-bean name="financialManagmentActionForm"
+                   type="com.adsapient.gui.forms.FinancialManagmentActionForm"/>
+        <form-bean name="rateManagmentActionForm"
+                   type="com.adsapient.gui.forms.RateManagmentActionForm"/>
+        <form-bean name="verificationActionForm"
+                   type="com.adsapient.gui.forms.VerificationActionForm"/>
+        <form-bean name="resourceUploadForm"
+                   type="com.adsapient.gui.forms.ResourceUploadForm"/>
+        <form-bean name="parameterForm"
+                   type="com.adsapient.gui.forms.ParameterForm"/>
+        <form-bean name="billingActionForm"
+                   type="com.adsapient.gui.forms.BillingActionForm"/>
+        <form-bean name="transactionRequestActionForm"
+                   type="com.adsapient.gui.forms.TransactionRequestActionForm"/>
+        <form-bean name="behaviorActionForm"
+                   type="com.adsapient.gui.forms.BehaviorActionForm"/>
+        <form-bean name="pluginManagerActionForm"
+                   type="com.adsapient.gui.forms.PluginManagerActionForm"/>
+        <form-bean name="pluginBannerActionForm"
+                   type="com.adsapient.gui.forms.PluginBannerActionForm"/>
+        <form-bean name="guestAccountActionForm"
+                   type="com.adsapient.gui.forms.GuestAccountActionForm"/>
+    </form-beans>
+
+    <global-exceptions>
+        <!--exception key="login" type="com.adsapient.util.security.AdsapientSecurityException" path="/share/error_general.jsp"/-->
+        <!--Catch all other exceptions-->
+        <exception key="error.unhandled"
+                   type="com.adsapient.api.AdsapientException"
+                   handler="com.adsapient.util.AdsapientExceptionHandler"
+                   path="login.welcome"/>
+    </global-exceptions>
+
+    <global-forwards type="org.apache.struts.action.ActionForward">
+        <forward name="login" path="/login.do?action=init"/>
+        <forward name="exception" path="login.welcome"/>
+    </global-forwards>
+
+    <action-mappings>
+
+        <action path="/editUser"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="editUserForm" scope="request" validate="true"
+                input="login.register">
+            <forward name="init" path="login.register"/>
+            <forward name="successAdd" path="/login.do"/>
+        </action>
+
+        <action path="/viewUsers"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="viewUsersForm" scope="session" input="/login.jsp">
+            <forward name="success" path="admin.users"></forward>
+        </action>
+
+        <action path="/login"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="loginActionForm" scope="request" input="login.welcome"
+                validate="false">
+            <forward name="successAdmin" path="/viewUsers.do"></forward>
+            <forward name="successAdv" path="/campainView.do"></forward>
+            <forward name="successPub" path="/publisherView.do"></forward>
+            <forward name="login" path="login.welcome"></forward>
+            <forward name="admin" path="/viewUsers.do"></forward>
+        </action>
+
+        <action path="/logout"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="loginActionForm" scope="request" input="login.logoff"
+                validate="true">
+             <forward name="login" path="login.logoff"></forward>
+        </action>
+
+        <action path="/passReminder"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="passReminderForm" scope="request" validate="true"
+                input="login.passreminder">
+            <forward name="success"
+                     path="login.passreminder.emailsent">
+            </forward>
+            <forward name="remind" path="login.passreminder"></forward>
+        </action>
+
+        <action path="/contact"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="contactForm"
+                scope="request" validate="true" input="login.contact">
+            <forward name="success" path="login.contact.thankyou"></forward>
+            <forward name="contact" path="login.contact"></forward>
+            <forward name="contactadmin" path="user.contact"></forward>
+        </action>
+
+        <action path="/contactus"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="contactForm"
+                scope="request" validate="true" input="login.contactus">
+            <forward name="success" path="login.contact.login.thankyou"></forward>
+            <forward name="contact" path="login.contactus"></forward>
+            <forward name="contactadmin" path="user.contact"></forward>
+        </action>
+
+        <action path="/campainView"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                scope="request"
+                name="campainActionForm">
+            <forward name="success" path="campaigns"/>
+            <forward name="add" path="/campainEdit.do"/>
+        </action>
+
+        <action path="/campainEdit"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="editCampainActionForm" scope="request" validate="true"
+                input="campaign.edit">
+            <forward name="success" path="/campainView.do"/>
+            <forward name="init" path="campaign.init"></forward>
+            <forward name="edit" path="campaign.edit"></forward>
+        </action>
+
+
+
+
+        <action path="/publisherView"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="publisherActionForm" scope="request">
+            <forward name="success" path="sites"/>
+            <forward name="add" path="/publisherEdit.do"/>
+            <forward name="viewPlacess" path="adplaces"/>
+        </action>
+
+
+
+
+        <action path="/publisherEdit"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="editPublisherSiteActionForm" scope="request" input="addsite" validate="true">
+            <forward name="edit" path="editsite"></forward>
+            <forward name="init" path="addsite"></forward>
+            <forward name="success" path="/publisherView.do"/>
+        </action>
+
+        <action path="/upload"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="bannerUploadActionForm" scope="request" validate="true"
+                input="banner.edit">
+            <forward name="select" path="banner.upload"></forward>
+            <forward name="view" path="banners"></forward>
+            <forward name="campaignbanners_view" path="/campain/viewBanners.jsp"/>
+            <forward name="external_resource" path="/resource.do?action=upload"></forward>
+            <forward name="external_add" path="/pluginBanner.do?action=upload"></forward>
+            <forward name="edit" path="banner.edit"></forward>
+            <forward name="success" path="/upload.do"></forward>
+            <forward name="list_default" path="/defaultBanners.do"></forward>
+            <!--forward name="successremove" path="/campainEdit.do"/-->
+        </action>
+
+    
+
+
+        <action path="/resource"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="resourceUploadForm" scope="request" validate="true"
+                input="resource.upload">
+            <forward name="select" path="resource.upload"></forward>
+            <forward name="view" path="resources"></forward>
+            <forward name="edit" path="resource.edit"></forward>
+            <forward name="success" path="/resource.do"></forward>
+        </action>
+
+        <action path="/parameter"
+                type="com.adsapient.gui.actions.ParameterAction"
+                name="parameterForm" scope="request" validate="true"
+                input="parameter.upload">
+            <forward name="select" path="parameter.upload"></forward>
+            <forward name="view" path="parameters"></forward>
+            <forward name="edit" path="parameter.edit"></forward>
+            <forward name="success" path="/parameter.do"></forward>
+        </action>
+
+        <action path="/placeEdit"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="placesEditActionForm" validate="true" input="adplace.add"
+                scope="request">
+            <forward name="success"
+                     path="/publisherView.do?action=viewPlacess">
+            </forward>
+            <forward name="placeEdit" path="adplace.edit"/>
+
+            <forward name="viewSitePlacess"
+                     path="/publisher/sitePlacesView.jsp"/>
+            <forward name="placeAdd" path="adplace.add"/>
+        </action>
+
+        <action path="/viewStatistic"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="viewStatisticActionForm" scope="request">
+            <forward name="success" path="/statistic/statistic.jsp"></forward>
+        </action>
+        <!--  Action for templates -->
+        <action path="/filter"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="filterActionForm" scope="request" validate="true"
+                input="campaign.targeting">
+            <forward name="success" path="campaign.targeting"></forward>
+            <forward name="template" path="/filtersTemplate.do"></forward>
+
+        </action>
+
+        <!-- Action 4 filterstemplate -->
+        <action path="/filtersTemplate"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="filtersTemplateActionForm" scope="request" validate="true"
+                input="template.edit">
+            <forward name="template" path="template.edit"></forward>
+            <forward name="viewTemplates" path="templates"/>
+            <forward name="filters" path="/filter.do"/>
+        </action>
+
+        <!--<action path="/viewSites"-->
+        <!--type="org.springframework.web.struts.DelegatingActionProxy"-->
+        <!--name="viewSitesActionForm" scope="request">-->
+        <!--<forward name="success" path="publisher.sites"></forward>-->
+        <!--</action>-->
+
+        <!--action path="/buyActions" type="com.adsapient.web.campain.buy.actions.BuyActionsAction" name="buyActionsActionForm" scope="request">
+              <forward  name="view" path="/campain/buyActions.jsp"></forward>
+              </action-->
+        <!--type="com.adsapient.gui.actions.ViewAccountAction"-->
+        <action path="/viewAccount"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="viewAccountActionForm" scope="request">
+            <forward name="view" path="account.money.view"/>
+            <forward name="system" path="account.money.view.system"/>
+            <forward name="edit" path="account.money.edit"/>
+        </action>
+        <!--Mapping admin action -->
+        <action path="/adminAction"
+                type="org.springframework.web.struts.DelegatingActionProxy" name="adminActionForm"
+                scope="request">
+            <forward name="view" path="reports.general"></forward>
+        </action>
+        <!--Mapping admin options tuning -->
+        <action path="/adminTuning"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="adminsTuningActionForm" scope="request" validate="true"
+                input="admin.tuning">
+            <forward name="view" path="admin.tuning"></forward>
+        </action>
+         <!--Mapping admin options tuning -->
+        <!-- (vira) added action for bannerSize -->
+        <action path="/bannerSize"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="bannerSizeActionForm" scope="request" validate="true"
+                input="bannersize.upload">
+            <forward name="view" path="admin.bannersize"></forward>
+            <forward name="select" path="bannersize.upload"></forward>
+            <forward name="eidt" path="bannersize.edit"></forward>
+            <forward name="success" path="/bannerSize.do"></forward>
+        </action>
+        <!-- Mapping publisher statistic -->
+        <!--<action path="/publisherStatistic"-->
+                <!--type="org.springframework.web.struts.DelegatingActionProxy"-->
+                <!--name="publisherStatisticActionForm" scope="request">-->
+            <!--<forward name="viewSitesStatistic" path="/statistic/publisher/SitesStatisticInformation.jsp"/>-->
+            <!--<forward name="allSiteStats" path="sitereport"/>-->
+            <!--<forward name="allPlacesStats" path="placesreport"/>-->
+            <!--<forward name="allPublisherStats" path="reports.allpublisher"/>-->
+            <!--<forward name="viewPublisherStatistic" path="reports.publishing"/>-->
+            <!--<forward name="viewPublisherStatistic_tile" path="/statistic/publisher/generalPublisherStatistic.jsp"/>-->
+            <!--<forward name="daySelector" path="/statistic/publisher/PublisherDaySelector.jsp"/>-->
+            <!--<forward name="activityByUniques" path="/statistic/publisher/ActivityByUniques.jsp"/>-->
+            <!--<forward name="activityByCountrys" path="/statistic/publisher/ActivityByCountry.jsp"/>-->
+            <!--<forward name="activityByHours" path="/statistic/publisher/ActivityByHour.jsp"/>-->
+            <!--<forward name="activityByPositions" path="/statistic/publisher/ActivityByPositions.jsp"/>-->
+            <!--<forward name="activityDayOfTheWeek" path="/statistic/publisher/ActivityByDayOfTheWeek.jsp"/>-->
+            <!--<forward name="activityByCampaigns" path="/statistic/publisher/ActivityByCampaigns.jsp"/>-->
+            <!--<forward name="publisherDailyRevenue" path="/statistic/publisher/PublisherDailyRevenue.jsp"/>-->
+            <!--<forward name="viewRevenueBySites" path="/statistic/publisher/RevenueBySites.jsp"/>-->
+            <!--<forward name="viewStatisticByCategory" path="/statistic/publisher/ActivityByCategory.jsp"/>-->
+            <!--<forward name="report" path="/report"/>-->
+        <!--</action>-->
+
+        <!-- Mapping advertizer statistic-->
+        <!--<action path="/advertizerStatistic"-->
+                <!--type="org.springframework.web.struts.DelegatingActionProxy"-->
+                <!--name="advertizerStatisticActionForm" scope="request">-->
+            <!--<forward name="allCampainStatistic" path="campaign.report"/>-->
+            <!--<forward name="allBannerStatistic" path="banner.report"/>-->
+            <!--<forward name="viewAdvertizerStatistic" path="reports.advertising"/>-->
+            <!--<forward name="allAdvertisersStatistic" path="advertisers.report"/>-->
+            <!--<forward name="viewAdvertizerStatistic_tile" path="/statistic/advertizer/advertizerStatistic.jsp"/>-->
+            <!--<forward name="byCampaignsTail" path="/statistic/advertizer/ReportByCampaigns.jsp"/>-->
+            <!--<forward name="byDayTail" path="/statistic/advertizer/DailyAdvertiserReport.jsp"/>-->
+            <!--<forward name="bySitesTail" path="/statistic/advertizer/AdvertiserReportBySites.jsp"/>-->
+            <!--<forward name="byBannersTail" path="/statistic/advertizer/AdvertiserByBanners.jsp"/>-->
+            <!--<forward name="byCategorysTail" path="/statistic/advertizer/AdvertiserByCategorys.jsp"/>-->
+            <!--<forward name="byDayOfTheWeekTail" path="/statistic/advertizer/AdvertiserDayOfTheWeekReport.jsp"/>-->
+            <!--<forward name="byHourTail" path="/statistic/advertizer/AdvertiserByHour.jsp"/>-->
+            <!--<forward name="byCoutryTail" path="/statistic/advertizer/AdvertiserByCountry.jsp"/>-->
+            <!--<forward name="dateSelector" path="/statistic/advertizer/AdvertiserDaySelector.jsp"/>-->
+            <!--<forward name="report" path="/report"/>-->
+        <!--</action>-->
+        <!-- Mapping action for edit default banners  -->
+        <action path="/defaultBanners"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="defaultBannerActionForm" scope="request" validate="true"
+                input="admin.banner.edit">
+            <forward name="list" path="admin.defbanners"/>
+            <forward name="viewBanner" path="admin.banner.edit"/>
+        </action>
+        <!-- Mapping action for edit admin options (servers name passwords, connections)-->
+        <action path="/adminOptions"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="adminOptionsActionForm" scope="request">
+            <forward name="view" path="admin.connections"/>
+            <forward name="default" path="admin.default"/>
+
+        </action>
+
+        <!-- -General  report mapping-->
+        <action path="/generalReport"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="generalReportActionForm" scope="request">
+            <forward name="viewGeneralReport" path="reports.general"/>
+            <forward name="systemReport" path="reports.general.system"/>
+            <forward name="dateSelector" path="/statistic/general/GeneralDaySelector.jsp"/>
+        </action>
+
+        <action path="/profileEdit"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="profileEditActionForm" scope="request" validate="true"
+                input="profile">
+            <forward name="success" path="profile"/>
+            <forward name="init" path="profile"/>
+            <forward name="successAdd" path="/viewUsers.do"/>
+        </action>
+
+        <action path="/accountSettings"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="accountProfileActionForm" scope="request" validate="true"
+                input="profile.settings">
+            <forward name="success" path="profile.settings"/>
+        </action>
+
+
+        <action path="/financialManagement"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="financialManagmentActionForm" scope="request" validate="true"
+                input="financial.managment">
+            <forward name="success" path="financial.managment"/>
+        </action>
+
+        <action path="/rateManagement"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="rateManagmentActionForm" scope="request" validate="true"
+                input="rate.managment">
+            <forward name="success" path="rate.managment"/>
+        </action>
+        <!-- Mapping for campain verification -->
+        <action path="/verification"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="verificationActionForm" scope="request" validate="true"
+                input="campain.verify">
+            <forward name="success" path="campain.verify"/>
+        </action>
+
+        <action path="/billing"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="billingActionForm" scope="request" validate="true" input="billinginfo">
+            <forward name="success" path="billinginfo"/>
+        </action>
+        <action path="/billingTransaction"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="transactionRequestActionForm" scope="request" validate="true" input="viewAccount">
+            <forward name="success" path="/viewAccount.do?action=view"/>
+            <forward name="system" path="/admin/billing/currencyEdit.jsp"/>
+            <forward name="billing" path="/billing.do?type=system"/>
+        </action>
+        <action path="/behaviorAction"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="behaviorActionForm" scope="request" validate="true" input="">
+            <forward name="success" path="behavior.template"/>
+            <forward name="list" path="behavior.templates.list"/>
+        </action>
+        <action path="/plugin"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="pluginManagerActionForm" scope="request" validate="false" input="">
+            <forward name="list" path="plugin.list"/>
+            <forward name="edit" path="plugin.edit"/>
+
+        </action>
+
+        <action path="/pluginBanner"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="pluginBannerActionForm" scope="request" validate="false" input="">
+
+            <forward name="edit" path="pluginbanner.view"/>
+            <forward name="upload" path="pluginbanner.upload"/>
+
+
+        </action>
+        <action path="/guest"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="guestAccountActionForm" scope="request" validate="true" input="guest.profile">
+            <forward name="view" path="guest.profile"/>
+            <forward name="list" path="guest.list"/>
+        </action>
+
+        <action path="/totals"
+                type="org.springframework.web.struts.DelegatingActionProxy">
+            <forward redirect="true" name="campaignsList" path="/campainView.do"></forward>
+            <forward  redirect="true" name="bannersList" path="/upload.do"></forward>
+            <forward  redirect="true" name="sitesList" path="/publisherView.do"></forward>
+            <forward  redirect="true" name="placesList" path="/publisherView.do?action=viewPlacess"></forward>
+            <forward  redirect="true" name="userList" path="/viewUsers.do"></forward>
+            <forward  redirect="true" name="login" path="login.welcome"></forward>
+        </action>
+
+    </action-mappings>
+
+    <controller processorClass="org.springframework.web.struts.DelegatingTilesRequestProcessor"/>
+
+    <message-resources parameter="ApplicationResource" null="false"/>
+
+
+    <!-- Tiles plugin -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config"
+                      value="/WEB-INF/tiles-defs.xml"/>
+        <set-property property="definitions-parser-validate"
+                      value="true"/>
+        <set-property property="moduleAware" value="true"/>
+    </plug-in>
+
+    <!-- Adsapient plugin for init -->
+    <!--<plug-in className="com.adsapient.util.plugin.AdsapientRunner"> </plug-in>-->
+
+    <!--spring plugin-->
+    <plug-in
+            className="org.springframework.web.struts.ContextLoaderPlugIn">
+        <set-property property="contextConfigLocation"
+                      value="classpath*:context/applicationContext-gui.xml"/>
+    </plug-in>
+
+</struts-config>
+

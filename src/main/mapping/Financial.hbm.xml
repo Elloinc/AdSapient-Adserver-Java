@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.adsapient.api_impl.usermanagment.Financial" table="financialmanagment" lazy="false">
+		<cache usage="read-write" />
+
+		<id name="id" type="int" unsaved-value="null">
+			<column name="ACCOUNT_ID" sql-type="int(11)" not-null="true"/>
+			<generator class="increment" />
+		</id>
+
+		<property name="userId">
+			<column name="USER_ID" sql-type="int(11)" not-null="true"/>
+		</property>
+
+		<property name="advertisingCPCrate">
+			<column name="Advertising_CPC_rate" not-null="true"/>
+		</property>
+
+		<property name="advertisingCPMrate">
+			<column name="Advertising_CPM_rate" not-null="true"/>
+		</property>
+		<property name="advertisingCPLrate">
+			<column name="Advertising_CPL_rate" not-null="true"/>
+		</property>
+		<property name="advertisingCPSrate">
+			<column name="Advertising_CPS_rate" not-null="true"/>
+		</property>
+
+		<property name="publishingCPCrate">
+			<column name="Publishing_CPC_rate" not-null="true"/>
+		</property>
+		<property name="publishingCPMrate">
+			<column name="Publishing_CPM_rate" not-null="true"/>
+		</property>
+		<property name="publishingCPLrate">
+			<column name="Publishing_CPL_rate" not-null="true"/>
+		</property>
+		<property name="publishingCPSrate">
+			<column name="Publishing_CPS_rate" not-null="true"/>
+		</property>
+
+		<property name="advertisingType">
+			<column name="Advertising_Type" sql-type="varchar(100)" not-null="true"/>
+		</property>
+		<property name="publishingType">
+			<column name="Publishing_Type" sql-type="varchar(100)" not-null="true"/>
+		</property>
+		<property name="commissionRate">
+			<column name="COMMISSION_RATE"  not-null="true"/>
+		</property>
+	</class>
+
+</hibernate-mapping>

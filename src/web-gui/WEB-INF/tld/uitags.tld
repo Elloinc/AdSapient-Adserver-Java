@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" 
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+
+<!--
+ -
+ - Copyright 2004 uitags
+ -
+ - Licensed under the Apache License, Version 2.0 (the "License");
+ - you may not use this file except in compliance with the License.
+ - You may obtain a copy of the License at
+ -
+ -   http://www.apache.org/licenses/LICENSE-2.0
+ -
+ - Unless required by applicable law or agreed to in writing, software
+ - distributed under the License is distributed on an "AS IS" BASIS,
+ - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ - See the License for the specific language governing permissions and
+ - limitations under the License.
+ -
+ -->
+
+<!--
+  - Information about the usage of the tags should be placed in this file.
+  - Information about property overriding should be placed in
+  - factory-default.properties.
+  -->
+<taglib>
+  <tlib-version>0.5</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>uitags</short-name>
+  <uri>http://uitags.sf.net/uitags</uri>
+  <display-name>uitags</display-name>
+
+  <validator>
+    <validator-class>
+      net.sf.uitags.tlv.TlvManager
+    </validator-class>
+  </validator>
+
+  <!--
+    - ===============================
+    - ========== formGuide ==========
+    - ===============================
+    --> 
+  <tag>
+    <name>formGuide</name>
+    <tag-class>net.sf.uitags.FormGuideTag</tag-class>
+    <body-content>JSP</body-content>
+    <display-name>formGuide</display-name>
+    <description>The outer-most tag in the form guide facility, wrapping
+      &lt;observe&gt;, &lt;enable&gt;, and &lt;disable&gt; tags.</description>
+
+    <attribute>
+      <name>form</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the form containing the widgets specified by
+        &lt;observe&gt;, &lt;enable&gt;, and &lt;disable&gt;.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>observe</name>
+    <tag-class>net.sf.uitags.FormGuideObserveTag</tag-class>
+    <display-name>observe</display-name>
+    <description>Specifies the widget that triggers the enabling/disabling
+      of other widgets when it holds a certain value. This tag may be
+      specified more than once within a &lt;formGuide&gt;, in which case
+      no widgets get disabled unless all observed widgets hold their trigger
+      values.</description>
+
+    <attribute>
+      <name>widget</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the widget to observe.</description>
+    </attribute>
+    <attribute>
+      <name>forValue</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Widget value that triggers the enabling/disabling of other
+        widgets.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>enable</name>
+    <tag-class>net.sf.uitags.FormGuideEnableTag</tag-class>
+    <display-name>enable</display-name>
+    <description>Specifies the widget that gets enabled when the observed
+      widgets hold their trigger values.</description>
+    
+    <attribute>
+      <name>widget</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the widget to enable.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>disable</name>
+    <tag-class>net.sf.uitags.FormGuideDisableTag</tag-class>
+    <display-name>disable</display-name>
+    <description>Specifies the widget that gets disabled when the observed
+      widgets hold their trigger values.</description>
+    
+    <attribute>
+      <name>widget</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the widget to disable.</description>
+    </attribute>
+  </tag>
+
+  <!--
+    - ===========================
+    - ========== timer ==========
+    - ===========================
+    --> 
+  <tag>
+    <name>timer</name>
+    <tag-class>net.sf.uitags.TimerTag</tag-class>
+    <body-content>JSP</body-content>
+    <display-name>timer</display-name>
+    <description>A hidden session timer as well as container for reminders.
+      Must contain at least one child &lt;remind&gt; tag.</description>
+    
+    <attribute>
+      <name>renewUrl</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>URL of the page for renewing sessions.</description>
+    </attribute>
+    <attribute>
+      <name>seconds</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>int</type>
+      <description>The number of seconds before user's session
+        expires.</description>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <name>remind</name>
+    <tag-class>net.sf.uitags.TimerRemindTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>remind</display-name>
+    <description>A session expiry reminder that will display itself
+      at a pre-set time. This tag is child of &lt;timer&gt;.</description>
+    
+    <attribute>
+      <name>when</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>int</type>
+      <description>Number of seconds prior to session expiry, which is
+        the time when this reminder is to be triggered. Must be a negative
+        integer.</description>
+    </attribute>
+    <attribute>
+      <name>message</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Reminder message.</description>
+    </attribute>
+    <attribute>
+      <name>showLink</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>boolean</type>
+      <description>Whether uitags should display a link to the
+        session renewal page to accompany the reminder.</description>
+    </attribute>
+  </tag>
+
+
+
+  <!--
+    - ============================
+    - ========== search ==========
+    - ============================
+    -->
+  <tag>
+    <name>searchRequest</name>
+    <tag-class>net.sf.uitags.SearchRequestTag</tag-class>
+    <body-content>JSP</body-content>
+    <display-name>search</display-name>
+    <description>Renders a link that brings up a search window when clicked.
+      Behind the scenes the tag also generates hidden fields to make
+      communication with the search window possible.</description>
+
+    <attribute>
+      <name>url</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>URL of the search page: the page where user enters
+        the search pattern.</description>
+    </attribute>
+    <attribute>
+      <name>form</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the HTML form which contains the select box that
+        "requests" the search. See the 'select' attribute.</description>
+    </attribute>
+    <attribute>
+      <name>select</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the select box that "requests" the search
+        (that is, the box that gets populated with search results).</description>
+    </attribute>
+    <attribute>
+      <name>searchLabel</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>The wording of the generated 'Search' link.</description>
+    </attribute>
+    <attribute>
+      <name>qsearchLabel</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>The wording of the generated 'Quick Search' link.</description>
+    </attribute>
+    <attribute>
+      <name>clearLabel</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>The wording of the generated 'Clear' link.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of the 'Search' and 'Quick Search'
+        links (&lt;a&gt; elements), and a &lt;span&gt; which wraps around
+        these anchor elements.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>quickSearch</name>
+    <tag-class>net.sf.uitags.SearchQuickSearchTag</tag-class>
+    <body-content>JSP</body-content>
+    <display-name>quickSearch</display-name>
+    <description>Renders a checkbox to indicate whether a search session is a
+      quick one. More importantly, it renders hidden elements that are
+      essential for communication with the requesting select box. This tag
+      must have a &lt;searchResult&gt; as its child tag.</description>
+
+    <attribute>
+      <name>label</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Label for the checkbox.</description>
+    </attribute>
+    <attribute>
+      <name>onFail</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Error message to display if the requestor is a
+        single-sized select box, yet there are more than one search result
+        that have to go into the select box.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of the checkbox and
+        the &lt;span&gt; element which wraps around the checkbox's label
+        string.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>searchResult</name>
+    <tag-class>net.sf.uitags.SearchResultTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>searchResult</display-name>
+    <description>Renders a radio button/checkbox to allow user select/deselect
+      search result(s). A radio button is rendered if the requestor is a
+      single-sized select box; otherwise a checkbox is. This tag should be
+      placed inside a loop that iterates over the search results. The loop
+      itself must be enclosed by &lt;quickSearch&gt;. This tag has 2 attribute
+      sets which are mutually exclusive: var + scope (optional) + valueProp +
+      labelProp vs. value + label.</description>
+
+    <attribute>
+      <name>var</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the scoped attribute that holds the search
+        results. The tag expects the attribute to be a bean or a map;
+        it accesses information through reflection.</description>
+    </attribute>
+    <attribute>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>The scope in which the bean specified by the 'var'
+        attribute resides.</description>
+    </attribute>
+    <attribute>
+      <name>valueProp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Property of the search result bean that holds the 'value'
+        (aka the ID value).</description>
+    </attribute>
+    <attribute>
+      <name>labelProp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Property of the search result bean that holds the 'label'
+        to be displayed to the user.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Directly ets the value of the search result.</description>
+    </attribute>
+    <attribute>
+      <name>label</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Directly sets the label of the search result.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of the radio button/checkbox.</description>
+    </attribute>
+  </tag>
+
+
+
+  <!--
+    - ====================================
+    - ========== optionTransfer ==========
+    - ====================================
+    --> 
+  <tag>
+    <name>optionTransfer</name>
+    <tag-class>net.sf.uitags.OptionTransferTag</tag-class>
+    <body-content>JSP</body-content>
+    <display-name>optionTransfer</display-name>
+    <description>
+      The outer-most tag in the option transfer facility, other related tags
+      are nested within it. This tag provides option transfer core
+      functionalities.</description>
+
+    <attribute>
+      <name>overrideLayout</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+      <type>boolean</type>
+      <description>Specifies whether to override the default layout provided
+        by the taglib. If value is 'true', the HTML layout specified in the
+        tag body will be used. Otherwise, each component inside the tag will
+        be placed according to the default layout. Never use a runtime or
+        EL expression for this attribute.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>'class' attribute of the HTML table that manages the
+        default layout. This attribute must not be specified when the value
+        of the 'overrideLayout' attribute is 'true'.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>category</name>
+    <tag-class>net.sf.uitags.OptionTransferCategoryTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>category</display-name>
+    <description>Renders the select box containing category options.
+      This tag must also be specified when &lt;all&gt; is used,
+      as it implicitly renders a category select box. This tag
+      is optional. To specify the select box's options, use one of these
+      mutually exclusive attribute sets: fromSource vs. items vs.
+      var + scope (optional). Regardless of the attribute set used,
+      if the options are of type java.util.Map, the map's keys
+      are taken as the select box's option values, and the map's values as
+      the select box's option labels. Otherwise, the options must be
+      a java.util.Collection of Java beans. In this case, the 'valueProp'
+      and 'labelProp' attributes must be used to specify the bean properties
+      that return value and label respectively.</description>
+    <attribute>
+      <name>fromSource</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>If this attribute is present, uitags iterates
+        through &lt;source&gt;'s options
+        and performs introspection on each option to get its category bean.
+        This attribute specifies the Java bean property to be used during
+        introspection.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of the select box.</description>
+    </attribute>
+    <attribute>
+      <name>valueProp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the Java bean property that returns the value
+        of each select option.</description>
+    </attribute>
+    <attribute>
+      <name>labelProp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the Java bean property that returns the label
+        of each select option.</description>
+    </attribute>
+    <attribute>
+      <name>items</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>java.lang.Object</type>
+      <description>This select box's options. Must evaluate to a java.util.Map
+        or a java.util.Collection of Java beans.</description>
+    </attribute>
+    <attribute>
+      <name>var</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the scoped attribute that holds this select box's
+        options. Must point to a java.util.Map or a java.util.Collection of
+        Java beans.</description>
+    </attribute>
+    <attribute>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>The scope in which the object specified by the 'var' attribute
+        resides.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>source</name>
+    <tag-class>net.sf.uitags.OptionTransferSourceTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>source</display-name>
+    <description>Renders the select box containing options to be transferred to
+      the target select box. This tag is required.
+      To specify the select box's options, use one of these
+      mutually exclusive attribute sets: fromSource vs. items vs.
+      var + scope (optional). Regardless of the attribute set used,
+      if the options are of type java.util.Map, the map's keys
+      are taken as the select box's option values, and the map's values as
+      the select box's option labels. Otherwise, the options must be
+      a java.util.Collection of Java beans. In this case, the 'valueProp'
+      and 'labelProp' attributes must be used to specify the bean properties
+      that return value and label respectively.</description>
+
+    <attribute>
+      <name>fromCategory</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>If this attribute is present, uitags iterates
+        through &lt;category&gt;'s options
+        and performs introspection on each option to get its items.
+        This attribute specifies the Java bean property to be used during
+        introspection.</description>
+    </attribute>
+    <attribute>
+      <name>categoryIdProp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the Java bean property that returns each item's
+        category ID. This must be specified if both &lt;category&gt;'s
+        'fromSource' and &lt;source&gt;'s 'fromCategory' aren't
+        specified.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of the select box.</description>
+    </attribute>
+    <attribute>
+      <name>valueProp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the Java bean property that returns the value
+        of each select option.</description>
+    </attribute>
+    <attribute>
+      <name>labelProp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the Java bean property that returns the label
+        of each select option.</description>
+    </attribute>
+    <attribute>
+      <name>items</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>java.lang.Object</type>
+      <description>This select box's options. Must evaluate to a java.util.Map
+        or a java.util.Collection of Java beans.</description>
+    </attribute>
+    <attribute>
+      <name>var</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the scoped attribute that holds this select box's
+        options. Must point to a java.util.Map or a java.util.Collection of
+        Java beans.</description>
+    </attribute>
+    <attribute>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>The scope in which the object specified by the 'var' attribute
+        resides.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>target</name>
+    <tag-class>net.sf.uitags.OptionTransferTargetTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>target</display-name>
+    <description>Renders the select box holding transferred options (those that
+      will be sent to the server when the form is submitted). This tag is
+      required. This tag has 2 attribute sets which are mutually exclusive:
+      var + scope (optional) vs. items. You may use either set to prepopulate
+      the select box.</description>
+
+    <attribute>
+      <name>name</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'name' attribute of the select box.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of the select box.</description>
+    </attribute>
+    <attribute>
+      <name>valueProp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the Java bean property that returns the value
+        of each select option.</description>
+    </attribute>
+    <attribute>
+      <name>labelProp</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the Java bean property that returns the label
+        of each select option.</description>
+    </attribute>
+    <attribute>
+      <name>items</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>java.lang.Object</type>
+      <description>This select box's options. Must evaluate to a java.util.Map
+        or a java.util.Collection of Java beans.</description>
+    </attribute>
+    <attribute>
+      <name>var</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the scoped attribute that holds this select box's
+        options. Must point to a java.util.Map or a java.util.Collection of
+        Java beans.</description>
+    </attribute>
+    <attribute>
+      <name>scope</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>The scope in which the object specified by the 'var' attribute
+        resides.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>transfer</name>
+    <tag-class>net.sf.uitags.OptionTransferTransferTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>transfer</display-name>
+    <description>Renders a button to move selected options from source to
+      target select box. The attributes 'value' and 'image'
+      are mutually exclusive.</description>
+
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+  </tag>
+ 
+  <tag>
+    <name>transferAll</name>
+    <tag-class>net.sf.uitags.OptionTransferTransferAllTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>transfer</display-name>
+    <description>Renders a button to move all options from source to
+      target select box. The attributes 'value' and 'image'
+      are mutually exclusive.</description>
+
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>return</name>
+    <tag-class>net.sf.uitags.OptionTransferReturnTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>return</display-name>
+    <description>Renders a button to move options in the target select box
+      back to the source select box. The attributes 'value' and 'image'
+      are mutually exclusive.</description>
+
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>returnAll</name>
+    <tag-class>net.sf.uitags.OptionTransferReturnAllTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>return</display-name>
+    <description>Renders a button to move all options in the target select box
+      back to the source select box. The attributes 'value' and 'image'
+      are mutually exclusive.</description>
+
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>sort</name>
+    <tag-class>net.sf.uitags.OptionTransferSortTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>sort</display-name>
+    <description>Renders a button to sort options in the target select box.
+      The attributes 'value' and 'image' are mutually exclusive.</description>
+
+    <attribute>
+      <name>type</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Valid values are 'asc' for ascending sort and
+        'desc' for descending sort. Never use a runtime or
+        EL expression for this attribute.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <name>select</name>
+    <tag-class>net.sf.uitags.OptionTransferSelectTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>select</display-name>
+    <description>Renders a button to conveniently select a group of options
+      in the target select box. The attributes 'value' and 'image' are
+      mutually exclusive.</description>
+    
+    <attribute>
+      <name>type</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Valid values are 'all'
+        and 'invert'. The 'all' button selects all options. The 'invert'
+        button inverts current selection. Never use a runtime or
+        EL expression for this attribute.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <name>shiftDistance</name>
+    <tag-class>net.sf.uitags.OptionTransferShiftDistanceTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>optionTransferShiftDistance</display-name>
+    <description>Renders a text box for specifying the distance by which
+      selected options are to be shifted.</description>
+
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this text box.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Default distance value.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>shift</name>
+    <tag-class>net.sf.uitags.OptionTransferShiftTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>optionTransferShift</display-name>
+    <description>Renders a button to shift (upwards or downwards) a group of
+      options in the target select box.</description>
+
+    <attribute>
+      <name>type</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+      <description>Valid values are 'up', 'down', 'first', and 'last'.
+        'up' and 'down' shift options by a distance specified by
+        &lt;shiftDistance&gt;; 'first' and 'last' shift options to the top
+        and bottom of the list respectively. Never use a runtime or
+        EL expression for this attribute.</description>
+    </attribute> 
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+  </tag> 
+  
+  <tag>
+    <name>all</name>
+    <tag-class>net.sf.uitags.AllTag</tag-class>
+    <body-content>JSP</body-content>
+    <display-name>all</display-name>
+    <description>Placed within other tags in the library, the presence
+      of this tag is a shortcut to including all children of the enclosing
+      tag.</description>
+  </tag>
+  
+  <tag>
+    <name>except</name>
+    <tag-class>net.sf.uitags.ExceptTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>except</display-name>
+    <description>Child of the 'all' tag, this tag allows for selective
+      exclusion of certain tags.</description>
+
+    <attribute>
+      <name>tag</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the tag to be excluded.</description>
+    </attribute>
+  </tag>
+
+
+
+  <!--
+    - ==============================
+    - ========== fastTick ==========
+    - ==============================
+    -->
+  <tag>
+    <name>fastTick</name>
+    <tag-class>net.sf.uitags.FastTickTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>fastTick</display-name>
+    <description>Renders a convenience JavaScript button which ticks or
+      unticks a group of checkboxes. The attributes 'value' and 'image'
+      are mutually exclusive.</description>
+    <attribute>
+      <name>type</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Type of convenience button to render. Valid values
+        are 'all', 'invert', and 'range'. The 'all' button alternately
+        ticks and unticks all checkboxes. The 'invert' button
+        ticks unticked and unticks ticked checkboxes. The 'range' button
+        ticks checkboxes that are between pairs of ticked ones.</description>
+    </attribute>
+    <attribute>
+      <name>for</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the checkboxes to tick/untick. All these
+        checkboxes must have the same name.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+  </tag>
+
+
+
+  <!--
+    - ==========================
+    - ========== info ==========
+    - ==========================
+    -->
+  <tag>
+    <name>info</name>
+    <tag-class>net.sf.uitags.InfoTag</tag-class>
+    <body-content>JSP</body-content>
+    <display-name>info</display-name>
+    <description>Renders a convenience JavaScript button which displays
+      an information panel when clicked.</description>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>alwaysOn</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>boolean</type>
+      <description>Specifies whether the button is always displayed or
+        can be hidden using toggle button.</description>
+    </attribute>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this info button.</description>
+    </attribute>
+    <attribute>
+      <name>panelClass</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of the info panel.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>infoToggle</name>
+    <tag-class>net.sf.uitags.InfoToggleTag</tag-class>
+    <body-content>JSP</body-content>
+    <display-name>infoToggle</display-name>
+    <description>Renders a convenience JavaScript button which hides/shows
+      info buttons.</description>
+    <attribute>
+      <name>initialMode</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Determines whether all info buttons should initially be
+        displayed. All info buttons that do not have their 'alwaysOn'
+        attribute set to 'true' will be affected by this option.</description>
+    </attribute>
+    <attribute>
+      <name>initialModeVar</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Name of the scoped attribute that holds the 'initialMode'
+        value.</description>
+    </attribute>
+    <attribute>
+      <name>initialModeScope</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>The scope in which the value specified by the
+        'initialMode' attribute resides.</description>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>on</name>
+    <tag-class>net.sf.uitags.ToggleOnTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>on</display-name>
+    <description>Specifies toggle button appearance when the toggle is on.
+    </description>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+  </tag>
+  
+  <tag>
+    <name>off</name>
+    <tag-class>net.sf.uitags.ToggleOffTag</tag-class>
+    <body-content>empty</body-content>
+    <display-name>off</display-name>
+    <description>Specifies toggle button appearance when the toggle is off.
+    </description>
+    <attribute>
+      <name>class</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>HTML 'class' attribute of this button.</description>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="button"&gt; is renderred instead of
+        &lt;input type="image"&gt;.</description>
+    </attribute>
+    <attribute>
+      <name>image</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's label. If this attribute is specified,
+        an &lt;input type="image"&gt; is renderred instead of
+        &lt;input type="button"&gt;. The value supplied must be the URL of
+        an image.</description>
+    </attribute>
+    <attribute>
+      <name>tooltip</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <description>Sets the button's tooltip text.</description>
+    </attribute>
+  </tag>
+</taglib>

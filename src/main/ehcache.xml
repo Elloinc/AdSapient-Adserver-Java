@@ -1,0 +1,204 @@
+<ehcache>
+
+    <!-- Sets the path to the directory where cache .data files are created.
+
+         If the path is a Java System Property it is replaced by
+         its value in the running VM.
+
+         The following properties are translated:
+         user.home - User's home directory
+         user.dir - User's current working directory
+         java.io.tmpdir - Default temp file path -->
+    <diskStore path="java.io.tmpdir"/>
+
+
+    <!--defaultCache
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        /-->
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            overflowToDisk="false"
+            />
+
+    <cache name="com.adsapient.api_impl.publisher.PlacesImpl"
+           maxElementsInMemory="100"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.usermanagment.Account"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.publisher.PlaceImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.advertizer.BannerImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.statistic.ClickImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.filter.GeoFilter"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.publisher.SiteImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.share.Type"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.share.UserDefineCampainStates"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.advertizer.ReservedSites"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.share.CampainState"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.filter.DateFilter"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.advertizer.CampainImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.filter.TimeFilter"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.share.Category"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.filter.TrafficFilter"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.usermanagment.UserImpl"
+           maxElementsInMemory="5000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.share.Size. Configuring"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.share.BannerState"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.advertizer.ActionsImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.statistic.UniqueUser"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.statistic.StatisticImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.filter.FiltersTemplate"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.filter.ContentFilter"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.shared.mappable.AdminOptions"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.advertizer.CampainParamsImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.filter.SystemFilter"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.usermanagment.Financial"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.usermanagment.role.RoleImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+    <cache name="com.adsapient.api_impl.share.ApplicationOptImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.share.Size"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.filter.ContextFilter"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.usermanagment.RateImpl"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.usermanagment.AccountSetting"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.settings.TargetingSettings"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.ute.AirportImpl"
+           maxElementsInMemory="32000"
+           overflowToDisk="false"
+           eternal="false"/>
+    <cache name="com.adsapient.api_impl.ute.UTEBanner"
+           maxElementsInMemory="1000"
+           overflowToDisk="false"
+           eternal="false"/>
+
+
+</ehcache>

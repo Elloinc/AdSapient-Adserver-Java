@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.adsapient.api_impl.publisher.SiteImpl" table="site"
+           lazy="false">
+        <cache usage="read-write"/>
+
+        <id name="siteId" type="int" unsaved-value="null">
+            <column name="SITE_ID" sql-type="varchar(64)"
+                    not-null="true"/>
+            <generator class="increment"/>
+        </id>
+
+
+        <property name="startDate">
+            <column name="START_DATE" sql-type="varchar (20)"
+                    not-null="true"/>
+        </property>
+
+        <property name="userId">
+            <column name="USER_ID" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="typeId">
+            <column name="TYPE_ID" sql-type="int(11)" not-null="true"/>
+        </property>
+
+
+        <property name="description">
+            <column name="DESCRIPTION" sql-type="varchar(254)"
+                    not-null="true"/>
+        </property>
+        <property name="clicksCampainAllow">
+            <column name="CLICKS_CAMPAIN_ALLOW" sql-type="tinuint(1)"/>
+        </property>
+
+        <property name="url">
+            <column name="URL" sql-type="varchar(254)" not-null="true"/>
+        </property>
+
+        <!--<property name="categoryId">-->
+        <!--<column name="CATEGORY_ID" sql-type="int(11)"-->
+        <!--not-null="true" />-->
+        <!--</property>-->
+        <property name="categorys">
+			<column name="CATEGORYS" sql-type="text" not-null="true" />
+		</property>
+        <!--<bag name="categorys"-->
+             <!--table="site_categorys_xref"-->
+             <!--cascade="delete"-->
+             <!--inverse="true"-->
+             <!--lazy="false"-->
+             <!--order-by="CATEGORY asc">-->
+            <!--<key column="CATEGORY_ID"/>-->
+            <!--<one-to-many-->
+                    <!--class="com.adsapient.api_impl.share.Category"/>-->
+        <!--</bag>-->
+        <!--(vs) changed cascade=delete to none because PlaceImpl
+        is a position which we don't need to remove when a site is removed!-->
+        <set name="places" table="places" lazy="false" cascade="none"
+             inverse="true">
+            <key>
+                <column name="SITE_ID" not-null="true"/>
+            </key>
+
+            <many-to-many
+                    class="com.adsapient.api_impl.publisher.PlaceImpl">
+                <column name="PLACE_ID" not-null="true"/>
+            </many-to-many>
+        </set>
+        <!-- mapping (real) places  for site-->
+        <set name="realPlaces" cascade="none" inverse="true"
+             order-by="ID asc" lazy="false">
+            <key column="SITE_ID"/>
+            <one-to-many
+                    class="com.adsapient.api_impl.publisher.PlacesImpl"/>
+        </set>
+
+        <property name="rateId">
+            <column name="RATE_ID" not-null="true"/>
+        </property>
+
+        <property name="stateId">
+            <column name="STATE_ID" sql-type="int(4)" not-null="true"></column>
+        </property>
+        <property name="ownCampaigns">
+            <column name="OWN_PLACES" not-null="true"></column>
+        </property>
+
+    </class>
+
+
+</hibernate-mapping>

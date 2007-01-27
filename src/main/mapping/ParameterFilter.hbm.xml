@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.adsapient.api_impl.filter.ParametersFilter"
+           table="parameterfilter" lazy="false">
+        <cache usage="read-write"/>
+
+        <id name="parametersFilterId" type="int" unsaved-value="null">
+            <column name="PARAMETER_FILTER_ID" sql-type="int(11)" not-null="true"/>
+            <generator class="increment"/>
+        </id>
+
+        <property name="campainId">
+            <column name="CAMPAIN_ID" sql-type="int(11)"
+                    not-null="false"/>
+        </property>
+        
+        <property name="bannerId">
+            <column name="BANNER_ID" not-null="false"/>
+        </property>
+         
+        <set name="parameters" cascade="none" inverse="true" lazy="false">
+            <key column="PARAMETER_FILTER_ID"/>
+            <one-to-many class="com.adsapient.api_impl.settings.DynamicParameter"/>
+        </set>
+    </class>
+    
+    <query name="getRelatedParametersFilterIds">
+        <![CDATA[ select f.bannerId, f.parametersFilterId from com.adsapient.api_impl.filter.ParametersFilter f where f.campainId=:CAMP and f.bannerId is not null]]>
+    </query>
+
+</hibernate-mapping>
+
+

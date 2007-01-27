@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.adsapient.api_impl.statistic.LeadImpl" table="lead" lazy="false">
+		<cache usage="read-write" />
+
+		<id name="id" type="string" unsaved-value="null">
+			<column name="ID" sql-type="varchar(254)" not-null="true"/>
+			<generator class="uuid.hex" />
+		</id>
+
+
+		<property name="placeId">
+			<column name="PLACE_ID" sql-type="int(11)" not-null="false"/>
+		</property>
+
+		<property name="bannerId">
+			<column name="BANNER_ID" sql-type="int(11)" not-null="false"/>
+		</property>
+
+		<property name="campainId">
+			<column name="CAMPAIN_ID" sql-type="int(11)" not-null="false"/>
+		</property>
+		
+		<property name="siteId">
+			<column name="SITE_ID" sql-type="int(11)" not-null="false"/>
+		</property>
+		
+		
+		<property name="publisherId">
+			<column name="PUBLISHER_ID" sql-type="int(11)" not-null="false"/>
+		</property>
+		
+		<property name="advertizerId">
+			<column name="ADVERTIZER_ID" sql-type="int(11)" not-null="false"/>
+		</property>
+		
+		<property name="time">
+			<column name="TIME" sql-type="bigint(18)" not-null="false"/>
+		</property>
+		
+		<property name="bannerRate">
+			<column name="BANNER_RATE" not-null="false"/>
+		</property>
+		
+		<property name="placesRate">
+			<column name="PLACES_RATE" not-null="false"/>
+		</property>
+
+		<property name="userId">
+			<column name="UNIQUE_USER_ID" not-null="false"/>
+		</property>
+        
+        <property name="endTime">
+			<column name="END_TIME" not-null="false"/>
+		</property>
+		<property name="country">
+			<column name="COUNTRY" not-null="true"/>
+		</property>
+		
+		<property name="positionId">
+			<column name="POSITION_ID" not-null="true"/>
+		</property>
+		
+		<property name="categoryId">
+			<column name="CATEGORY_ID" not-null="true" sql-type="int"/>
+		</property>
+
+	</class>
+
+
+
+</hibernate-mapping>

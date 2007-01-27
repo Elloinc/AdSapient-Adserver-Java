@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Ma DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.adsapient.api_impl.settings.AutorizationSettings" table="autorizationsettings" lazy="false">
+     <cache usage="read-write" />
+       
+        <id name="id" type="int" unsaved-value="null"  >
+            <column name="ID" sql-type="int(11)" not-null="true" />
+            <generator class="increment"/>
+        </id>
+       <property name="automaticAutoriseUsers">
+             <column name="authorize_new_accounts" not-null="true"/>
+        </property>      
+        <property name="automaticAutoraizetUsersSites">
+             <column name="USERS_SITES" sql-type="text" not-null="true"/>
+        </property>  
+        <property name="automaticAutoraizetUsersCampain">
+             <column name="USERS_CAMPAIGNS" sql-type="text" not-null="true"/>
+        </property>      
+       </class>
+</hibernate-mapping>

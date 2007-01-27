@@ -1,0 +1,123 @@
+<html>
+  <head>
+
+
+    <META http-equiv="Page-Enter" CONTENT="RevealTrans(Duration=0,Transition=5)">
+
+    <script language="JavaScript" src="CookieClass.js"></script>
+
+
+    <script>
+    var url = null;
+    var strTopicNumber = "0";
+    var contentAnchor = null;
+
+    var queryString = document.location.search;
+    debug("toc.html: queryString: " + queryString);
+
+    if(queryString != null && queryString.length > 0)
+    {
+        var args = getArgs(queryString);
+    }
+
+    if (!args["ignoreCookie"])
+    {
+        var destTOC = new Cookie(document, "destTOC");
+        debug("toc.html: ignoreCookie arg not present, reading cookie");
+        if (destTOC.load())
+        {
+
+            url = unescape(destTOC.url);
+            debug("toc.html: destTOC.url cookie value: " + url);
+            strTopicNumber = top.findTopicNumber(url);
+            var anchorIndex = url.indexOf("#");
+            if (anchorIndex > 0)
+            {
+                contentAnchor = url.substring(anchorIndex + 1);
+            }
+            debug("toc.html: destTOC.url fragment: " + contentAnchor);
+        }
+        else
+        {
+            url = null;
+            debug("toc.html: destTOC cookie not present, display default topic");
+            strTopicNumber = 0;
+        }
+
+	// make a relative URL for the ToC page with a query string indicating...
+        var strTOCLocation = "toc.html" +
+            "?topicNumber=" + escape(strTopicNumber) +  // ...topic number
+            "&bookmarkMode=0" +                         // ...(not) bookmark mode...
+            "&tocChange=" + top.tocBehavior[2] +	// ...[see tocParas.js for explanation
+            "&changeContent=" + top.tocLinks[2] +	//  of these two...
+            "&currentHistoryID=1" +			// ... this is the start of a Help session
+            "&ignoreCookie=1";
+
+        if (contentAnchor != null)
+        {
+            strTOCLocation += "&contentAnchor=" + contentAnchor;
+        }
+ 
+        strTOCLocation += "#" + strTopicNumber;		// ... HTML anchor. The need for this anchor
+							// is why this MUST be implemented as opening
+							// a new page, not modifying existing page.
+
+        debug("toc.html: location.replace(" + strTOCLocation + ")");
+        location.replace(strTOCLocation);
+    }
+    else
+    {
+
+        debug("toc.html: ignoreCookie arg present, ignoring cookie");
+
+        if(queryString == null || queryString == "")
+        {
+            top.g_currentHistoryID = 0;
+            top.g_boolExpandCollapse = 1;
+            debug("toc.html: queryString null, displaying default topic");
+            top.reDisplay("0", 0, 3, 1, null, null);
+        }
+        else
+        {
+
+            var currentHistoryID = parseInt(args["currentHistoryID"]);
+
+debug("toc.html: top.g_lastHistoryID='" + top.g_lastHistoryID + "'");
+debug("toc.html: currentHistoryID='" + currentHistoryID + "'");
+
+            if(currentHistoryID > top.g_lastHistoryID)
+            {
+
+debug("toc.html: new state");
+                top.toDisplay[currentHistoryID] = top.toDisplay[top.g_currentHistoryID].concat();
+                top.g_boolExpandCollapse = 1;
+                top.g_lastHistoryID = currentHistoryID;
+            }
+            else
+            {
+debug("toc.html: no new state");
+                top.g_boolExpandCollapse = 0;
+top.g_lastHistoryID = currentHistoryID;
+            }
+
+// If an existing state is not found, copy the initial state.
+            if(top.toDisplay[currentHistoryID] == null)
+            {
+                top.toDisplay[currentHistoryID] = top.toDisplay[0].concat();
+                top.g_boolExpandCollapse = 1;
+            }
+
+            top.g_currentHistoryID = currentHistoryID;
+
+            debug("toc.html: reDisplay(" + args["topicNumber"] + ", " +
+                  parseInt(args["bookmarkMode"]) + ", " + parseInt(args["tocChange"]) + ", " +
+                  parseInt(args["changeContent"]) + ", null, " + args["contentAnchor"] + ")");
+            top.reDisplay(args["topicNumber"], parseInt(args["bookmarkMode"]),
+                parseInt(args["tocChange"]), parseInt(args["changeContent"]),
+                null, args["contentAnchor"]);
+        }
+    }
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Ma DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping>
+
+	<class name="com.adsapient.api_impl.share.Size" table="size" lazy="false" polymorphism="implicit">
+		<cache usage="read-write" />
+
+		<id name="sizeId" type="int" unsaved-value="null">
+			<column name="SIZE_ID" sql-type="int(11)" not-null="true"/>
+			<generator class="increment" />
+		</id>
+
+
+		<property name="size">
+			<column name="SIZE" sql-type="varchar(128)" not-null="true"/>
+		</property>
+
+		<property name="width">
+			<column name="WIDTH" sql-type="int(5)" not-null="false"/>
+		</property>
+
+		<property name="height">
+			<column name="HEIGHT" sql-type="int(5)" not-null="false"/>
+		</property>
+
+		<property name="defaultFileName">
+			<column name="DEFAULT_FILE_NAME" sql-type="varchar(100)"/>
+		</property>
+
+		<property name="defaultFileTypeId">
+			<column name="DEFAULT_FILE_TYPE_ID" sql-type="int(4)" not-null="true"/>
+		</property>
+		
+		<property name="maxBannerSize">
+			<column name="MAX_BANNER_SIZE" sql-type="int(10)" not-null="true"/>
+		</property>
+		
+	</class>
+	
+	<query name="getSizeName">
+		<![CDATA[ select size from com.adsapient.api_impl.share.Size where sizeId=:SIZEID ]]>
+	</query>
+	
+	<query name="countSizes4DefaultBanners">
+		<![CDATA[ 
+		select count(s.sizeId) from com.adsapient.api_impl.share.Size s where s.sizeId not in  
+		(select b.sizeId from com.adsapient.api_impl.advertizer.BannerImpl b where b.status=:STATUS)]]>
+	</query>
+	
+	<query name="getSize4DefaultBanners">
+		<![CDATA[ from com.adsapient.api_impl.share.Size s where s.sizeId not in  
+		(select b.sizeId from com.adsapient.api_impl.advertizer.BannerImpl b where b.status=:STATUS)]]>
+	</query>
+	
+	<query name="getSize4DefaultBannersEdit">
+		<![CDATA[ from com.adsapient.api_impl.share.Size s where 
+		(s.sizeId not in  
+			(select b.sizeId from com.adsapient.api_impl.advertizer.BannerImpl b where b.status=:STATUS))
+			or s.sizeId=:SIZEID
+		]]>
+	</query>
+	
+	<query name="countSizes4DefaultBannersPublisher">
+		<![CDATA[ 
+		select count(sizeId) from com.adsapient.api_impl.share.Size s where s.sizeId not in  
+		(select b.sizeId from com.adsapient.api_impl.advertizer.BannerImpl b where b.status=:STATUS and b.userId=:USERID)
+		]]>
+	</query>
+	
+	<query name="getSize4DefaultBannersPublisher">
+		<![CDATA[ 
+		from com.adsapient.api_impl.share.Size s where s.sizeId not in  
+		(select b.sizeId from com.adsapient.api_impl.advertizer.BannerImpl b where b.status=:STATUS and b.userId=:USERID)
+		]]>
+	</query>
+	
+	<query name="getSize4DefaultBannersPublisherEdit">
+		<![CDATA[ 
+		from com.adsapient.api_impl.share.Size s where 
+		(s.sizeId not in   (select b.sizeId from com.adsapient.api_impl.advertizer.BannerImpl b 
+			where b.status=:STATUS and b.userId=:USERID))
+		or s.sizeId=:SIZEID
+		]]>
+	</query>
+</hibernate-mapping>
+

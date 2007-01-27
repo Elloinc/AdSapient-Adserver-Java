@@ -1,0 +1,85 @@
+	.copyright {
+		font-family: Verdana, Arial;
+		font-size: 10px;
+		color: #999999;
+		text-decoration: none;
+	}
+	a.copyright {
+		font-family: Verdana, Arial;
+		font-size: 10px;
+		color: #999999;
+		text-decoration: none;
+	}
+	a.copyright:hover {
+		font-family: Verdana, Arial;
+		font-size: 10px;
+		color: #999999;
+		text-decoration: none;
+	}
+	.tableheader {
+		background-image: url(../images/table3.gif);
+		text-align : center;
+		font-size : 18px;
+		font-family : sans-serif;
+		color : #FFFAFA;
+		font-weight : normal;
+	}
+	.leftborder{
+		background-image: url(../images/table4.gif);
+	}
+	.rightborder{
+		background-image: url(../images/table5.gif);
+	}
+	.menuitem{
+		background-color: #D1DFFF;
+		text-align : left;
+		font-size : 14px;
+		font-family : sans-serif;
+		color : Black;
+		font-weight : normal;
+		text-decoration : none;
+		line-height: 20px;
+	}
+	a.menuitem:hover{
+		background-color: #D1DFFF;
+		text-align : left;
+		font-size : 14px;
+		font-family : sans-serif;
+		color : #E87D0D;
+		font-weight : normal;
+		text-decoration : none;
+		line-height: 20px;
+	}
+
+	.maintext{
+		color : #0030AA;
+		font-weight : normal;
+		text-decoration : none;
+	}
+	a.maintext:hover{
+		color : #E87D0D;
+		font-weight : normal;
+		text-decoration : none;
+	}
+.featuresheader {
+	color: #000000;
+	font-size: 12;
+	font-weight: bold;
+	text-align: center;
+	background-color: #CED3EF;
+}
+.featuressubheader {
+	color: #000000;
+	font-size: 10;
+	font-weight: bold;
+	text-align: center;
+	background-color: #E9EBF4;
+}
+.featuresbody {
+	color: #000000;
+	font-size: 12;
+	font-weight: normal;
+	text-align: justify;
+	vertical-align: top;
+	background-color: #F3F4FA;
+}
