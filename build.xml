@@ -1,0 +1,128 @@
+<!--
+AdSapient ANT build script.
+Author: Vitaly Sazanovich
+Email: Vitaly.Sazanovich@gmail.com
+-->
+
+<project name="adsapient" default="jar" basedir=".">
+
+    <property name="name" value="adsapient"/>
+    <property name="version" value="0.0.1rc1_3.1.2006"/>
+    <property environment="env"/>
+
+    <property name="src.dir.main" value="src/main"/>
+    <property name="src.dir.test" value="src/test"/>
+
+    <property name="src.dir.gui" value="src/web-gui"/>
+    <property name="src.dir.adserver" value="src/web-adserver"/>
+    <property name="src.dir.reporter" value="src/web-reporter"/>
+
+    <property name="lib.dir.optional" value="lib/optional"/>
+    <property name="lib.dir.required" value="lib/required"/>
+    <property name="lib.dir.core" value="lib/core"/>
+
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+
+    <property name="javac.debug" value="true"/>
+    <property name="javac.optimize" value="false"/>
+
+    <path id="lib.class.path">
+        <fileset dir="${lib.dir.optional}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="${lib.dir.required}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+
+    <!-- Tasks -->
+
+    <target name="clean" description="Cleans up build and dist directories">
+        <delete>
+            <fileset dir="${build.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </delete>
+    </target>
+
+
+    <target name="init" description="Initialize the build" depends="clean">
+        <tstamp>
+            <format property="subversion" pattern="yyyy-MM-dd hh:mm:ss"/>
+        </tstamp>
+        <echo message="Build ${name}-${version} (${subversion})"/>
+
+    </target>
+
+
+    <target name="compile" description="Compile the Java source code" depends="clean,init">
+        <javac
+                srcdir="${src.dir.main}"
+                destdir="${build.dir}"
+                classpathref="lib.class.path"
+                debug="on"
+                optimize="on"
+                nowarn="on"
+                includes="**/*.*"
+                memorymaximumsize="640M"
+                deprecation="false"
+                source="1.5"
+                target="1.5">
+        </javac>
+    </target>
+
+
+    <target name="war" description="Create binary distribution" depends="clean,init,compile,jar">
+        <war
+                basedir="${src.dir.gui}"
+                excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,WEB-INF/classes/com/,src/"
+                destfile="${dist.dir}/${name}-gui.war"
+                webxml="${src.dir.gui}/WEB-INF/web.xml">
+        </war>
+        <war
+                basedir="${src.dir.adserver}"
+                excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,src/"
+                destfile="${dist.dir}/${name}-adserver.war"
+                webxml="${src.dir.adserver}/WEB-INF/web.xml">
+        </war>
+        <war
+                basedir="${src.dir.reporter}"
+                excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,src/"
+                destfile="${dist.dir}/${name}-reporter.war"
+                webxml="${src.dir.reporter}/WEB-INF/web.xml">
+        </war>
+    </target>
+
+    <target name="jar" depends="clean,init,compile">
+        <!--copying resources from the sources-->
+        <copy todir="${build.dir}" overwrite="true" flatten="false">
+            <fileset dir="${src.dir.main}">
+                <include name="**/*.*"/>
+                <exclude name="com/"/>
+            </fileset>
+        </copy>
+        <!--creating jar file-->
+        <jar basedir="${build.dir}"
+             destfile="${dist.dir}/${name}.jar"/>
+        <!--copying created jar file to dist folder-->
+        <copy todir="${lib.dir.core}" overwrite="true" flatten="false">
+            <fileset file="${dist.dir}/${name}.jar"/>
+        </copy>
+    </target>
+
+    <target name="jar-no-compile">
+        <jar basedir="${build.dir}"
+             destfile="${dist.dir}/${name}.jar"/>
+        <copy todir="${lib.dir.core}" overwrite="true" flatten="false">
+            <fileset file="${dist.dir}/${name}.jar"/>
+        </copy>
+    </target>
+
+
+</project>
+
+
+
+
