@@ -1,0 +1,5 @@
+Criteria:
+- date range
+- entity type (user, campaign, site, banner, ad place)
+- entities range
+- data columns (adviews, clicks, sales, leads, earned, spent, ratios)

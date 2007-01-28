@@ -80,6 +80,73 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/com/adsapient/gui/actions/EditPublisherSiteAction.java" line="64" class="com.adsapient.gui.actions.EditPublisherSiteAction" package="com.adsapient.gui.actions">
+        <option name="ENABLED" value="true" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/com/adsapient/gui/actions/PublisherAction.java" line="54" class="com.adsapient.gui.actions.PublisherAction" package="com.adsapient.gui.actions">
+        <option name="ENABLED" value="true" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/com/adsapient/gui/forms/EditPublisherSiteActionForm.java" line="182" class="com.adsapient.gui.forms.EditPublisherSiteActionForm" package="com.adsapient.gui.forms">
+        <option name="ENABLED" value="true" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/GetAdCodeProcessor.java" line="136" class="com.adsapient.adserver.requestprocessors.GetAdCodeProcessor" package="com.adsapient.adserver.requestprocessors">
+        <option name="ENABLED" value="true" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/beans/IpToCountryMappingBean.java" line="133" class="com.adsapient.adserver.beans.IpToCountryMappingBean" package="com.adsapient.adserver.beans">
+        <option name="ENABLED" value="true" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -118,7 +185,98 @@
     <option name="myCurrentFavoritesList" value="adsapient" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Category.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/api_impl/share/Category.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="54" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.1022864">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="City.hbm.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/mapping/City.hbm.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="49" selection-start="254" selection-end="254" vertical-scroll-proportion="0.12274368">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="City.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/mappable/City.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="13" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.1022864">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClickImpl.hbm.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/mapping/ClickImpl.hbm.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="56" selection-start="244" selection-end="244" vertical-scroll-proportion="0.14320096">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClickImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/api_impl/statistic/ClickImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="14" selection-start="1294" selection-end="1294" vertical-scroll-proportion="0.34777376">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="applicationContext-requestprocessors.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/context/adservercontext/applicationContext-requestprocessors.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="55" selection-start="2001" selection-end="2001" vertical-scroll-proportion="0.57280385">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adcode-flash.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/setup/templates/adcode-flash.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="139" column="36" selection-start="4525" selection-end="4525" vertical-scroll-proportion="0.5908544">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReporterModelDumperJob.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/reporter/ReporterModelDumperJob.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="29" selection-start="2624" selection-end="2624" vertical-scroll-proportion="0.57039714">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IpToCountryMappingBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/beans/IpToCountryMappingBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="136" column="38" selection-start="3824" selection-end="3824" vertical-scroll-proportion="0.67509025">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationResource.properties" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/ApplicationResource.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="51" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.5625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -148,7 +306,7 @@
     <setting name="SHOW_AS_DEPLOYMENT_VIEW" value="false" />
   </component>
   <component name="ModuleEditorState">
-    <option name="LAST_EDITED_MODULE_NAME" value="adsapient" />
+    <option name="LAST_EDITED_MODULE_NAME" value="adsapient-adserver" />
     <option name="LAST_EDITED_TAB_NAME" value="Paths" />
   </component>
   <component name="NamedScopeManager" />
@@ -157,6 +315,88 @@
       <PATH_ELEMENT>
         <option name="myItemId" value="adsapient.ipr" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="setup" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="setup" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="templates" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="context" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="context" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adservercontext" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="com.adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
     </PATH>
   </component>
@@ -231,6 +471,24 @@
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:D:\adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:D:\adsapient\reports" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
@@ -276,7 +534,7 @@
   </component>
   <component name="RestoreUpdateTree" />
   <component name="RunManager">
-    <activeType name="Application" />
+    <activeType name="Remote" />
     <configuration selected="false" default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
@@ -334,19 +592,6 @@
       </RunnerSettings>
       <ConfigurationWrapper RunnerId="Debug" />
     </configuration>
-    <configuration selected="false" default="false" name="Resin-production" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="ads.adsapient.com" />
-      <option name="PORT" value="8787" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="8787" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="false" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-    </configuration>
   </component>
   <component name="SelectInManager" />
   <component name="StarteamConfiguration">
@@ -390,12 +635,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1688" height="1005" extended-state="0" />
-    <editor active="false" />
+    <frame x="-4" y="-4" width="1688" height="1005" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="8" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.32918552" order="7" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.20171149" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.22982885" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.46040723" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.21515892" order="1" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.3959276" order="12" />
@@ -403,11 +648,11 @@
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="3" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="9" />
       <window_info id="Favorites" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.32928804" order="5" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.1601467" order="1" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.11185819" order="1" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.3280543" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.25" order="2" />
       <window_info id="File View" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="4" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.4004525" order="4" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.44004524" order="4" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="sliding" type="sliding" visible="false" weight="0.4" order="0" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="11" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.25" order="2" />
@@ -496,107 +741,107 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/web-gui/admin/verify/campains.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/setup/templates/adplacecode-regular.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="48" selection-start="945" selection-end="945" vertical-scroll-proportion="0.3125">
+        <state line="2" column="45" selection-start="97" selection-end="97" vertical-scroll-proportion="0.041666668">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/web-gui/campain/campainEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/GetAdCodeProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="42" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.5833333">
+        <state line="169" column="0" selection-start="5294" selection-end="5294" vertical-scroll-proportion="0.57039714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/api_impl/advertizer/ActionsImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="3" selection-start="1676" selection-end="1676" vertical-scroll-proportion="0.63176894">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/mapping/Actions.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="55" selection-start="237" selection-end="237" vertical-scroll-proportion="0.12274368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/AbstractAdsapientProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="0" selection-start="2483" selection-end="2483" vertical-scroll-proportion="0.63176894">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/reporter/ReporterModelDumperJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="29" selection-start="2624" selection-end="2624" vertical-scroll-proportion="0.57039714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/setup/templates/adcode-flash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="139" column="36" selection-start="4525" selection-end="4525" vertical-scroll-proportion="0.5908544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/context/adservercontext/applicationContext-requestprocessors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="55" selection-start="2001" selection-end="2001" vertical-scroll-proportion="0.57280385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/api_impl/statistic/ClickImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="14" selection-start="1294" selection-end="1294" vertical-scroll-proportion="0.34777376">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/mapping/ClickImpl.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="56" selection-start="244" selection-end="244" vertical-scroll-proportion="0.14320096">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/mappable/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="13" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.1022864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/mapping/City.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="49" selection-start="254" selection-end="254" vertical-scroll-proportion="0.12274368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/api_impl/share/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="54" selection-start="1395" selection-end="1395" vertical-scroll-proportion="0.1022864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/beans/IpToCountryMappingBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="38" selection-start="3824" selection-end="3824" vertical-scroll-proportion="0.67509025">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ApplicationResource.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="338" column="492" selection-start="14774" selection-end="14774" vertical-scroll-proportion="0.63235295">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/context/adservercontext/applicationContext-reporter.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="16" selection-start="3120" selection-end="3120" vertical-scroll-proportion="0.48495787">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/reporter/ReporterScheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.006016847">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/context/applicationContext-gui.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="60" selection-start="1032" selection-end="1032" vertical-scroll-proportion="0.4091456">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/adsapient.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="55" selection-start="1648" selection-end="1648" vertical-scroll-proportion="0.7978339">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/forms/BannerUploadFormAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-5.296029">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/web-gui/campain/trafficfilter.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="42" selection-start="973" selection-end="973" vertical-scroll-proportion="0.67509025">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/api_impl/publisher/SiteImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="19" selection-start="2306" selection-end="2306" vertical-scroll-proportion="-0.6137184">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/forms/EditPublisherSiteActionForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="33" selection-start="1810" selection-end="1810" vertical-scroll-proportion="0.2045728">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/util/MyHibernateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="259" column="22" selection-start="6586" selection-end="6586" vertical-scroll-proportion="0.8856799">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adsapient.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="28" selection-start="734" selection-end="734" vertical-scroll-proportion="0.41950646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/ClickProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="13" selection-start="1331" selection-end="1331" vertical-scroll-proportion="0.09988249">
+        <state line="27" column="51" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.5625">
           <folding />
         </state>
       </provider>
