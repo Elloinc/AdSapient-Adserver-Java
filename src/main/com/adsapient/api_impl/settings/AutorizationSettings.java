@@ -23,46 +23,48 @@
  */
 package com.adsapient.api_impl.settings;
 
-public class AutorizationSettings {
-	private Integer id;
+import com.adsapient.shared.api.entity.IMappable;
 
-	private String automaticAutoraizetUsersCampain;
+public class AutorizationSettings  implements IMappable {
+    private Integer id;
 
-	private String automaticAutoraizetUsersSites;
+    private String automaticAutoraizetUsersCampain;
 
-	private boolean automaticAutoriseUsers;
+    private String automaticAutoraizetUsersSites;
 
-	public void setAutomaticAutoraizetUsersCampain(
-			String automaticAutoraizetUsersCampain) {
-		this.automaticAutoraizetUsersCampain = automaticAutoraizetUsersCampain;
-	}
+    private boolean automaticAutoriseUsers;
 
-	public String getAutomaticAutoraizetUsersCampain() {
-		return automaticAutoraizetUsersCampain;
-	}
+    public void setAutomaticAutoraizetUsersCampain(
+            String automaticAutoraizetUsersCampain) {
+        this.automaticAutoraizetUsersCampain = automaticAutoraizetUsersCampain;
+    }
 
-	public void setAutomaticAutoraizetUsersSites(
-			String automaticAutoraizetUsersSites) {
-		this.automaticAutoraizetUsersSites = automaticAutoraizetUsersSites;
-	}
+    public String getAutomaticAutoraizetUsersCampain() {
+        return automaticAutoraizetUsersCampain;
+    }
 
-	public String getAutomaticAutoraizetUsersSites() {
-		return automaticAutoraizetUsersSites;
-	}
+    public void setAutomaticAutoraizetUsersSites(
+            String automaticAutoraizetUsersSites) {
+        this.automaticAutoraizetUsersSites = automaticAutoraizetUsersSites;
+    }
 
-	public void setAutomaticAutoriseUsers(boolean automaticAutoriseUsers) {
-		this.automaticAutoriseUsers = automaticAutoriseUsers;
-	}
+    public String getAutomaticAutoraizetUsersSites() {
+        return automaticAutoraizetUsersSites;
+    }
 
-	public boolean isAutomaticAutoriseUsers() {
-		return automaticAutoriseUsers;
-	}
+    public void setAutomaticAutoriseUsers(boolean automaticAutoriseUsers) {
+        this.automaticAutoriseUsers = automaticAutoriseUsers;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public boolean isAutomaticAutoriseUsers() {
+        return automaticAutoriseUsers;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
 }

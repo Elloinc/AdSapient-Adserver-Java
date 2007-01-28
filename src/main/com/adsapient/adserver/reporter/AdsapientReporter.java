@@ -71,8 +71,6 @@ public class AdsapientReporter {
 
 	private Database uniqueVisitorsDb;
 
-	private SecondaryDatabase uniqueVisitorIndexDb;
-
 	private UniqueVisitorKeyCreator uniqueVisitorKeyCreator;
 
 	private DatabaseConfig uniqueVisitorsDbConfig;
@@ -129,16 +127,12 @@ public class AdsapientReporter {
 
 			File f = new File(databasesHome);
 			f.mkdirs();
-			logger.debug(f.canWrite());
 
 			environment = new Environment(f, uniqueVisitorsDbEnvConfig);
 
 			uniqueVisitorsDb = environment.openDatabase(null,
 					uniquevisitorsdbName, uniqueVisitorsDbConfig);
 
-			uniqueVisitorIndexDb = environment.openSecondaryDatabase(null,
-					uniqueVisitorIndexDbName, uniqueVisitorsDb,
-					uniqueVisitorIndexDbConfig);
 		} catch (Exception ex) {
 			logger.fatal(ex.getMessage(), ex);
 		}
@@ -149,7 +143,10 @@ public class AdsapientReporter {
 			if (uniqueVisitorsDb != null) {
 				uniqueVisitorsDb.close();
 			}
-		} catch (DatabaseException dbe) {
+            environment.sync();
+            environment.compress();
+            environment.close();
+        } catch (DatabaseException dbe) {
 			logger.fatal(dbe.getMessage(), dbe);
 		}
 	}
@@ -371,26 +368,7 @@ public class AdsapientReporter {
 					.get(AdsapientConstants.COOKIE_UNIQUE_ID_REQUEST_PARAM_KEY);
 
 			if (id == null) {
-				String ipAddress = (String) requestParams
-						.get(AdsapientConstants.IPADDRESS_UNIQUE_ID_REQUEST_PARAM_KEY);
-				DatabaseEntry searchKey = new DatabaseEntry(ipAddress
-						.getBytes("UTF-8"));
-				DatabaseEntry primaryKey = new DatabaseEntry();
-				DatabaseEntry primaryData = new DatabaseEntry();
-				OperationStatus retVal = uniqueVisitorIndexDb.get(null,
-						searchKey, primaryKey, primaryData, LockMode.DEFAULT);
-
-				if (retVal.equals(OperationStatus.NOTFOUND)) {
-					return null;
-				} else {
-					id = ReporterModel.arr2int(primaryKey.getData(), 0);
-
-					VisitorObjectImpl visitorObject = (VisitorObjectImpl) binding
-							.entryToObject(new TupleInput(primaryData.getData()));
-					visitorObject.setId(id);
-
-					return visitorObject;
-				}
+				return null;
 			} else {
 				DatabaseEntry theKey = new DatabaseEntry(ReporterModel
 						.intToByteArray(id));

@@ -26,267 +26,295 @@ package com.adsapient.adserver.filters.stateless;
 import com.adsapient.adserver.AdserverServlet;
 import com.adsapient.adserver.beans.AdserverModel;
 import com.adsapient.adserver.beans.IpToCountryMappingBean;
-
 import com.adsapient.api.FilterInterface;
-
-import com.adsapient.api_impl.filter.GeoFilter;
-import com.adsapient.api_impl.filter.KeyWordsFilterElement;
-import com.adsapient.api_impl.filter.KeywordsFilter;
-import com.adsapient.api_impl.filter.ParametersFilter;
-import com.adsapient.api_impl.filter.ReferrersElement;
-import com.adsapient.api_impl.filter.SystemsFilter;
+import com.adsapient.api_impl.filter.*;
 import com.adsapient.api_impl.publisher.PlacesImpl;
 import com.adsapient.api_impl.settings.ParameterImpl;
-
 import com.adsapient.util.admin.AdsapientConstants;
-
 import org.apache.log4j.Logger;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class RequestParamsFilterProcessor {
-	static Logger logger = Logger.getLogger(RequestParamsFilterProcessor.class);
+    static Logger logger = Logger.getLogger(RequestParamsFilterProcessor.class);
 
-	private AdserverModel adserverModel;
+    private AdserverModel adserverModel;
 
-	private IpToCountryMappingBean ipToCountryMappingBean;
+    private IpToCountryMappingBean ipToCountryMappingBean;
 
-	public void setAdserverModel(AdserverModel adserverModel) {
-		this.adserverModel = adserverModel;
-	}
+    public void setAdserverModel(AdserverModel adserverModel) {
+        this.adserverModel = adserverModel;
+    }
 
-	public void setup() {
-	}
+    public void setup() {
+    }
 
-	public boolean doFilter(FilterInterface entity,
-			Map<String, Object> requestParams) {
-		try {
-			if (entity instanceof KeywordsFilter) {
-				KeywordsFilter keyflObj = (KeywordsFilter) entity;
+    public boolean doFilter(FilterInterface entity,
+                            Map<String, Object> requestParams) {
+        try {
+            if (entity instanceof KeywordsFilter) {
+                KeywordsFilter keyflObj = (KeywordsFilter) entity;
 
-				Integer placesId = Integer.parseInt(requestParams.get(
-						AdsapientConstants.PLACEID_REQUEST_PARAM_KEY)
-						.toString());
+                Integer placesId = Integer.parseInt(requestParams.get(
+                        AdsapientConstants.PLACEID_REQUEST_PARAM_KEY)
+                        .toString());
 
-				PlacesImpl places = (PlacesImpl) adserverModel.getPlacesMap()
-						.get(placesId);
+                PlacesImpl places = (PlacesImpl) adserverModel.getPlacesMap()
+                        .get(placesId);
 
-				if (keyflObj.getKeyWordElements().size() == 0) {
-					return true;
-				}
+                if (keyflObj.getKeyWordElements().size() == 0) {
+                    return true;
+                }
 
-				String adplacesKeyword = "";
+                String adplacesKeyword = "";
 
-				if (requestParams
-						.get(AdsapientConstants.KEYWORDS_REQUEST_PARAM_KEY) != null) {
-					adplacesKeyword = requestParams.get(
-							AdsapientConstants.KEYWORDS_REQUEST_PARAM_KEY)
-							.toString();
-				}
+                if (requestParams
+                        .get(AdsapientConstants.KEYWORDS_REQUEST_PARAM_KEY) != null) {
+                    adplacesKeyword = requestParams.get(
+                            AdsapientConstants.KEYWORDS_REQUEST_PARAM_KEY)
+                            .toString();
+                }
 
-				if ((adplacesKeyword == null)
-						|| (adplacesKeyword.length() == 0)) {
-					if (requestParams.get(AdsapientConstants.REFERER_PARAM_KEY) != null) {
-						String publisherSitePageUrl = (requestParams
-								.get(AdsapientConstants.REFERER_PARAM_KEY)
-								.toString());
-						adplacesKeyword = adserverModel
-								.getSitePagesAndKeywords().get(
-										publisherSitePageUrl);
-					}
+                if ((adplacesKeyword == null)
+                        || (adplacesKeyword.length() == 0)) {
+                    if (requestParams.get(AdsapientConstants.REFERER_PARAM_KEY) != null) {
+                        String publisherSitePageUrl = (requestParams
+                                .get(AdsapientConstants.REFERER_PARAM_KEY)
+                                .toString());
+                        adplacesKeyword = adserverModel
+                                .getSitePagesAndKeywords().get(
+                                publisherSitePageUrl);
+                    }
 
-					if ((adplacesKeyword == null)
-							|| (adplacesKeyword.length() == 0)) {
-						return false;
-					}
-				}
+                    if ((adplacesKeyword == null)
+                            || (adplacesKeyword.length() == 0)) {
+                        return false;
+                    }
+                }
 
-				adplacesKeyword = adplacesKeyword.toLowerCase();
+                adplacesKeyword = adplacesKeyword.toLowerCase();
 
-				Iterator textEnginesIterator = keyflObj.getKeyWordElements()
-						.iterator();
+                Iterator textEnginesIterator = keyflObj.getKeyWordElements()
+                        .iterator();
 
-				while (textEnginesIterator.hasNext()) {
-					KeyWordsFilterElement element = (KeyWordsFilterElement) textEnginesIterator
-							.next();
-					StringTokenizer tokenizer = new StringTokenizer(
-							element.keyWordSet, ";");
+                while (textEnginesIterator.hasNext()) {
+                    KeyWordsFilterElement element = (KeyWordsFilterElement) textEnginesIterator
+                            .next();
+                    StringTokenizer tokenizer = new StringTokenizer(
+                            element.keyWordSet, ";");
 
-					while (tokenizer.hasMoreTokens()) {
-						String engineKeyword = tokenizer.nextToken()
-								.toLowerCase();
+                    while (tokenizer.hasMoreTokens()) {
+                        String engineKeyword = tokenizer.nextToken()
+                                .toLowerCase();
 
-						StringTokenizer adplacesKeywordTokenizer = new StringTokenizer(
-								adplacesKeyword, ";");
+                        StringTokenizer adplacesKeywordTokenizer = new StringTokenizer(
+                                adplacesKeyword, ";");
 
-						while (adplacesKeywordTokenizer.hasMoreTokens()) {
-							String adplacesTokenizedKeyWord = adplacesKeywordTokenizer
-									.nextToken();
+                        while (adplacesKeywordTokenizer.hasMoreTokens()) {
+                            String adplacesTokenizedKeyWord = adplacesKeywordTokenizer
+                                    .nextToken();
 
-							if (adplacesTokenizedKeyWord
-									.equalsIgnoreCase(engineKeyword)) {
-								logger.info("find campaign with keyword="
-										+ engineKeyword
-										+ " and adplaces keyword is "
-										+ adplacesKeyword);
+                            if (adplacesTokenizedKeyWord
+                                    .equalsIgnoreCase(engineKeyword)) {
+                                logger.info("find campaign with keyword="
+                                        + engineKeyword
+                                        + " and adplaces keyword is "
+                                        + adplacesKeyword);
 
-								return true;
-							}
-						}
-					}
-				}
-			}
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
 
-			if (entity instanceof SystemsFilter) {
-				return doSystemsFilter(requestParams, (SystemsFilter) entity);
-			} else if (entity instanceof GeoFilter) {
-				return doGeoFilter(requestParams, (GeoFilter) entity);
-			} else if (entity instanceof ParametersFilter) {
-				return doParametersFilter(requestParams,
-						(ParametersFilter) entity);
-			}
+            if (entity instanceof SystemsFilter) {
+                return doSystemsFilter(requestParams, (SystemsFilter) entity);
+            } else if (entity instanceof GeoFilter) {
+                return doGeoFilter(requestParams, (GeoFilter) entity);
+            } else if (entity instanceof ParametersFilter) {
+                return doParametersFilter(requestParams,
+                        (ParametersFilter) entity);
+            } else if (entity instanceof ContentFilter) {
+                return doContentFilter(requestParams, (ContentFilter) entity);
+            }
 
-			return true;
-		} catch (NullPointerException ex) {
-			logger.error(ex.getMessage(), ex);
+            return true;
+        } catch (NullPointerException ex) {
+            logger.error(ex.getMessage(), ex);
 
-			return true;
-		}
-	}
+            return true;
+        }
+    }
 
-	private boolean doGeoFilter(Map<String, Object> requestParams,
-			GeoFilter filter) {
-		IpToCountryMappingBean ipToCountryMappingBean = (IpToCountryMappingBean) AdserverServlet.appContext
-				.getBean("ipToCountryMapping");
-		String visitorCountry = ipToCountryMappingBean
-				.search((String) requestParams
-						.get(AdsapientConstants.IPADDRESS_UNIQUE_ID_REQUEST_PARAM_KEY));
+    private boolean doContentFilter(
+            Map<String, Object> requestParams,
+            ContentFilter filter) {
+        PlacesImpl place = (PlacesImpl) requestParams.get(AdsapientConstants.ADPLACE_REQUEST_PARAM_KEY);
+        String placeCategories = place.getCategorys();
+        String filterCategories = filter.getCategorys();
+        List<String> placeCategoriesList = getCategoriesListFromString(placeCategories);
+        List<String> filterCategoriesList = getCategoriesListFromString(filterCategories);
+        if (filterCategoriesList == null || filterCategoriesList.size() == 0) return false;
+        boolean categoryFound = false;
+        for (String filterCatId : filterCategoriesList) {
+            if (placeCategoriesList.contains(filterCatId)) {
+                categoryFound = true;
+                break;
+            }
+        }
+        if (!categoryFound) return false;
+        Integer placesPositionId = place.getPlaceId();
+        if (filter.getPositions().indexOf(":" + placesPositionId + ":") < 0) {
+            return false;
+        }
+        Integer placeId = place.getId();
+        if (filter.getPlaces().indexOf(":" + placeId + ":") < 0) {
+            return false;
+        }
+        return true;
+    }
 
-		if (visitorCountry
-				.equals(AdsapientConstants.COUNTRY_ABBR_ADDRES_ANONIMOUS)
-				|| visitorCountry
-						.equals(AdsapientConstants.COUNTRY_ABBR_ADDRES_NOT_FOUND)
-				|| visitorCountry
-						.equals(AdsapientConstants.COUNTRY_ABBR_ADDRES_RESERVED)
-				|| (filter.getPreferCountrys().indexOf(visitorCountry) >= 0)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+    private List<String> getCategoriesListFromString(String categoriesStr) {
+        String[] cats = categoriesStr.split(":");
+        List<String> catsList = new ArrayList<String>();
+        for (String cat : cats) {
+            if (cat.equals("")) continue;
+            String catId = cat.split("-")[0];
+            catsList.add(catId);
+        }
+        return catsList;
+    }
 
-	private boolean doParametersFilter(Map<String, Object> requestParams,
-			ParametersFilter filter) {
-		Map<String, String> filterKeyValueParametersMap = filter
-				.getKeyValueParametersMap();
+    private boolean doGeoFilter(Map<String, Object> requestParams,
+                                GeoFilter filter) {
+        IpToCountryMappingBean ipToCountryMappingBean = (IpToCountryMappingBean) AdserverServlet.appContext
+                .getBean("ipToCountryMapping");
+        String visitorCountry = ipToCountryMappingBean
+                .search((String) requestParams
+                        .get(AdsapientConstants.IPADDRESS_UNIQUE_ID_REQUEST_PARAM_KEY));
 
-		if (!hasValues(filterKeyValueParametersMap)) {
-			return true;
-		}
+        if (visitorCountry
+                .equals(AdsapientConstants.COUNTRY_ABBR_ADDRES_ANONIMOUS)
+                || visitorCountry
+                .equals(AdsapientConstants.COUNTRY_ABBR_ADDRES_NOT_FOUND)
+                || visitorCountry
+                .equals(AdsapientConstants.COUNTRY_ABBR_ADDRES_RESERVED)
+                || (filter.getPreferCountrys().indexOf(visitorCountry) >= 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-		Map<String, String> keyValueParametersMap = (Map<String, String>) requestParams
-				.get(AdsapientConstants.CUSTOMREQUESTPARAMS_REQUEST_PARAM_KEY);
+    private boolean doParametersFilter(Map<String, Object> requestParams,
+                                       ParametersFilter filter) {
+        Map<String, String> filterKeyValueParametersMap = filter
+                .getKeyValueParametersMap();
 
-		for (String key : filterKeyValueParametersMap.keySet()) {
-			String value1 = keyValueParametersMap.get(key);
-			String value2 = filterKeyValueParametersMap.get(key);
+        if (!hasValues(filterKeyValueParametersMap)) {
+            return true;
+        }
 
-			if (value1 == null) {
-				continue;
-			}
+        Map<String, String> keyValueParametersMap = (Map<String, String>) requestParams
+                .get(AdsapientConstants.CUSTOMREQUESTPARAMS_REQUEST_PARAM_KEY);
 
-			List<String> l1 = Arrays.asList(value1.split("(:)|(;)"));
-			List<String> l2 = Arrays.asList(value2.split("(:)|(;)"));
+        for (String key : filterKeyValueParametersMap.keySet()) {
+            String value1 = keyValueParametersMap.get(key);
+            String value2 = filterKeyValueParametersMap.get(key);
 
-			for (String s : l1) {
-				if (l2.contains(s)) {
-					return true;
-				}
-			}
-		}
+            if (value1 == null) {
+                continue;
+            }
 
-		for (Integer id : adserverModel.getParametersMap().keySet()) {
-			ParameterImpl parameter = (ParameterImpl) adserverModel
-					.getParametersMap().get(id);
+            List<String> l1 = Arrays.asList(value1.split("(:)|(;)"));
+            List<String> l2 = Arrays.asList(value2.split("(:)|(;)"));
 
-			if (keyValueParametersMap.containsKey(parameter.getName())) {
-				return false;
-			}
-		}
+            for (String s : l1) {
+                if (l2.contains(s)) {
+                    return true;
+                }
+            }
+        }
 
-		if (filterKeyValueParametersMap.size() > 0) {
-			return false;
-		}
+        for (Integer id : adserverModel.getParametersMap().keySet()) {
+            ParameterImpl parameter = (ParameterImpl) adserverModel
+                    .getParametersMap().get(id);
 
-		return true;
-	}
+            if (keyValueParametersMap.containsKey(parameter.getName())) {
+                return false;
+            }
+        }
 
-	private boolean doSystemsFilter(Map<String, Object> requestParams,
-			SystemsFilter filter) {
-		String user_lang = (String) requestParams
-				.get(AdsapientConstants.LANGUAGE_SSKEY_REQUEST_PARAM_KEY);
-		String user_browser = Integer.toString((Integer) requestParams
-				.get(AdsapientConstants.BROWSER_ID_REQUEST_PARAM_KEY));
-		String user_system = Integer.toString((Integer) requestParams
-				.get(AdsapientConstants.OS_ID_REQUEST_PARAM_KEY));
-		String user_referer = (String) requestParams
-				.get(AdsapientConstants.REFERER_PARAM_KEY);
+        if (filterKeyValueParametersMap.size() > 0) {
+            return false;
+        }
 
-		if (((user_lang != null) && (filter.getUser_lang().indexOf(user_lang) > -1))
-				|| ((user_system != null) && (filter.getUser_system().indexOf(
-						user_system) > -1))
-				|| ((user_browser != null) && (filter.getUser_browser()
-						.indexOf(user_browser) > -1))) {
-			return true;
-		}
+        return true;
+    }
 
-		if (user_referer != null) {
-			Iterator elementsIterator = filter.getReferrersElements()
-					.iterator();
+    private boolean doSystemsFilter(Map<String, Object> requestParams,
+                                    SystemsFilter filter) {
+        String user_lang = (String) requestParams
+                .get(AdsapientConstants.LANGUAGE_SSKEY_REQUEST_PARAM_KEY);
+        String user_browser = Integer.toString((Integer) requestParams
+                .get(AdsapientConstants.BROWSER_ID_REQUEST_PARAM_KEY));
+        String user_system = Integer.toString((Integer) requestParams
+                .get(AdsapientConstants.OS_ID_REQUEST_PARAM_KEY));
+        String user_referer = (String) requestParams
+                .get(AdsapientConstants.REFERER_PARAM_KEY);
 
-			while (elementsIterator.hasNext()) {
-				ReferrersElement element = (ReferrersElement) elementsIterator
-						.next();
+        if (((user_lang != null) && (filter.getUser_lang().indexOf(user_lang) > -1))
+                || ((user_system != null) && (filter.getUser_system().indexOf(
+                user_system) > -1))
+                || ((user_browser != null) && (filter.getUser_browser()
+                .indexOf(user_browser) > -1))) {
+            return true;
+        }
 
-				if (element.isType()
-						&& user_referer.equals(element.getTarget_url())) {
-					return true;
-				}
+        if (user_referer != null) {
+            Iterator elementsIterator = filter.getReferrersElements()
+                    .iterator();
 
-				if (!element.isType()
-						&& user_referer.equals(element.getTarget_url())) {
-					return false;
-				}
-			}
-		}
+            while (elementsIterator.hasNext()) {
+                ReferrersElement element = (ReferrersElement) elementsIterator
+                        .next();
 
-		return false;
-	}
+                if (element.isType()
+                        && user_referer.equals(element.getTarget_url())) {
+                    return true;
+                }
 
-	private boolean hasValues(Map<String, String> map) {
-		boolean hasValues = false;
+                if (!element.isType()
+                        && user_referer.equals(element.getTarget_url())) {
+                    return false;
+                }
+            }
+        }
 
-		for (String key : map.keySet()) {
-			String value = map.get(key);
+        return false;
+    }
 
-			if ((value != null) && !value.equals("")) {
-				hasValues = true;
-			}
-		}
+    private boolean hasValues(Map<String, String> map) {
+        boolean hasValues = false;
 
-		return hasValues;
-	}
+        for (String key : map.keySet()) {
+            String value = map.get(key);
 
-	public IpToCountryMappingBean getIpToCountryMappingBean() {
-		return ipToCountryMappingBean;
-	}
+            if ((value != null) && !value.equals("")) {
+                hasValues = true;
+            }
+        }
 
-	public void setIpToCountryMappingBean(
-			IpToCountryMappingBean ipToCountryMappingBean) {
-		this.ipToCountryMappingBean = ipToCountryMappingBean;
-	}
+        return hasValues;
+    }
+
+    public IpToCountryMappingBean getIpToCountryMappingBean() {
+        return ipToCountryMappingBean;
+    }
+
+    public void setIpToCountryMappingBean(
+            IpToCountryMappingBean ipToCountryMappingBean) {
+        this.ipToCountryMappingBean = ipToCountryMappingBean;
+    }
 }

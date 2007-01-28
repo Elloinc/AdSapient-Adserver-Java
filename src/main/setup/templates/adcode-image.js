@@ -1,0 +1,21 @@
+document.writeln('<a href="{TARGETURL_REQUEST_PARAM_KEY}" target="{TARGET_WINDOW_REQUEST_PARAM_KEY}">');
+document.writeln('<img id="{IMAGE_ID_REQUEST_PARAM_KEY}"');
+document.writeln('src="{ADSOURCE_ID_REQUEST_PARAM_KEY}"');
+document.writeln('width="{WIDTH_REQUEST_PARAM_KEY}"');
+document.writeln('height="{HEIGHT_REQUEST_PARAM_KEY}"');
+document.writeln('alt="{ALTTEXT_REQUEST_PARAM_KEY}"');
+document.writeln('title="{IMAGE_TITLE_REQUEST_PARAM_KEY}"');
+document.writeln('onMouseover="window.status=\'{STATUSBARTEXT_REQUEST_PARAM_KEY}\';return true;"');
+document.writeln('onMouseout="window.status=window.defaultStatus;return true;"');
+document.writeln('border="0">');
+document.writeln('</a>');
+
+var rnd = Math.round(Math.random() * 10000000);
+var im = '{ONUNLOADHANDLER_REQUEST_PARAM_KEY}';
+document.writeln('<SC' + 'RIPT language=JavaScript type=text/javascript>');
+document.writeln('var fun' + rnd + ' = window.onunload;');
+document.writeln('window.onunload = ads_fun' + rnd + ';');
+document.writeln('function ads_fun' + rnd + '() {');
+document.writeln('document.getElementById("{id}").src=im;');
+document.writeln('if (fun' + rnd + ') fun' + rnd + '();}');
+document.writeln('</SC' + 'RIPT>');

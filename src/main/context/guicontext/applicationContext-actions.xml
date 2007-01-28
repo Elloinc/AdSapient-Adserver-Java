@@ -3,6 +3,10 @@
         "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
+    <bean name="/setup"
+          class="com.adsapient.gui.actions.SetupAction"
+            autowire="byType">
+    </bean>
     <bean name="/editUser"
           class="com.adsapient.gui.actions.EditUserAction"
             autowire="byType">

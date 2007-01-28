@@ -23,52 +23,54 @@
  */
 package com.adsapient.api_impl.usermanagment;
 
-public class BillingInfoImpl {
-	private Integer userId;
+import com.adsapient.shared.api.entity.IMappable;
 
-	private Integer id;
+public class BillingInfoImpl  implements IMappable {
+    private Integer userId;
 
-	private String payPalLogin = "";
+    private Integer id;
 
-	private Integer minimumPublisherPayout;
+    private String payPalLogin = "";
 
-	public Integer getId() {
-		return id;
-	}
+    private Integer minimumPublisherPayout;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Integer getMinimumPublisherPayout() {
-		return minimumPublisherPayout;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setMinimumPublisherPayout(Integer minimumPublisherPayout) {
-		this.minimumPublisherPayout = minimumPublisherPayout;
-	}
+    public Integer getMinimumPublisherPayout() {
+        return minimumPublisherPayout;
+    }
 
-	public String getPayPalLogin() {
-		return payPalLogin;
-	}
+    public void setMinimumPublisherPayout(Integer minimumPublisherPayout) {
+        this.minimumPublisherPayout = minimumPublisherPayout;
+    }
 
-	public void setPayPalLogin(String payPalLogin) {
-		this.payPalLogin = payPalLogin;
-	}
+    public String getPayPalLogin() {
+        return payPalLogin;
+    }
 
-	public Integer getUserId() {
-		return userId;
-	}
+    public void setPayPalLogin(String payPalLogin) {
+        this.payPalLogin = payPalLogin;
+    }
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public BillingInfoImpl getCopy(Integer newUserId) {
-		BillingInfoImpl billing = new BillingInfoImpl();
-		billing.setUserId(newUserId);
-		billing.setMinimumPublisherPayout(this.getMinimumPublisherPayout());
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-		return billing;
-	}
+    public BillingInfoImpl getCopy(Integer newUserId) {
+        BillingInfoImpl billing = new BillingInfoImpl();
+        billing.setUserId(newUserId);
+        billing.setMinimumPublisherPayout(this.getMinimumPublisherPayout());
+
+        return billing;
+    }
 }

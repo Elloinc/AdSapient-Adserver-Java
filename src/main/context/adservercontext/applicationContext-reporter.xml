@@ -9,19 +9,6 @@
         <property name="uniquevisitorsdbName">
             <value>${berkeley.uniquevisitorsdbName}</value>
         </property>
-        <property name="uniqueVisitorIndexDbName">
-            <value>${berkeley.uniqueVisitorIndexDbName}</value>
-        </property>
-
-        <!--<property name="hotreportsdbName">-->
-        <!--<value>${berkeley.hotreportsdbName}</value>-->
-        <!--</property>-->
-        <!--<property name="hotreportshourindexdbName">-->
-        <!--<value>${berkeley.hotreportshourindexdbName}</value>-->
-        <!--</property>-->
-        <!--<property name="hotreportsentityiddbName">-->
-        <!--<value>${berkeley.hotreportsentityiddbName}</value>-->
-        <!--</property>-->
         <property name="databasesHome">
             <value>${berkeley.databasesHome}</value>
         </property>

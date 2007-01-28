@@ -375,7 +375,9 @@ public class MyHibernateUtil {
 			}
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-		}
+		}finally {
+            AdSapientHibernateService.closeSession(session, null);
+        }
 
 		return null;
 	}

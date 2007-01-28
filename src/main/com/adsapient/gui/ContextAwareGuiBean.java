@@ -134,8 +134,6 @@ public class ContextAwareGuiBean implements ApplicationContextAware {
 
 				if ("application".equalsIgnoreCase(option.getName())) {
 					application = option.getValue();
-					logger.info("application " + option.getValue()
-							+ " is started.");
 				}
 			}
 

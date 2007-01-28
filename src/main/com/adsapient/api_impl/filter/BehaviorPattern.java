@@ -29,6 +29,7 @@ import com.adsapient.api_impl.managment.CookieManager;
 import com.adsapient.api_impl.statistic.common.StatisticRequestParameter;
 import com.adsapient.api_impl.statistic.common.agregators.CommonStatisticAgregator;
 import com.adsapient.api_impl.statistic.engine.StatisticBuilder;
+import com.adsapient.shared.api.entity.IMappable;
 
 import org.apache.log4j.Logger;
 
@@ -38,7 +39,7 @@ import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class BehaviorPattern {
+public class BehaviorPattern  implements IMappable {
 	private static Logger logger = Logger.getLogger(BehaviorPattern.class);
 
 	public static final int DESABLE_VALUE = 0;

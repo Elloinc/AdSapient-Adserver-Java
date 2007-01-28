@@ -23,34 +23,36 @@
  */
 package com.adsapient.api_impl.share;
 
-public class ApplicationOptImpl {
-	public Integer id;
+import com.adsapient.shared.api.entity.IMappable;
 
-	public String name;
+public class ApplicationOptImpl  implements IMappable {
+    public Integer id;
 
-	public String value;
+    public String name;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public String value;
 
-	public Integer getId() {
-		return id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }

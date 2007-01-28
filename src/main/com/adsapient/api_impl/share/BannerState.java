@@ -23,24 +23,28 @@
  */
 package com.adsapient.api_impl.share;
 
-public class BannerState {
-	private String stateId;
+import com.adsapient.shared.api.entity.IMappable;
 
-	private String state;
+public class BannerState  {
+    private String stateId;
 
-	public String getState() {
-		return state;
-	}
+    private String state;
 
-	private void setState(String state) {
-		this.state = state;
-	}
+    public String getState() {
+        return state;
+    }
 
-	public String getStateId() {
-		return stateId;
-	}
+    private void setState(String state) {
+        this.state = state;
+    }
 
-	public void setStateId(String stateId) {
-		this.stateId = stateId;
-	}
+    public String getStateId() {
+        return stateId;
+    }
+
+    public void setStateId(String stateId) {
+        this.stateId = stateId;
+    }
+
+
 }

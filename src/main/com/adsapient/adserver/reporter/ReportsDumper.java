@@ -25,7 +25,7 @@ package com.adsapient.adserver.reporter;
 
 import com.adsapient.adserver.beans.ReporterModel;
 
-import com.adsapient.util.DBOperator;
+import com.adsapient.util.ReporterConnector;
 
 import org.apache.log4j.Logger;
 
@@ -68,7 +68,7 @@ public class ReportsDumper {
 			query += vals.substring(0, vals.length() - 1);
 			reporterModel.setAdeventBulkInsertQuery("");
 
-			DBOperator.executeUpdate(query);
+			ReporterConnector.executeUpdate(query);
 		} catch (Exception ex) {
 			logger.error(ex.getMessage(), ex);
 		}
@@ -88,7 +88,7 @@ public class ReportsDumper {
 			query += vals.substring(0, vals.length() - 1);
 			reporterModel.setUniqueBulkIsertQuery("");
 
-			DBOperator.executeUpdate(query);
+			ReporterConnector.executeUpdate(query);
 		} catch (Exception ex) {
 			logger.error(ex.getMessage(), ex);
 		}

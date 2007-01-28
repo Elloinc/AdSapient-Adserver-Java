@@ -23,54 +23,56 @@
  */
 package com.adsapient.api_impl.advertizer;
 
+import com.adsapient.shared.api.entity.IMappable;
+
 public class ActionsImpl {
-	private int clicks = 0;
+    private int clicks = 0;
 
-	private int actions = 0;
+    private int actions = 0;
 
-	private String id;
+    private String id;
 
-	private Integer campainId;
+    private Integer campainId;
 
-	private int impression = 0;
+    private int impression = 0;
 
-	public int getActions() {
-		return actions;
-	}
+    public int getActions() {
+        return actions;
+    }
 
-	public void setActions(int actions) {
-		this.actions = actions;
-	}
+    public void setActions(int actions) {
+        this.actions = actions;
+    }
 
-	public Integer getCampainId() {
-		return campainId;
-	}
+    public Integer getCampainId() {
+        return campainId;
+    }
 
-	public void setCampainId(Integer campainId) {
-		this.campainId = campainId;
-	}
+    public void setCampainId(Integer campainId) {
+        this.campainId = campainId;
+    }
 
-	public int getClicks() {
-		return clicks;
-	}
+    public int getClicks() {
+        return clicks;
+    }
 
-	public void setClicks(int clicks) {
-		this.clicks = clicks;
-	}
+    public void setClicks(int clicks) {
+        this.clicks = clicks;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public int getImpression() {
-		return impression;
-	}
+    public int getImpression() {
+        return impression;
+    }
 
-	public void setImpression(int impression) {
-		this.impression = impression;
-	}
+    public void setImpression(int impression) {
+        this.impression = impression;
+    }
 }

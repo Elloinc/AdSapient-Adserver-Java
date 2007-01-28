@@ -23,58 +23,60 @@
  */
 package com.adsapient.api_impl.usermanagment;
 
-public class AccountSetting {
-	public static final int HORIZONTAL = 1;
+import com.adsapient.shared.api.entity.IMappable;
 
-	public static final int VERTICAL = 2;
+public class AccountSetting implements IMappable {
+    public static final int HORIZONTAL = 1;
 
-	private Integer axis = new Integer(2);
+    public static final int VERTICAL = 2;
 
-	private Integer depth = new Integer(3);
+    private Integer axis = new Integer(2);
 
-	private Integer diagramId = new Integer(0);
+    private Integer depth = new Integer(3);
 
-	private Integer id;
+    private Integer diagramId = new Integer(0);
 
-	private Integer userId;
+    private Integer id;
 
-	public void setAxis(Integer axis) {
-		this.axis = axis;
-	}
+    private Integer userId;
 
-	public Integer getAxis() {
-		return axis;
-	}
+    public void setAxis(Integer axis) {
+        this.axis = axis;
+    }
 
-	public Integer getDepth() {
-		return depth;
-	}
+    public Integer getAxis() {
+        return axis;
+    }
 
-	public void setDepth(Integer depth) {
-		this.depth = depth;
-	}
+    public Integer getDepth() {
+        return depth;
+    }
 
-	public void setDiagramId(Integer diagramId) {
-		this.diagramId = diagramId;
-	}
+    public void setDepth(Integer depth) {
+        this.depth = depth;
+    }
 
-	public Integer getDiagramId() {
-		return diagramId;
-	}
+    public void setDiagramId(Integer diagramId) {
+        this.diagramId = diagramId;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Integer getDiagramId() {
+        return diagramId;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Integer getUserId() {
-		return userId;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
 }

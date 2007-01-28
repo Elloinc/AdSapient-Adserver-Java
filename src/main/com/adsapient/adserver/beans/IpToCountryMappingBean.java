@@ -350,7 +350,7 @@ public class IpToCountryMappingBean {
 				return AdsapientConstants.COUNTRY_ABBR_ADDRES_ANONIMOUS;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 
 		try {
@@ -370,7 +370,7 @@ public class IpToCountryMappingBean {
 				return AdsapientConstants.COUNTRY_ABBR_ADDRES_NOT_FOUND;
 			}
 		} catch (Exception e) {
-			logger.error("Unexpected error while seeking the db", e);
+			logger.error(e.getMessage());
 		}
 
 		return AdsapientConstants.COUNTRY_ABBR_ADDRES_NOT_FOUND;

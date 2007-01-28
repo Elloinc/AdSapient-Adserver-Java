@@ -25,212 +25,206 @@ package com.adsapient.util.plugin;
 
 import com.adsapient.api_impl.exceptions.PluginInstallerExeption;
 import com.adsapient.api_impl.install.InstallItem;
-
 import com.adsapient.util.MyHibernateUtil;
 import com.adsapient.util.admin.AdsapientConstants;
 import com.adsapient.util.sql.ConnectionManager;
-
 import org.apache.log4j.Logger;
-
 import org.apache.struts.action.ActionServlet;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 public class ApplicationInstaller {
-	private static Logger logger = Logger.getLogger(ApplicationInstaller.class);
+    private static Logger logger = Logger.getLogger(ApplicationInstaller.class);
 
-	public static boolean createTables() throws PluginInstallerExeption {
-		Collection sqlRequests = new ArrayList();
-		String pathToSqlFiles = "/setup/sql";
-		String extension = ".sql";
-		String[] sqlFiles = new String[] {};
-		List<String> fileNamesList = new ArrayList<String>();
+    public static void updateTables() throws PluginInstallerExeption {
+        executeScriptsIn("/update/sql");
+    }
 
-		try {
-			File f = new File(ApplicationInstaller.class.getResource(
-					pathToSqlFiles).getFile());
+    public static boolean createTables()
+            throws PluginInstallerExeption {
+        return executeScriptsIn("/setup/sql");
+    }
 
-			if (f.getPath().indexOf(".jar") != -1) {
-				String pathToJarFile = f.getPath().substring(6,
-						f.getPath().indexOf(".jar") + 4);
-				fileNamesList = listFileNamesInJar(pathToJarFile,
-						pathToSqlFiles, extension);
-			} else {
-				f.toURI();
+    public static boolean executeScriptsIn(String pathToSqlFiles) throws PluginInstallerExeption {
+        Collection sqlRequests = new ArrayList();
+        String extension = ".sql";
+        String[] sqlFiles = new String[]{};
+        List<String> fileNamesList = new ArrayList<String>();
 
-				File[] ffs = f.listFiles();
+        try {
+            File f = new File(ApplicationInstaller.class.getResource(
+                    pathToSqlFiles).getFile());
 
-				for (File file : ffs) {
-					if (file.getName().endsWith(".sql")) {
-						fileNamesList.add(file.getName());
-					}
-				}
-			}
+            if (f.getPath().indexOf(".jar") != -1) {
+                String pathToJarFile = f.getPath().substring(6,
+                        f.getPath().indexOf(".jar") + 4);
+                fileNamesList = listFileNamesInJar(pathToJarFile,
+                        pathToSqlFiles, extension);
+            } else {
+                f.toURI();
 
-			sqlFiles = fileNamesList.toArray(new String[fileNamesList.size()]);
-		} catch (Exception e) {
-			logger.error(e.getMessage(), e);
-		}
+                File[] ffs = f.listFiles();
 
-		for (int fileCount = 0; fileCount < sqlFiles.length; fileCount++) {
-			logger.info("parsing ..." + sqlFiles[fileCount]);
+                for (File file : ffs) {
+                    if (file.getName().endsWith(".sql")) {
+                        fileNamesList.add(file.getName());
+                    }
+                }
+            }
 
-			InputStream stream = ApplicationInstaller.class.getClassLoader()
-					.getResourceAsStream(
-							pathToSqlFiles + "/" + sqlFiles[fileCount]);
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					stream));
-			String str;
+            sqlFiles = fileNamesList.toArray(new String[fileNamesList.size()]);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
 
-			try {
-				while ((str = reader.readLine()) != null) {
-					if (str.startsWith("#")
-							|| (AdsapientConstants.EMPTY.equalsIgnoreCase(str))) {
-						continue;
-					}
+        for (int fileCount = 0; fileCount < sqlFiles.length; fileCount++) {
+            logger.info("parsing ..." + sqlFiles[fileCount]);
 
-					StringBuffer buffer = new StringBuffer();
-					buffer.append(str);
+            InputStream stream = ApplicationInstaller.class.getClassLoader()
+                    .getResourceAsStream(
+                            pathToSqlFiles + "/" + sqlFiles[fileCount]);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(
+                    stream));
+            String str;
 
-					if (str.indexOf(";") > -1) {
-						sqlRequests.add(str);
+            try {
+                while ((str = reader.readLine()) != null) {
+                    if (str.startsWith("#")
+                            || (AdsapientConstants.EMPTY.equalsIgnoreCase(str))) {
+                        continue;
+                    }
 
-						continue;
-					}
+                    StringBuffer buffer = new StringBuffer();
+                    buffer.append(str);
 
-					String str2;
+                    if (str.indexOf(";") > -1) {
+                        sqlRequests.add(str);
 
-					while ((str2 = reader.readLine()) != null) {
-						if (str2.startsWith("#")) {
-							continue;
-						}
+                        continue;
+                    }
 
-						buffer.append(str2);
+                    String str2;
 
-						if (str2.indexOf(";") > -1) {
-							break;
-						}
-					}
+                    while ((str2 = reader.readLine()) != null) {
+                        if (str2.startsWith("#")) {
+                            continue;
+                        }
 
-					sqlRequests.add(buffer.toString());
-				}
+                        buffer.append(str2);
 
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+                        if (str2.indexOf(";") > -1) {
+                            break;
+                        }
+                    }
 
-		try {
-			ConnectionManager.test(sqlRequests);
-		} catch (Exception e) {
-			logger.info("Problem with database acces" + e.getMessage(), e);
-			throw new PluginInstallerExeption("Problem with database acces"
-					+ e.getMessage());
-		}
+                    sqlRequests.add(buffer.toString());
+                }
 
-		return true;
-	}
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
-	private static List<String> listFileNamesInJar(String pathToJar,
-			String pathToFolderInJar, String extension) {
-		if (pathToFolderInJar.startsWith("/")) {
-			pathToFolderInJar = pathToFolderInJar.substring(1,
-					pathToFolderInJar.length());
-		}
+        try {
+            ConnectionManager.test(sqlRequests);
+        } catch (Exception e) {
+            logger.info("Problem with database acces" + e.getMessage(), e);
+            throw new PluginInstallerExeption("Problem with database acces"
+                    + e.getMessage());
+        }
 
-		List<String> l = new ArrayList<String>();
+        return true;
+    }
 
-		try {
-			JarFile zf = new JarFile(pathToJar);
-			Enumeration entries = zf.entries();
+    private static List<String> listFileNamesInJar(String pathToJar,
+                                                   String pathToFolderInJar, String extension) {
+        if (pathToFolderInJar.startsWith("/")) {
+            pathToFolderInJar = pathToFolderInJar.substring(1,
+                    pathToFolderInJar.length());
+        }
 
-			while (entries.hasMoreElements()) {
-				JarEntry ze = (JarEntry) entries.nextElement();
+        List<String> l = new ArrayList<String>();
 
-				if (ze.getName().startsWith(pathToFolderInJar)
-						&& ze.getName().endsWith(extension)) {
-					l.add(ze.getName().substring(pathToFolderInJar.length(),
-							ze.getName().length()));
-				}
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        try {
+            JarFile zf = new JarFile(pathToJar);
+            Enumeration entries = zf.entries();
 
-		return l;
-	}
+            while (entries.hasMoreElements()) {
+                JarEntry ze = (JarEntry) entries.nextElement();
 
-	public static boolean setup(ActionServlet actionServlet) {
-		Collection setupCommands = new ArrayList();
+                if (ze.getName().startsWith(pathToFolderInJar)
+                        && ze.getName().endsWith(extension)) {
+                    l.add(ze.getName().substring(pathToFolderInJar.length(),
+                            ze.getName().length()));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-		if (new File("banners/resource/GeoIP.dat").exists()) {
-			logger.info("The application files is correct. Skip installation ");
+        return l;
+    }
 
-			return false;
-		}
+    public static boolean setup(ActionServlet actionServlet) {
+        Collection setupCommands = new ArrayList();
 
-		Collection installItems = MyHibernateUtil.viewAll(InstallItem.class);
-		logger.info("Begin application installetion..");
+        if (new File("banners/resource/GeoIP.dat").exists()) {
+            logger.info("The application files is correct. Skip installation ");
 
-		Iterator itemsIterator = installItems.iterator();
+            return false;
+        }
 
-		while (itemsIterator.hasNext()) {
-			InstallItem item = (InstallItem) itemsIterator.next();
+        Collection installItems = MyHibernateUtil.viewAll(InstallItem.class);
+        logger.info("Begin application installetion..");
 
-			if (InstallItem.COMMAND_COPY.equalsIgnoreCase(item.getCommand())) {
-				try {
-					InputStream in = actionServlet.getServletContext()
-							.getResourceAsStream(item.getServerURL());
+        Iterator itemsIterator = installItems.iterator();
 
-					if (in == null) {
-						logger.error("Couldn't locate on server:"
-								+ item.getServerURL());
+        while (itemsIterator.hasNext()) {
+            InstallItem item = (InstallItem) itemsIterator.next();
 
-						continue;
-					}
+            if (InstallItem.COMMAND_COPY.equalsIgnoreCase(item.getCommand())) {
+                try {
+                    InputStream in = actionServlet.getServletContext()
+                            .getResourceAsStream(item.getServerURL());
 
-					OutputStream out = new FileOutputStream(item.getFilePath());
+                    if (in == null) {
+                        logger.error("Couldn't locate on server:"
+                                + item.getServerURL());
 
-					int bytesRead = 0;
+                        continue;
+                    }
 
-					while ((bytesRead = in.read()) != -1) {
-						out.write(bytesRead);
-					}
+                    OutputStream out = new FileOutputStream(item.getFilePath());
 
-					in.close();
-					out.close();
-				} catch (IOException e) {
-					logger.error("Error while setup application data", e);
-				}
+                    int bytesRead = 0;
 
-				logger.info("Copy file from " + item.getServerURL() + " to "
-						+ item.getFilePath());
-			}
+                    while ((bytesRead = in.read()) != -1) {
+                        out.write(bytesRead);
+                    }
 
-			if (InstallItem.COMMAND_MKDIR.equalsIgnoreCase(item.getCommand())) {
-				logger.info("execute mkdir command");
-				new File(item.getFilePath()).mkdirs();
-				logger.info("success create directorys " + item.getFilePath());
-			}
-		}
+                    in.close();
+                    out.close();
+                } catch (IOException e) {
+                    logger.error("Error while setup application data", e);
+                }
 
-		logger.info("Finish application installer");
+                logger.info("Copy file from " + item.getServerURL() + " to "
+                        + item.getFilePath());
+            }
 
-		return true;
-	}
+            if (InstallItem.COMMAND_MKDIR.equalsIgnoreCase(item.getCommand())) {
+                logger.info("execute mkdir command");
+                new File(item.getFilePath()).mkdirs();
+                logger.info("success create directorys " + item.getFilePath());
+            }
+        }
+
+        logger.info("Finish application installer");
+
+        return true;
+    }
 }

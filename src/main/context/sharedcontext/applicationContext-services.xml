@@ -45,23 +45,6 @@
           autowire="byType"
           singleton="true">
     </bean>
-    <bean name="jdbcHelperService"
-          class="com.adsapient.util.JDBCHelper"
-          autowire="byType"
-          singleton="true">
-        <property name="url">
-            <value>${reporter.reporterDbUrl}</value>
-        </property>
-        <property name="driver">
-            <value>${db.driver}</value>
-        </property>
-        <property name="username">
-            <value>${reporter.username}</value>
-        </property>
-        <property name="password">
-            <value>${reporter.password}</value>
-        </property>
-    </bean>
     <bean name="filtersService"
           class="com.adsapient.shared.service.FiltersService"
           autowire="byType"

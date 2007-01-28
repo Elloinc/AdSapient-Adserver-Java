@@ -33,10 +33,6 @@
           init-method="setup">
         <property name="pathsToTemplates">
             <map>
-                <!--<entry key="6">-->
-                    <!--<value>setup/templates/adcode-video.xml</value>-->
-                <!--</entry>-->
-                
                 <entry key="3">
                     <value>setup/templates/adcode-flash.html</value>
                 </entry>
@@ -46,13 +42,24 @@
                 <entry key="1">
                     <value>setup/templates/adcode-image.html</value>
                 </entry>
+                <entry key="8">
+                    <value>setup/templates/adcode-superstitial.js</value>
+                </entry>
+                <entry key="103">
+                    <value>setup/templates/adcode-flash.js</value>
+                </entry>
+                <entry key="102">
+                    <value>setup/templates/adcode-html.js</value>
+                </entry>
+                <entry key="101">
+                    <value>setup/templates/adcode-image.js</value>
+                </entry>
             </map>
         </property>
     </bean>
     <bean name="getAdProcessor"
           class="com.adsapient.adserver.requestprocessors.GetAdProcessor"
           autowire="byType">
-        <!--<property name="videoAdService"><ref bean="videoAdService"/></property>-->
     </bean>
     <bean name="clickProcessor"
           class="com.adsapient.adserver.requestprocessors.ClickProcessor"
@@ -66,7 +73,6 @@
           class="com.adsapient.adserver.requestprocessors.OnUnloadProcessor"
           autowire="byType">
     </bean>
-    <!--filter processors-->
     <bean name="requestParamsFilterProcessor"
           class="com.adsapient.adserver.filters.stateless.RequestParamsFilterProcessor"
           autowire="byType"

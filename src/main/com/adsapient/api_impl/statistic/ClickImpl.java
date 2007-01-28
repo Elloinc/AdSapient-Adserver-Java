@@ -23,14 +23,20 @@
  */
 package com.adsapient.api_impl.statistic;
 
-public class ClickImpl extends StatisticImpl {
-	private Integer clickId;
+import com.adsapient.shared.api.entity.IMappable;
 
-	public Integer getClickId() {
-		return clickId;
-	}
+public class ClickImpl extends StatisticImpl implements IMappable {
+    private Integer clickId;
 
-	public void setClickId(Integer clickId) {
-		this.clickId = clickId;
-	}
+    public Integer getClickId() {
+        return clickId;
+    }
+
+    public void setClickId(Integer clickId) {
+        this.clickId = clickId;
+    }
+
+    public Integer getId() {
+        return clickId;
+    }
 }

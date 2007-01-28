@@ -26,6 +26,7 @@ package com.adsapient.api_impl.share;
 import com.adsapient.api.NameSupportInterface;
 
 import com.adsapient.util.AdSapientHibernateService;
+import com.adsapient.shared.api.entity.IMappable;
 
 import org.apache.log4j.Logger;
 
@@ -38,7 +39,7 @@ import org.hibernate.criterion.Expression;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Category implements NameSupportInterface {
+public class Category implements NameSupportInterface, IMappable  {
 	static private Logger logger = Logger.getLogger(Category.class);
 
 	private Integer id;
