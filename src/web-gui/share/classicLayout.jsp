@@ -22,7 +22,7 @@
     <script type="text/javascript" src="javascript/EventHandler.js"></script>
     <script type="text/javascript" src="javascript/Bs_FormUtil.js"></script>
     <script type="text/javascript" src="javascript/Bs_Slider.js"></script>
-    <script type="text/javascript" src="javascript/sliderInitializer.js"></script>
+    <script type="text/javascript" src="javascript/ads.js"></script>
 
 </HEAD>
 

@@ -111,7 +111,6 @@ function transform_categorys(obj, templateEnable) {
 
 }
 
-//todo: refactor this strange 'copy-and-paste' routine
 function transform_site_categorys(obj, templateEnable) {
     var src = document.getElementById(obj.targetId).options;
     var obj_result = "";
@@ -123,13 +122,14 @@ function transform_site_categorys(obj, templateEnable) {
         }
         obj_result = obj_result + ":" + catId + "-" + catPriority + ":";
     }
+
     document.getElementById("selectedCategorysId").value = obj_result;
 
     document.getElementById("descriptionId").value = document.getElementById("descriptionField").value;
     document.getElementById("urlId").value = document.getElementById("urlField").value;
     document.getElementById("type").value = document.getElementById("typeField").value;
 
-    //alert(document.getElementById("urlId").value);
+
 
 }
 

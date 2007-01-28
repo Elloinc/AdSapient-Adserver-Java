@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts-config PUBLIC
-"-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
-"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+        "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
 <struts-config>
 
     <form-beans>
@@ -117,8 +117,6 @@
     </form-beans>
 
     <global-exceptions>
-        <!--exception key="login" type="com.adsapient.util.security.AdsapientSecurityException" path="/share/error_general.jsp"/-->
-        <!--Catch all other exceptions-->
         <exception key="error.unhandled"
                    type="com.adsapient.api.AdsapientException"
                    handler="com.adsapient.util.AdsapientExceptionHandler"
@@ -161,7 +159,7 @@
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="loginActionForm" scope="request" input="login.logoff"
                 validate="true">
-             <forward name="login" path="login.logoff"></forward>
+            <forward name="login" path="login.logoff"></forward>
         </action>
 
         <action path="/passReminder"
@@ -210,8 +208,6 @@
         </action>
 
 
-
-
         <action path="/publisherView"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="publisherActionForm" scope="request">
@@ -219,8 +215,6 @@
             <forward name="add" path="/publisherEdit.do"/>
             <forward name="viewPlacess" path="adplaces"/>
         </action>
-
-
 
 
         <action path="/publisherEdit"
@@ -245,8 +239,6 @@
             <forward name="list_default" path="/defaultBanners.do"></forward>
             <!--forward name="successremove" path="/campainEdit.do"/-->
         </action>
-
-    
 
 
         <action path="/resource"
@@ -288,7 +280,6 @@
                 name="viewStatisticActionForm" scope="request">
             <forward name="success" path="/statistic/statistic.jsp"></forward>
         </action>
-        <!--  Action for templates -->
         <action path="/filter"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="filterActionForm" scope="request" validate="true"
@@ -298,7 +289,6 @@
 
         </action>
 
-        <!-- Action 4 filterstemplate -->
         <action path="/filtersTemplate"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="filtersTemplateActionForm" scope="request" validate="true"
@@ -308,16 +298,6 @@
             <forward name="filters" path="/filter.do"/>
         </action>
 
-        <!--<action path="/viewSites"-->
-        <!--type="org.springframework.web.struts.DelegatingActionProxy"-->
-        <!--name="viewSitesActionForm" scope="request">-->
-        <!--<forward name="success" path="publisher.sites"></forward>-->
-        <!--</action>-->
-
-        <!--action path="/buyActions" type="com.adsapient.web.campain.buy.actions.BuyActionsAction" name="buyActionsActionForm" scope="request">
-              <forward  name="view" path="/campain/buyActions.jsp"></forward>
-              </action-->
-        <!--type="com.adsapient.gui.actions.ViewAccountAction"-->
         <action path="/viewAccount"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="viewAccountActionForm" scope="request">
@@ -338,8 +318,6 @@
                 input="admin.tuning">
             <forward name="view" path="admin.tuning"></forward>
         </action>
-         <!--Mapping admin options tuning -->
-        <!-- (vira) added action for bannerSize -->
         <action path="/bannerSize"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="bannerSizeActionForm" scope="request" validate="true"
@@ -349,50 +327,7 @@
             <forward name="eidt" path="bannersize.edit"></forward>
             <forward name="success" path="/bannerSize.do"></forward>
         </action>
-        <!-- Mapping publisher statistic -->
-        <!--<action path="/publisherStatistic"-->
-                <!--type="org.springframework.web.struts.DelegatingActionProxy"-->
-                <!--name="publisherStatisticActionForm" scope="request">-->
-            <!--<forward name="viewSitesStatistic" path="/statistic/publisher/SitesStatisticInformation.jsp"/>-->
-            <!--<forward name="allSiteStats" path="sitereport"/>-->
-            <!--<forward name="allPlacesStats" path="placesreport"/>-->
-            <!--<forward name="allPublisherStats" path="reports.allpublisher"/>-->
-            <!--<forward name="viewPublisherStatistic" path="reports.publishing"/>-->
-            <!--<forward name="viewPublisherStatistic_tile" path="/statistic/publisher/generalPublisherStatistic.jsp"/>-->
-            <!--<forward name="daySelector" path="/statistic/publisher/PublisherDaySelector.jsp"/>-->
-            <!--<forward name="activityByUniques" path="/statistic/publisher/ActivityByUniques.jsp"/>-->
-            <!--<forward name="activityByCountrys" path="/statistic/publisher/ActivityByCountry.jsp"/>-->
-            <!--<forward name="activityByHours" path="/statistic/publisher/ActivityByHour.jsp"/>-->
-            <!--<forward name="activityByPositions" path="/statistic/publisher/ActivityByPositions.jsp"/>-->
-            <!--<forward name="activityDayOfTheWeek" path="/statistic/publisher/ActivityByDayOfTheWeek.jsp"/>-->
-            <!--<forward name="activityByCampaigns" path="/statistic/publisher/ActivityByCampaigns.jsp"/>-->
-            <!--<forward name="publisherDailyRevenue" path="/statistic/publisher/PublisherDailyRevenue.jsp"/>-->
-            <!--<forward name="viewRevenueBySites" path="/statistic/publisher/RevenueBySites.jsp"/>-->
-            <!--<forward name="viewStatisticByCategory" path="/statistic/publisher/ActivityByCategory.jsp"/>-->
-            <!--<forward name="report" path="/report"/>-->
-        <!--</action>-->
 
-        <!-- Mapping advertizer statistic-->
-        <!--<action path="/advertizerStatistic"-->
-                <!--type="org.springframework.web.struts.DelegatingActionProxy"-->
-                <!--name="advertizerStatisticActionForm" scope="request">-->
-            <!--<forward name="allCampainStatistic" path="campaign.report"/>-->
-            <!--<forward name="allBannerStatistic" path="banner.report"/>-->
-            <!--<forward name="viewAdvertizerStatistic" path="reports.advertising"/>-->
-            <!--<forward name="allAdvertisersStatistic" path="advertisers.report"/>-->
-            <!--<forward name="viewAdvertizerStatistic_tile" path="/statistic/advertizer/advertizerStatistic.jsp"/>-->
-            <!--<forward name="byCampaignsTail" path="/statistic/advertizer/ReportByCampaigns.jsp"/>-->
-            <!--<forward name="byDayTail" path="/statistic/advertizer/DailyAdvertiserReport.jsp"/>-->
-            <!--<forward name="bySitesTail" path="/statistic/advertizer/AdvertiserReportBySites.jsp"/>-->
-            <!--<forward name="byBannersTail" path="/statistic/advertizer/AdvertiserByBanners.jsp"/>-->
-            <!--<forward name="byCategorysTail" path="/statistic/advertizer/AdvertiserByCategorys.jsp"/>-->
-            <!--<forward name="byDayOfTheWeekTail" path="/statistic/advertizer/AdvertiserDayOfTheWeekReport.jsp"/>-->
-            <!--<forward name="byHourTail" path="/statistic/advertizer/AdvertiserByHour.jsp"/>-->
-            <!--<forward name="byCoutryTail" path="/statistic/advertizer/AdvertiserByCountry.jsp"/>-->
-            <!--<forward name="dateSelector" path="/statistic/advertizer/AdvertiserDaySelector.jsp"/>-->
-            <!--<forward name="report" path="/report"/>-->
-        <!--</action>-->
-        <!-- Mapping action for edit default banners  -->
         <action path="/defaultBanners"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="defaultBannerActionForm" scope="request" validate="true"
@@ -400,7 +335,6 @@
             <forward name="list" path="admin.defbanners"/>
             <forward name="viewBanner" path="admin.banner.edit"/>
         </action>
-        <!-- Mapping action for edit admin options (servers name passwords, connections)-->
         <action path="/adminOptions"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="adminOptionsActionForm" scope="request">
@@ -409,7 +343,6 @@
 
         </action>
 
-        <!-- -General  report mapping-->
         <action path="/generalReport"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="generalReportActionForm" scope="request">
@@ -448,7 +381,6 @@
                 input="rate.managment">
             <forward name="success" path="rate.managment"/>
         </action>
-        <!-- Mapping for campain verification -->
         <action path="/verification"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="verificationActionForm" scope="request" validate="true"
@@ -488,8 +420,6 @@
 
             <forward name="edit" path="pluginbanner.view"/>
             <forward name="upload" path="pluginbanner.upload"/>
-
-
         </action>
         <action path="/guest"
                 type="org.springframework.web.struts.DelegatingActionProxy"
@@ -501,11 +431,17 @@
         <action path="/totals"
                 type="org.springframework.web.struts.DelegatingActionProxy">
             <forward redirect="true" name="campaignsList" path="/campainView.do"></forward>
-            <forward  redirect="true" name="bannersList" path="/upload.do"></forward>
-            <forward  redirect="true" name="sitesList" path="/publisherView.do"></forward>
-            <forward  redirect="true" name="placesList" path="/publisherView.do?action=viewPlacess"></forward>
-            <forward  redirect="true" name="userList" path="/viewUsers.do"></forward>
-            <forward  redirect="true" name="login" path="login.welcome"></forward>
+            <forward redirect="true" name="bannersList" path="/upload.do"></forward>
+            <forward redirect="true" name="sitesList" path="/publisherView.do"></forward>
+            <forward redirect="true" name="placesList" path="/publisherView.do?action=viewPlacess"></forward>
+            <forward redirect="true" name="userList" path="/viewUsers.do"></forward>
+            <forward redirect="true" name="login" path="login.welcome"></forward>
+        </action>
+
+        <action path="/setup"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="pluginBannerActionForm" scope="request" validate="false" input="">
+            <forward name="success" redirect="true" path="/index.jsp"/>
         </action>
 
     </action-mappings>
@@ -515,7 +451,6 @@
     <message-resources parameter="ApplicationResource" null="false"/>
 
 
-    <!-- Tiles plugin -->
     <plug-in className="org.apache.struts.tiles.TilesPlugin">
         <set-property property="definitions-config"
                       value="/WEB-INF/tiles-defs.xml"/>
@@ -524,10 +459,6 @@
         <set-property property="moduleAware" value="true"/>
     </plug-in>
 
-    <!-- Adsapient plugin for init -->
-    <!--<plug-in className="com.adsapient.util.plugin.AdsapientRunner"> </plug-in>-->
-
-    <!--spring plugin-->
     <plug-in
             className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"

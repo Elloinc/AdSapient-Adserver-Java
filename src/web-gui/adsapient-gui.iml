@@ -4,10 +4,7 @@
   <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/WEB-INF/classes" />
     <exclude-exploded />
-    <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/WEB-INF/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/WEB-INF/work" />
-    </content>
+    <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="pp-optional" level="application" />
