@@ -1,0 +1,17 @@
+<!--
+AdSapient ANT build script.
+Author: Vitaly Sazanovich
+Email: Vitaly.Sazanovich@gmail.com
+-->
+
+<project name="adsapient" default="jar" basedir=".">
+
+    <target name="jar">
+       <echo message="Build"/>
+    </target>
+
+</project>
+
+
+
+
