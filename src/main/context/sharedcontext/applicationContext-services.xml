@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean name="bannerManagementService"
+          class="com.adsapient.shared.service.BannerManagementService"
+          autowire="byType"
+          singleton="true"
+          init-method="setup">
+        <property name="pathToBanners">
+            <value>${path.banners}</value>
+        </property>
+    </bean>
+    <bean name="parametersService"
+          class="com.adsapient.shared.service.ParametersService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="financialsService"
+          class="com.adsapient.shared.service.FinancialsService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="beanService"
+          class="com.adsapient.shared.service.BeanService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="totalsReportsService"
+          class="com.adsapient.shared.service.TotalsReportService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="linkHelperService"
+          class="com.adsapient.shared.service.LinkHelperService"
+          autowire="byType"
+          singleton="true">
+        <property name="pathToAdServer">
+            <value>${adsapient-adserver.url}</value>
+        </property>
+        <property name="pathToReporter">
+            <value>${adsapient-reporter.url}</value>
+        </property>
+    </bean>
+    <bean name="hibernateService"
+          class="com.adsapient.shared.service.AdSapientHibernateService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="filtersService"
+          class="com.adsapient.shared.service.FiltersService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="userManagementService"
+          class="com.adsapient.shared.service.UserManagementService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="i18nService"
+          class="com.adsapient.shared.service.I18nService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="validationService"
+          class="com.adsapient.shared.service.ValidationService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="campaignService"
+          class="com.adsapient.shared.service.CampaignService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="cookieManagementService"
+          class="com.adsapient.shared.service.CookieManagementService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="pluginService"
+          class="com.adsapient.shared.service.PluginService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="uploadService"
+          class="com.adsapient.shared.service.UploadService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+     <bean name="ratesService"
+          class="com.adsapient.shared.service.RatesService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="labelService"
+          class="com.adsapient.shared.service.LabelService"
+          autowire="byType"
+          singleton="true">
+    </bean>
+</beans>

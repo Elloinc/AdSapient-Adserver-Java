@@ -1,0 +1,21 @@
+#parse("Banner.vm") 
+
+#parse("Errors.vm")
+
+<div align="center">     
+ 
+  <br/>
+  
+  <div class="img-group important" id="instructions">Groups</div>	 
+ 
+  $req.setAttribute("reportGroups", $reportGroups)
+
+  #bodytag( Table "name=reportGroups" "class=displayTag" "sort=list")  	      
+    #tag( Column "property=name" "title=Name" "href=reportList.action" "paramId=groupId" "paramProperty=id" "sortable=true" "headerClass=sortable")  	     
+    #tag( Column "property=description" "title=Description" "sortable=true" "headerClass=sortable")  	     	     
+  #end
+   
+</div>
+
+#parse("Footer.vm") 
+

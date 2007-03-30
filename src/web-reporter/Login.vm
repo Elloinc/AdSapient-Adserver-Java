@@ -1,0 +1,59 @@
+#parse("Banner.vm") 
+
+<script type="text/javascript">
+	dojo.require("dojo.widget.Dialog");
+</script>
+	
+<script type="text/javascript">
+	var dlg;
+
+	function init(e) 
+	{
+		dlg = dojo.widget.byId("DialogContent");
+		var btn = document.getElementById("hider");
+		dlg.setCloseControl(btn);
+		dlg.show();
+		
+		var userName = document.getElementById("userName");
+		userName.focus();
+	}
+	
+	dojo.addOnLoad(init);
+	
+</script>
+
+<div dojoType="dialog" id="DialogContent" bgColor="white"  toggle="fade" toggleDuration="250">
+
+  <form action="login.action" method="post" name="loginForm" style="border: 0; width: 375px;">
+  <table border="0">
+    <tr>
+      <th colspan="2" border="0" >
+      	<div class="rounded" id="login">Please Login</div>
+      </th>
+    </tr>
+    <tr>
+      <td class="boldText">User Name</td>
+      <td><input type="text" name="userName" id="userName" size="40"></td>
+    </tr>
+    <tr>
+      <td class="boldText">Password</td>
+      <td><input type="password"  name="password" size="40"></td>
+    </tr>  
+    <tr>
+      <td align="center" class="dialogButtons" colspan="2">
+      	<input id="hider" class="standardButton" type="submit" value="Login">
+      </td>
+    </tr>  
+  </table>
+  </form>
+  
+  #foreach ($actionError in $actionErrors)  
+  	<div class="error">$actionError</div>
+  #end     
+  
+</div>
+
+</body>
+
+</html>
+

@@ -1,0 +1,192 @@
+td{
+    background-color: #D1DFFF;    
+}
+.copyright {
+    font-family: Verdana, Arial;
+    font-size: 10px;
+    color: #999999;
+    text-decoration: none;
+}
+
+a.copyright {
+    font-family: Verdana, Arial;
+    font-size: 10px;
+    color: #999999;
+    text-decoration: none;
+}
+
+a.copyright:hover {
+    font-family: Verdana, Arial;
+    font-size: 10px;
+    color: #999999;
+    text-decoration: none;
+}
+
+a.tabletableheader {
+    background-color: #CAD3E9;
+    text-align: center;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.tableheader {
+    background-image: url( ../images/table3.gif );
+    text-align: center;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: #FFFAFA;
+    font-weight: normal;
+}
+
+.tabletableheader {
+    background-color: #CAD3E9;
+    text-align: center;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+}
+
+.tabledata {
+    background-color: #D1DFFF;
+    text-align: left;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.tabledata-c {
+    background-color: #D1DFFF;
+    text-align: right;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+a.tabledata {
+    background-color: #D1DFFF;
+    text-align: center;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+a.tabledata:hover {
+    background-color: #D1DFFF;
+    text-align: center;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: #E87D0D;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.tabdata {
+    text-align: left;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+a.tabdata {
+    text-align: left;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+a.tabdata:hover {
+    text-align: left;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: #E87D0D;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.leftborder {
+    background-image: url( ../images/table4.gif );
+}
+
+.rightborder {
+    background-image: url( ../images/table5.gif );
+}
+
+.menuitem {
+    background-color: #D1DFFF;
+    text-align: left;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 20px;
+}
+
+a.menuitem:hover {
+    background-color: #D1DFFF;
+    text-align: left;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: #E87D0D;
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 20px;
+}
+
+.maintext {
+    background-color: #D1DFFF;
+    text-align: left;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.smalltext {
+    background-color: #D1DFFF;
+    text-align: left;
+    font-size: 10px;
+    font-family: sans-serif;
+    color: Black;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+select.defType {
+    width: 220px;
+}
+
+select.defSmall {
+    width: 50px;
+}
+
+select.uiOptionTransfer_target {
+    height: 200px;
+    width: 300px;
+}
+
+select.uiOptionTransfer_target_small {
+    height: 100px;
+    width: 100px;
+}
+
+select.uiOptionParameters_target {
+    height: 100px;
+    width: 300px;
+}
+	

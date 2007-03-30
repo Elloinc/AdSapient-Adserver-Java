@@ -1,0 +1,155 @@
+#parse("Banner.vm") 
+
+<script type="text/javascript">
+	dojo.require("dojo.widget.TabContainer");
+	dojo.require("dojo.widget.LinkPane");
+	dojo.require("dojo.widget.ContentPane");
+	dojo.require("dojo.widget.LayoutContainer");
+</script>
+
+<style type="text/css">
+
+	body {
+		font-family : sans-serif;
+	}
+	
+	.dojoTabPaneWrapper {
+  	padding : 10px 10px 10px 10px;
+	}
+
+</style>
+
+<div align="center">
+   
+  <br>
+  
+<div id="mainTabContainer" dojoType="TabContainer" style="width: 650px; height: 400px; font-size: 14px; font-weight: bold;">
+	
+  	
+  <div id="tab1" dojoType="ContentPane" label="General Settings">
+  
+
+#parse("Errors.vm")  
+  
+  <form action="editProperties.action" method="post">
+  <table class="dialog" >   
+    <tr>
+      <td class="boldText">Base Directory</td>
+      <td>      
+      	<img  id="one" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="one" href="tooltips/properties-basedirectory.html" executeScripts="no"></a>
+      </td>
+      <td>
+		<input type="text" size="60" name="baseDirectory" value="$!baseDirectory"><br/>
+	  </td>
+	</tr>	
+	 <tr>
+      <td class="boldText">Report Generation Directory</td>
+      <td>      
+      	<img  id="rg" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="rg" href="tooltips/properties-report-generation.html" executeScripts="no"></a>
+      </td>
+      <td>
+		<input type="text" size="60" name="reportGenerationDirectory" value="$!reportGenerationDirectory"><br/>
+	  </td>
+	</tr>	
+    <tr>
+      <td class="boldText">Temp Directory</td>      
+      <td>
+      	<img  id="two" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="two" href="tooltips/properties-tempdirectory.html" executeScripts="no"></a>      
+      </td>
+      <td>
+		<input type="text" size="60" name="tempDirectory" value="$!tempDirectory"><br/>
+	  </td>
+	</tr>	
+    <tr>
+      <td class="boldText">Date Format</td>
+      <td>
+      	&nbsp;
+      </td>
+      <td><input type="text" size="60" name="dateFormat" value="$!dateFormat"></td>
+    </tr>    
+    <tr>
+      <td class="boldText">QueryReport MaxRows</td>
+      <td>
+      	<img  id="four" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="four" href="tooltips/properties-maxrows.html" executeScripts="no"></a>          
+      </td>
+      <td><input type="text" size="60" name="maxRows" value="$!maxRows"></td>
+    </tr>    
+	<tr>
+      <td class="boldText">Mail SMTP Host</td>
+      <td>
+      	<img  id="five" src="images/help.gif">
+       	<a dojoType="tooltip" connectId="five" href="tooltips/properties-mailhost.html" executeScripts="no"></a>       
+      </td>
+      <td>
+		<input type="text" size="60" name="mailHost" value="$!mailHost">		
+	  </td>
+    </tr>
+    <tr>
+      <td class="boldText">Use Mail Authenticator</td>
+      <td>
+      	<img  id="six" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="six" href="tooltips/properties-mailauthenticator.html" executeScripts="no"></a>         
+      </td>
+      <td>
+		<input type="checkbox" name="mailAuthenticatorUsed" value="true" #if ($mailAuthenticatorUsed == true) CHECKED #end>		
+	  </td>
+    </tr>
+	<tr>
+      <td class="boldText">Mail Authenticator UserName</td>
+      <td>
+      	&nbsp;
+      </td>
+      <td><input type="text" size="60" name="mailUser" value="$!mailUser"></td>
+    </tr>
+	<tr>
+      <td class="boldText">Mail Authenticator Password</td>
+      <td>
+      	&nbsp;
+      </td>
+      <td><input type="password" size="60" name="mailPassword" value="$!mailPassword"></td>
+    </tr>     
+    <tr><td colspan="4"><hr></td></tr> 
+    <tr>
+      <td align="center" class="dialogButtons" colspan="3">      	
+      	<input class="standardButton" type="submit" name="submitType" value="Submit">     	
+      </td>
+    </tr>    
+   </table>
+  </form> 
+  
+</div>
+
+<div id="tab2" dojoType="ContentPane" label="Image Cleanup">
+
+<form action="imageCleanup.action" method="post">
+  <table class="dialog" >   
+    <tr>
+      <td colspan="3">
+      The image temporary directory is: 
+      <br/><br/>
+      <strong>$imageTempDirectory</strong>
+      <br/><br/>
+      This directory contains <strong>$numberOfFiles</strong> files using <strong>$directorySize</strong> of space.
+      </td>
+	</tr>	    
+    <tr><td colspan="4"><hr></td></tr> 
+    <tr>
+      <td align="center" class="dialogButtons" colspan="3">      	
+      	<input class="standardButton" type="submit" name="submitType" value="Cleanup">     	
+      </td>
+    </tr>    
+   </table>
+  </form> 
+  
+</div>
+
+</div>
+
+</div>
+
+#parse("Footer.vm") 
+

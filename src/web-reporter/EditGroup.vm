@@ -1,0 +1,66 @@
+#parse("Banner.vm") 
+
+#parse("Errors.vm")
+
+<a class="back-link img-report-small" href="listGroups.action">Back to Groups </a>
+ 
+<br/>
+
+<div align="center">  
+  
+		  <div class="important img-group" id="instructions" style="width: 80%;">
+		   #if ($command == "add")
+		   	Add Group
+		   #end
+		   #if ($command != "add")
+		   	Selected Group: $name
+		   #end
+		  </div>	
+  
+  <form action="editGroup.action" style="width: 85%;">
+  
+  <table class="dialog" >    
+    <tr class="a">
+      <td class="boldText" width="20%">Name</td>
+      <td><input type="text" size="60" name="name" value="$!name"></td>
+    </tr>
+    <tr class="b">
+      <td class="boldText">Description</td>
+      <td><input type="text" size="60" name="description" value="$!description"></td>
+    </tr>
+   <tr>
+   	<td valign="top" class="boldText">Reports</td>
+   	<td>
+   		<ul class="checklist" style="height:15em;width:24em;">
+   		#foreach ($report in $reports)
+		   <li>      
+        	<input type="checkbox" name="reportIds" value="$report.id"
+	          #foreach ($reportInGroup in $reportsInGroup)
+    	        #if ($report.id == $reportInGroup.id)
+        	      CHECKED
+            	#end
+	          #end
+    	    >
+        	$report.name
+      	   </li>
+        #end
+        </ul>
+    </td>
+    </tr>
+   </table>
+   
+       <div class="button-bar" id="buttons" >
+       	<input class="standardButton" type="submit" name="submitType" value="Ok">
+       </div>
+    
+    <input type="hidden" name="id" value="$!id">
+    <input type="hidden" name="command" value="$!command">    
+  
+   </div>
+  
+  </form>
+  <br> 
+</div>
+
+#parse("Footer.vm") 
+

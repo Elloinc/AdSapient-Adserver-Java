@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quartz xmlns="http://www.opensymphony.com/quartz/JobSchedulingData"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        overwrite-existing-jobs="true">
+    <job>
+        <job-detail>
+            <name>ModelDumperJob</name>
+            <group>DEFAULT_GROUP</group>
+            <description>Dumps reporter model to RDBMS regularly</description>
+            <job-class>com.adsapient.adserver.reporter.ReporterModelDumperJob</job-class>
+        </job-detail>
+        <trigger>
+            <simple>
+                <name>ModelDumperJobTrigger</name>
+                <group>DEFAULT_GROUP</group>
+                <job-name>ModelDumperJob</job-name>
+                <job-group>DEFAULT_GROUP</job-group>
+                <repeat-count>-1</repeat-count>
+                <repeat-interval>10000</repeat-interval>
+            </simple>
+        </trigger>
+    </job>
+    <job>
+        <job-detail>
+            <name>ModelUpdaterJob</name>
+            <group>DEFAULT_GROUP</group>
+            <description>Updates settings of entities automatically if necessary as time goes by. Eg. stops campaigns
+                when their end date is reached.</description>
+            <job-class>com.adsapient.shared.jobs.ModelUpdaterJob</job-class>
+        </job-detail>
+        <trigger>
+            <simple>
+                <name>ModelUpdaterJobTrigger</name>
+                <group>DEFAULT_GROUP</group>
+                <job-name>ModelUpdaterJob</job-name>
+                <job-group>DEFAULT_GROUP</job-group>
+                <repeat-count>-1</repeat-count>
+                <repeat-interval>86400000</repeat-interval>
+            </simple>
+        </trigger>
+    </job>
+    <job>
+        <job-detail>
+            <name>EmailNotifierJob</name>
+            <group>DEFAULT_GROUP</group>
+            <description>Sends warnings/notifications to users on different events</description>
+            <job-class>com.adsapient.shared.jobs.EmailNotifierJob</job-class>
+        </job-detail>
+        <trigger>
+            <simple>
+                <name>EmailNotifierJobTrigger</name>
+                <group>DEFAULT_GROUP</group>
+                <job-name>EmailNotifierJob</job-name>
+                <job-group>DEFAULT_GROUP</job-group>
+                <repeat-count>-1</repeat-count>
+                <repeat-interval>600000000</repeat-interval>
+            </simple>
+        </trigger>
+    </job>
+    <job>
+        <job-detail>
+            <name>SystemStatusJob</name>
+            <group>DEFAULT_GROUP</group>
+            <description>Outputs system status details at regular intervals.</description>
+            <job-class>com.adsapient.shared.jobs.SystemStatusJob</job-class>
+        </job-detail>
+        <trigger>
+            <simple>
+                <name>SystemStatusJobTrigger</name>
+                <group>DEFAULT_GROUP</group>
+                <job-name>SystemStatusJob</job-name>
+                <job-group>DEFAULT_GROUP</job-group>
+                <repeat-count>-1</repeat-count>
+                <repeat-interval>10000</repeat-interval>
+            </simple>
+        </trigger>
+    </job>
+    <job>
+        <job-detail>
+            <name>GcJob</name>
+            <group>DEFAULT_GROUP</group>
+            <description>Runs GC regularly</description>
+            <job-class>com.adsapient.shared.jobs.GcJob</job-class>
+        </job-detail>
+        <trigger>
+            <simple>
+                <name>GcJobTrigger</name>
+                <group>DEFAULT_GROUP</group>
+                <job-name>GcJob</job-name>
+                <job-group>DEFAULT_GROUP</job-group>
+                <repeat-count>-1</repeat-count>
+                <repeat-interval>180000</repeat-interval>
+            </simple>
+        </trigger>
+    </job>
+</quartz>

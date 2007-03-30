@@ -1,0 +1,64 @@
+<html>
+
+<head>
+  <meta HTTP-EQUIV="Pragma" CONTENT="public">
+  <meta HTTP-EQUIV="Cache-Control" CONTENT="max-age=0">
+  <title>OpenReports</title>    
+  <link href="css/openreports.css" rel="stylesheet" type="text/css">    
+  <script type="text/javascript" src="dojo.js"></script>   
+  <script type="text/javascript" src="js/highlight.js"></script>  
+</head>
+    
+<body>
+
+#if (!$report.displayInline)
+
+<div class="menu"> 
+
+	<div>
+		<ul class="vert">
+			<li>
+				<img style="padding: 5px;" src="images/logo.gif"/>				
+			</li>
+			<li class="logo">
+				AdSapient OpenReports
+			</li>
+		</ul>
+	</div>   
+	
+	<div id="usermenu">	    
+  		<ul class="vert">   		 
+          <li>
+          	<a href="logout.action">Logoff</a>          
+          </li>
+          <li>
+          	<a href="userAdmin.action">Preferences</a>             
+          </li> 
+          #if ($user.adminUser)
+          	<li>
+            	<a href="reportAdmin.action">Administration</a>
+            </li>
+          #end  
+          #if ($user.scheduler)
+          <li>
+          	<a href="listScheduledReports.action">Scheduled Reports</a> 
+          </li> 
+          #end
+
+          <li>
+          	<a href="reportGroup.action">Reports</a> 
+          </li>
+          <li>
+          	<a href="reportGroup.action">AdSapient</a>
+          </li>
+          #if ($user.dashboardUser) 
+          <li>
+          	<a href="dashboard.action">Dashboard</a>          
+          </li>
+          #end       
+        </ul>
+    </div>    
+    
+</div> 
+
+#end

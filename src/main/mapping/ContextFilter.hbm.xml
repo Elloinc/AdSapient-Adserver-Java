@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.adsapient.shared.mappable.ContextFilter"
+		table="contextfilter" lazy="false">
+		<cache usage="read-write" />
+
+		<id name="contextFilterId" type="string" unsaved-value="null">
+			<column name="CONTEXT_FILTER_ID " sql-type="varchar(128)"
+				not-null="true" />
+			<generator class="uuid.hex" />
+		</id>
+
+
+		<property name="campainId">
+			<column name="CAMPAIN_ID" sql-type="int(11)"
+				not-null="false" />
+		</property>
+		
+		<property name="bannerId">
+			<column name="BANNER_ID" not-null="false"/>
+		</property>
+
+	</class>
+	
+	<query name="getRelatedContextFilterIds">
+		<![CDATA[ select f.bannerId, f.contextFilterId from com.adsapient.shared.mappable.ContextFilter f where f.campainId=:CAMP and f.bannerId is not null]]>
+	</query>
+</hibernate-mapping>
+
+

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.adsapient.shared.mappable.FiltersTemplate" table="filterstemplate" lazy="false">
+		<cache usage="read-write" />
+
+		<id name="templateId" type="int" unsaved-value="null">
+			<column name="TEMPLATE_ID" sql-type="varchar(128)" not-null="true"/>
+			<generator class="increment" />
+		</id>
+
+		<property name="userId">
+			<column name="USER_ID" sql-type="int(11)" not-null="true"/>
+		</property>
+
+		<property name="timeFilterId">
+			<column name="TIME_FILTER_ID" sql-type="varchar(128)" not-null="false"/>
+		</property>
+
+		<property name="geoFilterId">
+			<column name="GEO_FILTER_ID" sql-type="varchar(128)" not-null="false"/>
+		</property>
+		
+		<property name="trafficFilterId">
+			<column name="TRAFFIC_FILTER_ID" sql-type="varchar(128)" not-null="false"/>
+		</property>
+
+
+		<property name="dateFilterId">
+			<column name="DATE_FILTER_ID" sql-type="varcahr(128)" not-null="false"/>
+		</property>
+
+		<property name="contentFilterId">
+			<column name="CONTENT_FILTER_ID" sql-type="varcahr(128)" not-null="false"/>
+		</property>
+
+		<property name="keyWordsFilterId">
+			<column name="KEYWORD_FILTER_ID" sql-type="varcahr(120)" not-null="false"/>
+		</property>
+
+		<property name="parameterFilterId">
+			<column name="PARAMETER_FILTER_ID" sql-type="varcahr(120)" not-null="false"/>
+		</property>
+		
+		<property name="systemsFilterId">
+			<column name="SYSTEMS_FILTER_ID" sql-type="varcahr(120)" not-null="false"/>
+		</property>
+
+		<property name="templateName">
+			<column name="TEMPLATE_NAME" sql-type="varchar(128)" not-null="true"/>
+		</property>
+		
+		<property name="behaviorFilterId">
+			<column name="BEHAVIOR_FILTER_ID" sql-type="varchar(120)" not-null="false"/>
+		</property>
+		
+		<property name="campainId">
+			<column name="CAMPAIN_ID" sql-type="int(11)" not-null="false"/>
+		</property>
+		
+		<property name="bannerId">
+			<column name="BANNER_ID" not-null="false"/>
+		</property>
+	</class>
+
+</hibernate-mapping>

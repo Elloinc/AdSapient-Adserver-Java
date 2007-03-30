@@ -1,0 +1,141 @@
+#parse("Banner.vm") 
+
+<a class="back-link img-report-small" href="listUsers.action">Back to Users </a>
+ 
+<br/>
+
+<div align="center">  
+  
+	<div class="important img-user" id="instructions" style="width: 80%;">
+		   #if ($command == "add")
+		   	Add User
+		   #end
+		   #if ($command != "add")
+		   	Selected User: $name
+		   #end
+	</div>	
+  
+  <form action="editUser.action" style="width: 85%;">
+  
+  <table >  
+    <tr class="a">
+      <td class="boldText">Name</td>
+      <td><input type="text" size="60" name="name" value="$!name"></td>
+    </tr>
+    <tr class="b">
+      <td class="boldText">Password</td>
+      <td><input type="password" size="60" name="password" value="$!password"></td>
+    </tr>    
+    <tr class="a">
+      <td class="boldText">Confirm Password</td>
+      <td><input type="password" size="60" name="passwordConfirm" value="$!passwordConfirm"></td>
+    </tr>    
+    <tr class="a">
+      <td class="boldText">External Id</td>
+      <td><input type="text" size="60" name="externalId" value="$!externalId"></td>
+    </tr>
+    <tr class="b">
+      <td class="boldText">Email</td>
+      <td><input type="text" size="60" name="email" value="$!email"></td>
+    </tr>    
+    <tr>
+    	<td class="boldText">Dashboard Report</td>
+    	<td>
+   	     <select name="reportId">    
+   	      <option value="-1">(None)</option>     
+          #foreach ($report in $reports)
+          <option value="$report.id" #if ($reportId == $report.id) SELECTED #end >$report.name &nbsp;</option>
+          #end
+        </select>   	    
+   	   </td>  
+   	</tr>    
+    <tr>
+      <td valign="top" class="boldText">Roles</td>
+      <td>
+      	<ul class="checklist" style="height:5em;width:24em;">    
+      		<li>
+				<input type="checkbox" name="advancedScheduler" value="true" 				
+			      		#if ($advancedScheduler == true) CHECKED #end>
+			    Advanced Scheduler
+			</li>  	
+      		<li>
+				<input type="checkbox" name="chartAdmin" value="true" 				
+			      		#if ($chartAdmin == true) CHECKED #end>
+			     Chart Admin
+			</li>  		
+			<li>
+				<input type="checkbox" name="dataSourceAdmin" value="true"  
+			      		#if ($dataSourceAdmin == true) CHECKED #end>
+			     DataSource Admin
+			</li>
+			<li>
+					<input type="checkbox" name="uploader" value="true"  
+			      		#if ($uploader == true) CHECKED #end>
+			      	File Uploader
+			</li>	
+			<li>
+				<input type="checkbox" name="groupAdmin" value="true"  
+			      		#if ($groupAdmin == true) CHECKED #end>
+			    Group Admin
+			</li>
+			<li>
+				<input type="checkbox" name="logViewer" value="true"  
+			      		#if ($logViewer == true) CHECKED #end>
+			     Log Viewer			     
+			</li>
+			<li>
+				<input type="checkbox" name="parameterAdmin" value="true"  
+			      		#if ($parameterAdmin == true) CHECKED #end>
+			     Parameter Admin
+			</li>
+			<li>
+				<input type="checkbox" name="reportAdmin" value="true"  
+			      		#if ($reportAdmin == true) CHECKED #end>
+			     Report Admin
+			</li>
+			<li>
+				<input type="checkbox" name="rootAdmin" value="true"  
+			      		#if ($rootAdmin == true) CHECKED #end>
+			    Root Admin
+			</li>
+			<li>
+      			<input type="checkbox" name="scheduler" value="true"  
+			      		#if ($scheduler == true) CHECKED #end>		
+			    Scheduler
+			</li>						
+		</ul>
+	 </td>		
+    </tr>       
+    <tr>
+      <td class="boldText" valign="top">Groups</td>
+      <td>
+      	<ul class="checklist" style="height:5em;width:24em;">
+      	    #foreach ($reportGroup in $reportGroups)
+      		<li>
+      			 <input type="checkbox" name="groupIds" value="$reportGroup.id"
+        			  #foreach ($reportGroupForUser in $reportGroupsForUser)
+			            #if ($reportGroup.id == $reportGroupForUser.id)
+			              CHECKED
+			            #end
+			          #end
+			      >
+			      $reportGroup.name
+			 </li>
+			 #end
+		</ul>
+	</td>
+	</tr>    
+    </table>
+   #parse("Errors.vm")
+      	<div class="button-bar" id="buttons" >
+      		<input class="standardButton" type="submit" name="submitType" value="Ok">      		
+        </div>
+    
+    <input type="hidden" name="id" value="$!id">
+    <input type="hidden" name="command" value="$!command">    
+   
+  </form> 
+</div>
+
+#parse("Footer.vm") 
+

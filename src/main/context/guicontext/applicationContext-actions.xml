@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean name="/setup"
+          class="com.adsapient.gui.actions.SetupAction"
+            autowire="byType">
+    </bean>
+    <bean name="/editUser"
+          class="com.adsapient.gui.actions.EditUserAction"
+            autowire="byType">
+    </bean>
+    <bean name="/viewUsers"
+          class="com.adsapient.gui.actions.ViewUsersAction"
+            autowire="byType">
+    </bean>
+
+   <bean name="/login"
+          class="com.adsapient.gui.actions.LoginAction"
+           autowire="byType">
+    </bean>
+    <bean name="/logout"
+          class="com.adsapient.gui.actions.LoginAction"
+            autowire="byType">
+    </bean>
+    <bean name="/passReminder"
+          class="com.adsapient.gui.actions.PassReminderAction"
+            autowire="byType">
+    </bean>
+    <bean name="/contact"
+          class="com.adsapient.gui.actions.ContactAction"
+            autowire="byType">
+    </bean>
+    <bean name="/contactus"
+          class="com.adsapient.gui.actions.ContactAction"
+            autowire="byType">
+    </bean>
+    <bean name="/campainView"
+          class="com.adsapient.gui.actions.CampainAction"
+            autowire="byType">
+    </bean>
+    <bean name="/campainEdit"
+          class="com.adsapient.gui.actions.EditCampainAction"
+            autowire="byType">
+    </bean>
+    <bean name="/publisherView"
+          class="com.adsapient.gui.actions.PublisherAction"
+            autowire="byType">
+    </bean>
+    <bean name="/publisherEdit"
+          class="com.adsapient.gui.actions.EditPublisherSiteAction"
+            autowire="byType">
+    </bean>
+    <bean name="/upload"
+          class="com.adsapient.gui.actions.BannerUploadAction"
+            autowire="byType">
+    </bean>
+    
+    <bean name="/parameter"
+          class="com.adsapient.gui.actions.ParameterAction"
+            autowire="byType">
+    </bean>
+
+    <bean name="/placeEdit"
+          class="com.adsapient.gui.actions.PlacesEditAction"
+            autowire="byType">
+    </bean>
+    <bean name="/viewStatistic"
+          class="com.adsapient.gui.actions.ViewStatisticAction"
+            autowire="byType">
+    </bean>
+
+    <bean name="/filter"
+          class="com.adsapient.gui.actions.FilterAction"
+            autowire="byType">
+    </bean>
+    <bean name="/filtersTemplate"
+          class="com.adsapient.gui.actions.FiltersTemplateAction"
+            autowire="byType">
+    </bean>
+
+    <!--<bean name="/viewSites"-->
+          <!--class="com.adsapient.web.campain.buy.ViewSitesAction">-->
+    <!--</bean>-->
+
+    <bean name="/viewAccount"
+          class="com.adsapient.gui.actions.ViewAccountAction">
+        <property name="hibernateEntityDao">
+            <ref bean="hibernateEntityDao"/>
+        </property>
+        <property name="totalsReportsService">
+            <ref bean="totalsReportsService"/>
+        </property>
+    </bean>
+
+
+    <bean name="/adminAction"
+          class="com.adsapient.gui.actions.AdminAction"
+            autowire="byType">
+    </bean>
+    <bean name="/adminTuning"
+          class="com.adsapient.gui.actions.AdminsTuningAction"
+            autowire="byType">
+    </bean>
+    <bean name="/bannerSize"
+          class="com.adsapient.gui.actions.BannerSizeAction"
+            autowire="byType">
+    </bean>
+
+    <bean name="/defaultBanners"
+          class="com.adsapient.gui.actions.DefaultBannerAction"
+            autowire="byType">
+    </bean>
+    <bean name="/adminOptions"
+          class="com.adsapient.gui.actions.AdminOptionsAction"
+            autowire="byType">
+    </bean>
+
+    <bean name="/generalReport"
+          class="com.adsapient.gui.actions.GeneralReportAction"
+            autowire="byType">
+    </bean>
+    <bean name="/profileEdit"
+          class="com.adsapient.gui.actions.ProfileEditAction"
+            autowire="byType">
+    </bean>
+
+    <bean name="/accountSettings"
+          class="com.adsapient.gui.actions.AccountProfileAction"
+            autowire="byType">
+    </bean>
+    <bean name="/financialManagement"
+          class="com.adsapient.gui.actions.FinancialManagmentAction"
+          autowire="byType">
+    </bean>
+
+    <bean name="/rateManagement"
+          class="com.adsapient.gui.actions.RateManagmentAction"
+            autowire="byType">
+    </bean>
+    <bean name="/verification"
+          class="com.adsapient.gui.actions.VerificationAction"
+            autowire="byType">
+    </bean>
+
+    <bean name="/billing"
+          class="com.adsapient.gui.actions.BillingAction"
+            autowire="byType">
+    </bean>
+    <bean name="/billingTransaction"
+          class="com.adsapient.gui.actions.TransactionRequestAction"
+            autowire="byType">
+    </bean>
+
+    <bean name="/behaviorAction"
+          class="com.adsapient.gui.actions.BehaviorAction"
+            autowire="byType">
+    </bean>
+    <bean name="/plugin"
+          class="com.adsapient.gui.actions.PluginManagerAction"
+            autowire="byType">
+    </bean>
+
+    <bean name="/pluginBanner"
+          class="com.adsapient.gui.actions.PluginBannerAction"
+            autowire="byType">
+    </bean>
+    <bean name="/guest"
+          class="com.adsapient.gui.actions.GuestAccountAction"
+            autowire="byType">
+    </bean>
+     <bean name="/totals"
+          class="com.adsapient.gui.actions.TotalsAction"
+            autowire="byType">
+    </bean>
+
+</beans>

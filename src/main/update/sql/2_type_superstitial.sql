@@ -1,0 +1,1 @@
+INSERT INTO type VALUES (5,'superstitial');

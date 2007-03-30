@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install>
+    <mkdir step="1" dir="adsapient/banners/default_banners"/>
+    <copy step="4" file="setup/default_banners/125_125.gif" toFile="adsapient/banners/default_banners/125_125.gif"/>
+    <copy step="5" file="setup/default_banners/150_85.gif" toFile="adsapient/banners/default_banners/150_85.gif"/>
+    <copy step="6" file="setup/default_banners/160_600.gif" toFile="adsapient/banners/default_banners/160_600.gif"/>
+    <copy step="7" file="setup/default_banners/468_60.gif" toFile="adsapient/banners/default_banners/468_60.gif"/>
+    <copy step="8" file="setup/default_banners/88_31.gif" toFile="adsapient/banners/default_banners/88_31.gif"/>
+    <copy step="9" file="setup/default_banners/120_60.gif" toFile="adsapient/banners/default_banners/120_60.gif"/>
+    <copy step="10" file="setup/default_banners/universal_default_ad.gif"
+          toFile="adsapient/banners/default_banners/universal_default_ad.gif"/>
+</install>

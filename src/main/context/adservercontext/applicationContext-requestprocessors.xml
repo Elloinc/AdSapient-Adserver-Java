@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean name="getPlaceCodeProcessor"
+          class="com.adsapient.adserver.requestprocessors.GetPlaceCodeProcessor"
+          autowire="byType"
+          init-method="setup">
+        <property name="pathsToTemplates">
+            <map>
+                <entry key="4">
+                    <value>setup/templates/adplacecode-popunder.html</value>
+                </entry>
+                <entry key="6">
+                    <value>setup/templates/adplacecode-popup-onpageload.html</value>
+                </entry>
+                <entry key="5">
+                    <value>setup/templates/adplacecode-popup-onpageunload.html</value>
+                </entry>
+                <entry key="2">
+                    <value>setup/templates/adplacecode-regular.html</value>
+                </entry>
+                <entry key="3">
+                    <value>setup/templates/adplacecode-popup.html</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean name="getAdCodeProcessor"
+          class="com.adsapient.adserver.requestprocessors.GetAdCodeProcessor"
+          autowire="byType"
+          init-method="setup">
+        <property name="pathsToTemplates">
+            <map>
+                <entry key="3">
+                    <value>setup/templates/adcode-flash.html</value>
+                </entry>
+                <entry key="2">
+                    <value>setup/templates/adcode-html.html</value>
+                </entry>
+                <entry key="1">
+                    <value>setup/templates/adcode-image.html</value>
+                </entry>
+                <entry key="8">
+                    <value>setup/templates/adcode-superstitial.js</value>
+                </entry>
+                <entry key="103">
+                    <value>setup/templates/adcode-flash.js</value>
+                </entry>
+                <entry key="102">
+                    <value>setup/templates/adcode-html.js</value>
+                </entry>
+                <entry key="101">
+                    <value>setup/templates/adcode-image.js</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean name="getAdProcessor"
+          class="com.adsapient.adserver.requestprocessors.GetAdProcessor"
+          autowire="byType">
+    </bean>
+    <bean name="clickProcessor"
+          class="com.adsapient.adserver.requestprocessors.ClickProcessor"
+          autowire="byType">
+    </bean>
+    <bean name="leadSaleProcessor"
+          class="com.adsapient.adserver.requestprocessors.LeadSaleProcessor"
+          autowire="byType">
+    </bean>
+    <bean name="onUnloadProcessor"
+          class="com.adsapient.adserver.requestprocessors.OnUnloadProcessor"
+          autowire="byType">
+    </bean>
+    <bean name="requestParamsFilterProcessor"
+          class="com.adsapient.adserver.filters.stateless.RequestParamsFilterProcessor"
+          autowire="byType"
+          singleton="true"
+          init-method="setup">
+    </bean>
+    <bean name="systemFilterProcessor"
+          class="com.adsapient.adserver.filters.stateless.SystemFilterProcessor"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="timeFilterProcessor"
+          class="com.adsapient.adserver.filters.stateless.TimeFilterProcessor"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="behaviorFilterProcessor"
+          class="com.adsapient.adserver.filters.stateful.BehaviorFilterProcessor"
+          autowire="byType"
+          singleton="true">
+    </bean>
+    <bean name="trafficFilterProcessor"
+          class="com.adsapient.adserver.filters.stateful.TrafficFilterProcessor"
+          autowire="byType"
+          singleton="true">
+    </bean>
+     <bean name="updateEntityProcessor"
+          class="com.adsapient.adserver.requestprocessors.UpdateEntityProcessor"
+          autowire="byType"
+          singleton="true">
+    </bean>
+</beans>

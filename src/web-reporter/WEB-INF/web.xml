@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+
+    <display-name>OpenReports</display-name>   
+
+    <filter>
+        <filter-name>container</filter-name>
+        <filter-class>com.opensymphony.webwork.lifecycle.RequestLifecycleFilter</filter-class>
+    </filter>
+	
+	<filter>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+	</filter>
+
+    <filter-mapping>
+        <filter-name>container</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+
+    <listener>
+        <listener-class>com.opensymphony.webwork.lifecycle.ApplicationLifecycleListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.opensymphony.webwork.lifecycle.SessionLifecycleListener</listener-class>
+    </listener>   
+
+    <servlet>
+        <servlet-name>webwork</servlet-name>
+        <servlet-class>org.efs.openreports.dispatcher.ServletDispatcher</servlet-class>              
+		<load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>velocity</servlet-name>
+        <servlet-class>com.opensymphony.webwork.views.velocity.WebWorkVelocityServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>    
+    
+    <servlet>
+        <servlet-name>fileServlet</servlet-name>
+        <servlet-class>org.efs.openreports.dispatcher.FileDispatcher</servlet-class>
+        <load-on-startup>99</load-on-startup>
+    </servlet>    
+      
+    <servlet-mapping>
+        <servlet-name>velocity</servlet-name>
+        <url-pattern>*.vm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>webwork</servlet-name>
+        <url-pattern>*.action</url-pattern>
+    </servlet-mapping>   
+    
+    <servlet-mapping>
+        <servlet-name>fileServlet</servlet-name>
+        <url-pattern>/report-images/*</url-pattern>
+    </servlet-mapping>   
+    
+    <servlet-mapping>
+        <servlet-name>fileServlet</servlet-name>
+        <url-pattern>/report-files/*</url-pattern>
+    </servlet-mapping>   
+
+   	<welcome-file-list>   	 
+    	<welcome-file>/Login.vm</welcome-file>
+		<!--welcome-file>/redirect.jsp</welcome-file-->
+  	</welcome-file-list>
+  
+  	<error-page>
+    	<error-code>404</error-code>
+    	<location>/ReportError.vm</location>
+    </error-page>
+    <error-page>
+    	<error-code>500</error-code>
+    	<location>/NotFound.vm</location>
+  	</error-page>	
+	
+	<!--security-constraint>
+       <web-resource-collection>
+		   <web-resource-name>OpenReports Resources</web-resource-name>
+           <url-pattern>/*</url-pattern>
+           <http-method>HEAD</http-method>
+           <http-method>GET</http-method>
+           <http-method>POST</http-method>
+           <http-method>PUT</http-method>
+           <http-method>DELETE</http-method>
+       </web-resource-collection>
+       <auth-constraint>
+           <role-name>OPENREPORTS_ROLE</role-name>		  
+       </auth-constraint>
+       <user-data-constraint>
+           <transport-guarantee>NONE</transport-guarantee>
+       </user-data-constraint>
+   </security-constraint>
+
+   <login-config>
+       <auth-method>FORM</auth-method>
+       <form-login-config>
+           <form-login-page>/login.jsp</form-login-page>
+           <form-error-page>/login.jsp?failed=true</form-error-page>
+       </form-login-config>
+   </login-config>
+
+   <security-role>
+       <description>OpenReports User</description>
+       <role-name>OPENREPORTS_ROLE</role-name>
+   </security-role-->  
+   
+</web-app>

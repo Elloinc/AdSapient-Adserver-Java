@@ -1,0 +1,119 @@
+#parse("Banner.vm") 
+
+<script type="text/javascript">	
+	dojo.require("dojo.widget.LinkPane");	
+</script>
+
+#parse("Errors.vm")
+
+<a class="back-link img-report-small" href="listDataSources.action">Back to DataSources </a>
+ 
+<br/>    
+
+<div align="center">
+
+		  <div class="important img-ds" id="instructions" style="width: 80%;">
+		   #if ($command == "add")
+		   	Add DataSource
+		   #end
+		   #if ($command != "add")
+		   	Selected DataSource: $name
+		   #end
+		  </div>	
+  
+  <form action="editDataSource.action" name="dsForm" style="width: 85%;">	 
+  
+  <table class="dialog"> 	
+	 <tr >
+      <td class="boldText" width="20%">Use JNDI</td>
+      <td>
+      	<img  id="jndi" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="jndi" href="tooltips/datasource-jndi.html" executeScripts="no"></a>         
+      </td>
+      <td><input type="checkbox" name="jndi" value="true" #if ($jndi == true) CHECKED #end></td>
+    </tr>  
+    <tr id="dsName">
+      <td class="boldText" width="20%">Name</td>
+      <td>
+      	&nbsp;
+      </td>
+      <td><input type="text" size="60" name="name" value="$!name"></td>
+    </tr>         
+    <tr id="dsUrl">
+      <td  class="boldText" width="20%">URL</td>
+      <td>
+      	<img  id="url" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="url" href="tooltips/datasource-url.html" executeScripts="no"></a>         
+      </td>
+      <td><input type="text" size="60" name="url" value="$!url"></td>
+    </tr>	
+	<tr id="dsDriver">
+      <td class="boldText" width="20%">Driver</td>
+      <td>
+      	<img  id="driver" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="driver" href="tooltips/datasource-driver.html" executeScripts="no"></a>         
+      </td>
+      <td><input id="testD" type="text" size="60" name="driver" value="$!driver"></td>
+    </tr>
+    <tr id="dsUser">
+      <td class="boldText" width="20%">User Name</td>
+      <td>
+      	&nbsp;
+      </td>
+      <td><input type="text" size="60" name="userName" value="$!userName"></td>
+    </tr>
+    <tr id="dsPassword">
+      <td class="boldText" width="20%">Password</td>
+      <td>
+      	&nbsp;
+      </td>
+      <td><input type="password" size="60" name="password" value="$!password"></td>
+    </tr>
+    <tr id="dsMI">
+      <td class="boldText" width="20%">Max Idle</td>
+      <td>
+      	<img  id="maxidle" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="maxidle" href="tooltips/datasource-maxidle.html" executeScripts="no"></a>         
+      </td>
+      <td><input type="text" size="60" name="maxIdle" value="$!maxIdle"></td>
+    </tr>
+    <tr id="dsMA">
+      <td  class="boldText" width="20%">Max Active</td>
+      <td>
+      	<img  id="maxactive" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="maxactive" href="tooltips/datasource-maxactive.html" executeScripts="no"></a>         
+      </td>
+      <td><input type="text" size="60" name="maxActive" value="$!maxActive"></td>     	
+    </tr>
+    <tr id="dsMW">
+      <td class="boldText" width="20%">Max Wait</td>
+      <td>
+      	<img  id="maxwait" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="maxwait" href="tooltips/datasource-maxwait.html" executeScripts="no"></a>         
+      </td>
+      <td><input type="text" size="60" name="maxWait" value="$!maxWait"></td>     	
+    </tr>
+    <tr id="dsQuery">
+      <td class="boldText" width="20%">Validation Query</td>
+      <td>
+      	<img  id="query" src="images/help.gif">
+      	<a dojoType="tooltip" connectId="query" href="tooltips/datasource-query.html" executeScripts="no"></a>         
+      </td>
+      <td><input type="text" size="60" name="validationQuery" value="$!validationQuery"></td>     	
+    </tr>   
+    </table>
+    
+      	 <div class="button-bar" id="buttons" >
+			<input class="standardButton" type="submit" name="submitType" value="Ok">	
+		</div>
+	
+   <input type="hidden" name="id" value="$!id">
+   <input type="hidden" name="command" value="$!command">  
+     
+  </form>
+  <br> 
+</div>
+
+#parse("Footer.vm") 
+
+

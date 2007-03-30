@@ -1,0 +1,28 @@
+
+#parse("Banner.vm") 
+
+#parse("Errors.vm")
+
+<div align="center">  
+
+  <a class="back-link img-group-small" href="reportGroup.action">Back to Groups </a>	
+  
+  <br/>
+
+  <div class="img-report important" id="instructions">
+  	 Reports	
+  </div>  
+   
+  $req.setAttribute("reports", $reports)
+
+  #bodytag( Table "name=reports" "class=displayTag" "sort=list")  	  	    
+    #tag( Column "property=name" "title=Name" "href=reportDetail.action" "paramId=reportId" "paramProperty=id" "sortable=true" "headerClass=sortable")  	     
+    #tag( Column "property=description" "title=Description" "sortable=true" "headerClass=sortable")  	     	     
+  #end  
+  
+  <br>
+  
+</div>
+
+#parse("Footer.vm") 
+

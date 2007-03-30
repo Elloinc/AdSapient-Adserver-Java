@@ -1,0 +1,33 @@
+#parse("Banner.vm") 
+
+#parse("Errors.vm")
+
+<br/>
+
+<div align="center">
+  
+  <div class="img-schedule important" id="instructions">
+		  	  Scheduled Reports
+  </div>  
+  
+  $req.setAttribute("scheduledReports", $scheduledReports)
+
+  #bodytag( Table "name=scheduledReports" "class=displayTag" "sort=list" "decorator=org.efs.openreports.util.HRefColumnDecorator")  	   	      
+    #tag( Column "property=report.name" "title=Report" "sortable=true" "headerClass=sortable")    	     	      	      
+    #tag( Column "property=scheduleDescription" "title=Description" "sortable=true" "headerClass=sortable")    	     	      	       
+    #tag( Column "property=startDateTime" "title=Start Date" "sortable=true" "headerClass=sortable" "decorator=org.efs.openreports.util.DateColumnDecorator")   
+    #tag( Column "property=scheduleTypeName" "title=Schedule Type" "sortable=true" "headerClass=sortable")    	     	      	       	     	      
+    #tag( Column "property=nextFireDate" "title=Next Run" "sortable=true" "headerClass=sortable" "decorator=org.efs.openreports.util.DateColumnDecorator")    	     	      	       	     	         
+    #tag( Column "property=updateLink" "title=" "href=reportSchedule.action" "paramId=scheduleName" "paramProperty=scheduleName")  	 
+    #tag( Column "property=removeLink" "title=" "href=deleteScheduledReport.action" "paramId=scheduleName" "paramProperty=scheduleName")  	     	     
+    #tag( SetProperty "name=basic.empty.showtable" "value=true")	
+  #end    
+  <br>  
+</div>
+
+
+#parse("Footer.vm") 
+
+</body>
+
+</html>

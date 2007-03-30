@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.adsapient.shared.mappable.DynamicParameter" table="dynamicparameter" polymorphism="implicit" lazy="false">
+		<cache usage="read-write" />
+		
+		<id name="parameterId" type="int" unsaved-value="null">
+			<column name="PARAMETER_ID" sql-type="int(11)" not-null="true"/>
+			<generator class="increment"/>
+		</id>
+		
+		<property name="parameterFilterId">
+			<column name="PARAMETER_FILTER_ID" sql-type="string" not-null="true"/>
+		</property>
+		
+		<property name="type">
+			<column name="TYPE_ID" sql-type="int(11)" not-null="true"/>
+		</property>
+
+		<property name="name">
+			<column name="NAME" sql-type="varchar(254)" not-null="true"/>
+		</property>
+		
+		<property name="value">
+			<column name="PARAM_VALUE" sql-type="text" not-null="false"/>
+		</property>
+		
+		<property name="regex">
+			<column name="IS_REGEX" sql-type="tinuint(1)" not-null="true"/>
+		</property>
+	</class>
+
+</hibernate-mapping>
+

@@ -1,0 +1,80 @@
+#parse("Banner.vm") 
+
+#parse("Errors.vm")
+
+<br/>
+
+<div align="center">
+	
+	<div class="important img-log" id="instructions" style="width: 90%;">
+		   Log Filters
+	</div>
+	
+  <form action="viewReportLogs.action" style="width: 95%;">
+	
+  <table class="dialog" >   
+	<tr>		
+		<td>
+			<div id="important">
+			&nbsp;Status: 
+			<select name="status">
+				<option value="">All</option>
+				#foreach ($statusString in $statuses)
+					<option value="$statusString" #if ($status == $statusString) SELECTED #end>$statusString</option>
+		        #end
+			</select>
+			Report: 
+			<select name="reportId">
+				<option value="">All</option>
+				<option value="-1" #if ($reportId == -1) SELECTED #end>None</option>
+				#foreach ($report in $reports)
+					<option value="$report.id" #if ($reportId == $report.id) SELECTED #end>$report.name</option>
+		        #end
+			</select>				
+			User: 
+			<select name="userId">
+				<option value="">All</option>
+				#foreach ($user in $users)
+					<option value="$user.id" #if ($userId == $user.id) SELECTED #end>$user.name</option>
+		        #end
+			</select>				
+		    <input class="standardButton" type="submit" name="submitOk" value="Run Query">     
+		    &nbsp;
+      </td>
+	</tr>	
+  </table>
+  
+  </form>
+  
+</div>
+
+#if ($resultAvailable)
+
+<div align="center">
+	
+ 
+  	  	$req.setAttribute("reportLogs", $reportLogs)
+
+		#bodytag( Table "name=reportLogs" "class=displayTag" "sort=list" "pagesize=20")  	      
+  	      #tag( Column "property=startTime" "title=StartTime" "sortable=true" "headerClass=sortable" "decorator=org.efs.openreports.util.DateColumnDecorator")  	     
+  	      #tag( Column "property=elapsedTime" "title= Time(s)" "sortable=true" "headerClass=sortable")
+  	      #tag( Column "property=status" "title=Status" "sortable=true" "headerClass=sortable" )
+ 	      #tag( Column "property=report" "title=Report" "sortable=true" "headerClass=sortable" )
+ 	      #tag( Column "property=user.name" "title=User" "sortable=true" "headerClass=sortable" )    	      	    
+  	      #tag( Column "property=message" "title=Message" "sortable=true" "headerClass=sortable" )  	     
+		#end
+	
+  
+</div>
+
+#end
+
+<br/>
+
+<div align="center">
+* Log query results limited to 500 rows *
+</div>
+
+#parse("Footer.vm") 
+
+

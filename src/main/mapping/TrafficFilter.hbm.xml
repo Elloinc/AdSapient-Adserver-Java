@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping>
+
+	<class name="com.adsapient.shared.mappable.TrafficFilter" table="trafficfilter" lazy="false">
+		<cache usage="read-write" />
+
+
+        <id name="trafficFilterId" type="int" unsaved-value="null">
+            <column name="TRAFFIC_FILTER_ID" sql-type="int(11)" not-null="true"/>
+            <generator class="increment"/>
+        </id>
+
+        <property name="maxImpressionsInDay">
+			<column name="MAX_IMPRESSIONS_PER_DAY" not-null="false"/>
+		</property>
+
+		<property name="maxClicksInDay">
+			<column name="MAX_CLICKS_PER_DAY" not-null="false"/>
+		</property>
+
+		<property name="maxImpressionsInCampain">
+			<column name="MAX_IMPRESSIONS_PER_CAMPAIN" not-null="false"/>
+		</property>
+
+		<property name="maxClicksInCampain">
+			<column name="MAX_CLICKS_PER_CAMPAIN" not-null="false"/>
+		</property>
+		
+		<property name="maxImpresionsInDayForUniqueUser">
+			<column name="MAX_IMPRESSIONS_PER_DAY_UNIQUE" not-null="false"/>
+		</property>
+
+		<property name="maxClicksInDayForUniqueUser">
+			<column name="MAX_CLICKS_PER_DAY_UNIQUE" not-null="false"/>
+		</property>
+		
+		<property name="maxImpressionsInCampainForUniqueUser">
+			<column name="MAX_IMPRESSIONS_PER_CAMPAIN_UNIQUE" not-null="false"/>
+		</property>
+
+		<property name="maxClicksInCampainForUniqueUser">
+				<column name="MAX_CLICKS_PER_CAMPAIN_UNIQUE" not-null="false"/>
+		</property>
+
+		<property name="maxClicksInMonthForUniqueUser">
+			<column name="MAX_CLICKS_PER_MONTH_UNIQUE" not-null="false"/>
+		</property>
+		
+		<property name="maxImpressionsInMonthForUniqueUser">
+			<column name="MAX_IMPRESSIONS_PER_MONTH_UNIQUE"	not-null="true"/>
+		</property>
+
+		<property name="customPeriodDay">
+			<column name="CUSTOM_PERIOD_DAY" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodHour">
+			<column name="CUSTOM_PERIOD_HOUR" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodValue">
+			<column name="CUSTOM_PERIOD_VALUE" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodClickInDay">
+			<column name="CUSTOM_PERIOD_CLICK_DAY" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodClickInHour">
+			<column name="CUSTOM_PERIOD_CLICK_HOUR" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodClickInValue">
+			<column name="CUSTOM_PERIOD_CLICK_VALUE" not-null="true"/>
+		</property>
+
+
+		<property name="customPeriodDayUnique">
+			<column name="CUSTOM_PERIOD_DAY_UNIQUE" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodHourUnique">
+			<column name="CUSTOM_PERIOD_HOUR_UNIQUE" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodValueUnique">
+			<column name="CUSTOM_PERIOD_VALUE_UNIQUE" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodClickInDayUnique">
+			<column name="CUSTOM_PERIOD_CLICK_DAY_UNIQUE" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodClickInHourUnique">
+			<column name="CUSTOM_PERIOD_CLICK_HOUR_UNIQUE" not-null="true"/>
+		</property>
+		
+		<property name="customPeriodClickInValueUnique">
+			<column name="CUSTOM_PERIOD_CLICK_VALUE_UNIQUE" not-null="true"/>
+		</property>
+
+		<property name="campainId">
+			<column name="CAMPAIN_ID" sql-type="int(11)" not-null="false"/>
+		</property>
+		
+		<property name="bannerId">
+			<column name="BANNER_ID" not-null="false"/>
+		</property>
+
+        <property name="trafficShare">
+			<column name="TRAFFIC_SHARE" not-null="false"/>
+		</property>
+
+    </class>
+	
+	<query name="getRelatedTrafficFilterIds">
+		<![CDATA[ select f.bannerId, f.trafficFilterId from com.adsapient.shared.mappable.TrafficFilter f where f.campainId=:CAMP and f.bannerId is not null]]>
+	</query>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+

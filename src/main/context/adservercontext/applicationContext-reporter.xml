@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="adsapientReporter"
+          class="com.adsapient.adserver.reporter.AdsapientReporter"
+          init-method="setup">
+        <property name="uniquevisitorsdbName">
+            <value>${berkeley.uniquevisitorsdbName}</value>
+        </property>
+        <property name="databasesHome">
+            <value>${berkeley.databasesHome}</value>
+        </property>
+    </bean>
+
+    <bean id="reportsDumper"
+          class="com.adsapient.adserver.reporter.ReportsDumper"
+          autowire="byType"
+          singleton="true">
+        <property name="pathToDumpFolderAdevents">
+            <value>${path.dumpfolder.adevents}</value>
+        </property>
+        <property name="pathToDumpFolderUniques">
+            <value>${path.dumpfolder.uniques}</value>
+        </property>
+         <property name="limit">
+            <value>${files.limit}</value>
+        </property>
+        <property name="eventFilePrefix">
+            <value>events</value>
+        </property>
+        <property name="uniquesFilePrefix">
+            <value>uniques</value>
+        </property>
+    </bean>
+
+    <bean id="reporterModel"
+          class="com.adsapient.adserver.beans.ReporterModel"
+          autowire="byType"
+          singleton="true"></bean>
+
+    <bean id="totalsReporterModel"
+          class="com.adsapient.adserver.beans.TotalsReporterModel"
+          autowire="byType"
+          singleton="true"></bean>
+
+    <bean id="reporterModelBuilder"
+          class="com.adsapient.adserver.reporter.ReporterModelBuilder"
+          autowire="byType"
+          singleton="true"></bean>
+
+
+    <bean id="reporterDecisionProvider"
+          class="com.adsapient.adserver.reporter.ReporterDecisionProvider"
+          singleton="true"
+          autowire="byType"
+          init-method="setup"></bean>
+
+    <bean id="reporterScheduler"
+          class="com.adsapient.adserver.reporter.ReporterScheduler"
+          init-method="setup">
+        <property name="pathToJobs">
+            <value>jobs.xml</value>
+        </property>
+        <property name="quartzProperties">
+            <map>
+                <entry key="org.quartz.scheduler.instanceName">
+                    <value>DefaultQuartzScheduler</value>
+                </entry>
+                <entry key="org.quartz.scheduler.rmi.export">
+                    <value>false</value>
+                </entry>
+                <entry key="org.quartz.scheduler.rmi.proxy">
+                    <value>false</value>
+                </entry>
+                <entry key="org.quartz.scheduler.wrapJobExecutionInUserTransaction">
+                    <value>false</value>
+                </entry>
+                <entry key="org.quartz.threadPool.class">
+                    <value>org.quartz.simpl.SimpleThreadPool</value>
+                </entry>
+                <entry key="org.quartz.threadPool.threadCount">
+                    <value>1</value>
+                </entry>
+                <entry key="org.quartz.threadPool.threadPriority">
+                    <value>5</value>
+                </entry>
+                <entry key="org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread">
+                    <value>true</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

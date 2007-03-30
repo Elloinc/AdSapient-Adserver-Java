@@ -1,0 +1,48 @@
+#parse("Banner.vm") 
+
+#if (!$report.displayInline)
+ 
+ 	<a class="back-link img-report-small" href="reportList.action">Back to Reports</a>
+ 	<a class="back-link img-group-small" href="reportGroup.action">Back to Groups</a>  	
+  
+#end
+
+#parse("Errors.vm")
+  
+<br/>
+
+<div align="center">
+
+	#if (!$report.displayInline)
+     <div class="important img-queryreport" id="instructions">$report.name</div>     
+    #end
+
+$req.setAttribute("results", $results)
+
+#bodytag( Table "name=results" "class=displayTag" "sort=list" "export=true" "pagesize=20" )        
+ 	#foreach ($property in $properties) 		
+ 		#tag( Column "property=$property.name" "title=$property.displayName" "sortable=true" "headerClass=sortable" "decorator=$!property.decorator")  	     
+	#end	
+	#tag( SetProperty "name=export.pdf" "value=true")	
+	#tag( SetProperty "name=export.xml" "value=false")
+	#tag( SetProperty "name=export.pdf.filename" "value=${report.name}.pdf")
+	#tag( SetProperty "name=export.csv.filename" "value=${report.name}.csv")
+	#tag( SetProperty "name=export.excel.filename" "value=${report.name}.xls")	  
+#end
+
+#if ($user.scheduler)
+
+Schedule Report: 
+<a href="reportOptions.action?reportId=$report.id&submitSchedule=true&exportType=3">CSV</a> |
+<a href="reportOptions.action?reportId=$report.id&submitSchedule=true&exportType=1">Excel</a> |
+<a href="reportOptions.action?reportId=$report.id&submitSchedule=true&exportType=0">PDF</a>
+  
+#end   
+
+</div>
+
+#parse("Footer.vm")
+
+
+
+	

@@ -1,0 +1,31 @@
+#parse("Banner.vm") 
+
+#parse("Errors.vm")
+
+<br/>
+
+<div align="center">
+  
+  <div class="instructions" id="instructions">
+  	<a href="editReportParameter.action?command=add">
+  		<img border="0" src="images/add.gif"/> Add Report Parameter
+  	</a>
+  	<a href="reportAdmin.action?command=add">
+  			<img border="0" src="images/back.gif"/> Back to Admin Menu
+  	</a>
+  </div>
+    
+  <br/>
+  
+  $req.setAttribute("reportParameters", $reportParameters)
+
+  #bodytag( Table "name=reportParameters" "class=displayTag" "sort=list" "decorator=org.efs.openreports.util.HRefColumnDecorator")  	      
+    #tag( Column "property=name" "href=editReportParameter.action?command=edit" "paramId=id" "paramProperty=id" "title=Name" "sortable=true" "headerClass=sortable")    	     	      	     
+    #tag( Column "property=description" "title=Description" "sortable=true" "headerClass=sortable")  	     	        	     	     
+    #tag( Column "property=removeLink" "title=" "href=deleteReportParameter.action" "paramId=id" "paramProperty=id")  	     	     
+  #end   
+  <br> 
+</div>
+
+#parse("Footer.vm") 
+

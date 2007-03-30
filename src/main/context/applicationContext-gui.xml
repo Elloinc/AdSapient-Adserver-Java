@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="locations">
+            <value>classpath:adsapient.properties</value>
+        </property>
+    </bean>
+
+    <!--<import resource="applicationContext-dao.xml"/>-->
+    <!--<import resource="context.guicontext/applicationContext-actions.xml"/>-->
+    <!--<import resource="applicationContext-database.xml"/>-->
+    <!--<import resource="applicationContext-services.xml"/>-->
+    <!--<import resource="context.guicontext/security/applicationContext-acegi-base.xml"/>-->
+    <!--<import resource="context.guicontext/security/applicationContext-authentication.xml"/>-->
+    <!--<import resource="context.guicontext/security/applicationContext-authorization.xml"/>-->
+
+    <import resource="sharedcontext/applicationContext-dao.xml"/>
+    <import resource="sharedcontext/applicationContext-database.xml"/>
+    <import resource="sharedcontext/applicationContext-services.xml"/>
+
+    <import resource="guicontext/applicationContext-actions.xml"/>
+
+    <bean id="contextAwareGuiBean"
+          class="com.adsapient.gui.ContextAwareGuiBean"
+          init-method="setup"
+          autowire="byType">
+    </bean>
+</beans>
