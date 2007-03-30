@@ -9,6 +9,13 @@
       <maximumHeapSize value="128" />
       <properties />
     </buildFile>
+    <buildFile url="file://$PROJECT_DIR$/src/reporter/build.xml">
+      <additionalClassPath />
+      <antReference projectDefault="true" />
+      <customJdkName value="" />
+      <maximumHeapSize value="128" />
+      <properties />
+    </buildFile>
   </component>
   <component name="CodeStyleSettingsManager">
     <option name="PER_PROJECT_SETTINGS" />
@@ -179,6 +186,8 @@
       <module fileurl="file://$PROJECT_DIR$/src/web-adserver/adsapient-adserver.iml" filepath="$PROJECT_DIR$/src/web-adserver/adsapient-adserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/web-gui/adsapient-gui.iml" filepath="$PROJECT_DIR$/src/web-gui/adsapient-gui.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/web-reporter/adsapient-reporter.iml" filepath="$PROJECT_DIR$/src/web-reporter/adsapient-reporter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/reporter/reporter.iml" filepath="$PROJECT_DIR$/src/reporter/reporter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/site/site.iml" filepath="$PROJECT_DIR$/src/site/site.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" assert-keyword="true" jdk-15="true" project-jdk-name="1.5" />

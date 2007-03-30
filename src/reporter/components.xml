@@ -1,0 +1,82 @@
+<components> 	
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.DataSourceProviderImpl</class>
+        <enabler>org.efs.openreports.providers.DataSourceProviderAware</enabler>
+    </component>
+    
+   <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.GroupProviderImpl</class>
+        <enabler>org.efs.openreports.providers.GroupProviderAware</enabler>
+    </component>
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.ParameterProviderImpl</class>
+        <enabler>org.efs.openreports.providers.ParameterProviderAware</enabler>
+    </component>
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.ReportLogProviderImpl</class>
+        <enabler>org.efs.openreports.providers.ReportLogProviderAware</enabler>
+    </component>
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.ReportProviderImpl</class>
+        <enabler>org.efs.openreports.providers.ReportProviderAware</enabler>
+    </component>   
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.UserProviderImpl</class>
+        <enabler>org.efs.openreports.providers.UserProviderAware</enabler>
+    </component>
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.PropertiesProviderImpl</class>
+        <enabler>org.efs.openreports.providers.PropertiesProviderAware</enabler>
+    </component>   
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.DirectoryProvider</class>
+        <enabler>org.efs.openreports.providers.DirectoryProviderAware</enabler>
+    </component>
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.DateProvider</class>
+        <enabler>org.efs.openreports.providers.DateProviderAware</enabler>
+    </component>
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.MailProvider</class>
+        <enabler>org.efs.openreports.providers.MailProviderAware</enabler>
+    </component>
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.SchedulerProviderImpl</class>
+        <enabler>org.efs.openreports.providers.SchedulerProviderAware</enabler>
+    </component>
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.ChartProviderImpl</class>
+        <enabler>org.efs.openreports.providers.ChartProviderAware</enabler>
+    </component>   
+    
+    <component>
+        <scope>application</scope>
+        <class>org.efs.openreports.providers.impl.AlertProviderImpl</class>
+        <enabler>org.efs.openreports.providers.AlertProviderAware</enabler>
+    </component>   
+    
+    
+</components>

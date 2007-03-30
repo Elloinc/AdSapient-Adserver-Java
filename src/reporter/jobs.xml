@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quartz xmlns="http://www.opensymphony.com/quartz/JobSchedulingData"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        overwrite-existing-jobs="true">
+    <job>
+        <job-detail>
+            <name>ReporterUpdateJob</name>
+            <group>DEFAULT_GROUP</group>
+            <description>Picks up ad events and uniques files and propagates reporter database</description>
+            <job-class>com.adsapient.reporter.ReporterUpdateJob</job-class>
+        </job-detail>
+        <trigger>
+            <simple>
+                <name>ReporterUpdateJobTrigger</name>
+                <group>DEFAULT_GROUP</group>
+                <job-name>ReporterUpdateJob</job-name>
+                <job-group>DEFAULT_GROUP</job-group>
+                <repeat-count>-1</repeat-count>
+                <repeat-interval>10000</repeat-interval>
+            </simple>
+        </trigger>
+    </job>
+</quartz>

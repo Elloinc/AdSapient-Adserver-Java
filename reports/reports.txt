@@ -3,3 +3,49 @@ Criteria:
 - entity type (user, campaign, site, banner, ad place)
 - entities range
 - data columns (adviews, clicks, sales, leads, earned, spent, ratios)
+
+Publishing reports:
+1. Publishing report by sites (Displays information on publishing by sites with the following data:
+Rows of the table: site ID, Site URL
+Columns:Uniques (daily|weekly|monthly|total), Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, CPM, CPC, CPL, CPS, Revenue)
+Uniques daily - average daily
+Uniques weekly - average weekly
+Uniques monthly - ~ average monthly
+Uniques total - from the initiation of the entity (site here), for a day this will display the increment of uniques
+
+Variations:
+- publishing report by publishers
+- publishing report by ad places
+
+
+
+2.- Daily publishing report (Displays information on publishing by dates with the following data:
+Rows:Date
+Columns: Uniques (daily|weekly|monthly|total), Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Revenue.)
+
+Variations:
+- by site
+- publishing report by publishers
+- publishing report by ad places
+
+- What displayed publishing report (Displays information on publishing by campaigns displayed on sites (either of the current account or in the whole system in case it is system reports) with the following data: campaign ID, Campaign Name, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Revenue.)
+- Activity by Day of the Week Report (Displays information on publishing by days of the week with the following data: Day of the Week, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Revenue.)
+- Activity by Hour of the Day ( Displays information on publishing by hour of the day with the following data: Hour of the day, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Revenue.)
+- Publishing Report by Ad Place Category (Displays information on publishing by ad place's category with the following data: Category, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Revenue.)
+- Publishing Report by Positions (Displays information on publishing by ad place's position with the following data: Position, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Revenue.)
+- Publishing Report by Country(Displays information on publishing by country with the following data: Country, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Revenue.)
+- Publishing Report by Op.System(Displays information on publishing by user operating systems and browser types with the following data: Operating System, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Revenue.)
+- Publishing Report by Browser type(Displays information on publishing by user browser types with the following data: Browser Type, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Revenue.)
+- Daily Uniques Report( Displays information on publishing by sites with the following data: site ID, Site URL, Uniques, Ad Views, Clicks, Leads, Sales, Views/Unqs, Unqs/Clicks, Unqs/Leads, Unqs/Sales, Revenue.)
+
+Advertising reports:
+- Advertising Report by Campaigns(Displays information on advertising by campaigns with the following data: Campaign ID, Campaign Name, Start date, End date, Rate, Ad views/clicks booked, Ad views/clicks displayed, Leads/Sales booked, Leads/Sales generated.)
+- Daily Advertising Report(Displays information on advertising by dates with the following data: Date, Uniques, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Ad Views/Uniques, Spendings.)
+- Where Displayed Advertising Report( Displays information on advertising by sites/ad places with the following data: Site / Ad Place, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Spendings.)
+- Advertising Report by Banners(Displays information on advertising by banner with the following data: Banner ID, Banner Name, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Spendings.)
+- Advertising Report by Category(Displays information on advertising by ad place/site category with the following data: Category, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Spendings.)
+- Advertising Report by Operating System(Displays information on advertising by ad place/site category with the following data: Operating System, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Spendings.)
+- Advertising Report by Browser Type(Displays information on advertising by ad place/site category with the following data: Browser Type, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Spendings.)
+- Day of the Week Advertising Report (similar to Activity by Day of the Week Publishing Report, only called differently. Displays information on advertising by day of the week with the following data: Day, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Spendings.)
+-Hour of the Day Advertising Report (similar to Activity by Hour of the Day Publishing Report only called differently.Displays information on advertising by hour of the day with the following data: Hour, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Spendings.)
+-Advertising Report by Country(Displays information on advertising by hour of the day with the following data: Country, Ad Views, Clicks, Leads, Sales, CTR, LTR, STR, Spendings.)

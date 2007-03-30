@@ -4,34 +4,45 @@ Author: Vitaly Sazanovich
 Email: Vitaly.Sazanovich@gmail.com
 -->
 
-<project name="adsapient" default="jar" basedir=".">
+<project name="adsapient" default="dist" basedir=".">
 
     <property name="name" value="adsapient"/>
     <property name="version" value="0.0.1rc1_3.1.2006"/>
     <property environment="env"/>
 
     <property name="src.dir.main" value="src/main"/>
+    <property name="src.dir.reporter" value="src/reporter"/>
     <property name="src.dir.test" value="src/test"/>
 
-    <property name="src.dir.gui" value="src/web-gui"/>
-    <property name="src.dir.adserver" value="src/web-adserver"/>
-    <property name="src.dir.reporter" value="src/web-reporter"/>
+    <property name="src.dir.web-gui" value="src/web-gui"/>
+    <property name="src.dir.web-adserver" value="src/web-adserver"/>
+    <property name="src.dir.web-reporter" value="src/web-reporter"/>
+    <property name="src.dir.site" value="src/site"/>
 
-    <property name="lib.dir.optional" value="lib/optional"/>
-    <property name="lib.dir.required" value="lib/required"/>
+    <property name="lib.dir.commons" value="lib/commons"/>
+    <property name="lib.dir.misc" value="lib/misc"/>
     <property name="lib.dir.core" value="lib/core"/>
+    <property name="lib.dir.cactus" value="lib/cactus"/>
 
     <property name="build.dir" value="build"/>
     <property name="dist.dir" value="dist"/>
 
+    <property name="adserver.build.dir" value="src/web-adserver/WEB-INF/classes"/>
+    <property name="gui.build.dir" value="src/web-gui/WEB-INF/classes"/>
+    <property name="reporter.build.dir" value="src/web-reporter/WEB-INF/classes"/>
+
     <property name="javac.debug" value="true"/>
     <property name="javac.optimize" value="false"/>
 
+    <property name="cactus.home.resin3x" value="resin"/>
+    <property name="cactus.home.resinconf" value="resin/conf/resin-tests.conf"/>
+    <property name="cactus.port" value="8989"/>
+
     <path id="lib.class.path">
-        <fileset dir="${lib.dir.optional}">
+        <fileset dir="${lib.dir.commons}">
             <include name="**/*.jar"/>
         </fileset>
-        <fileset dir="${lib.dir.required}">
+        <fileset dir="${lib.dir.misc}">
             <include name="**/*.jar"/>
         </fileset>
     </path>
@@ -45,6 +56,21 @@ Email: Vitaly.Sazanovich@gmail.com
                 <include name="**/*.*"/>
             </fileset>
         </delete>
+        <delete>
+            <fileset dir="${adserver.build.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </delete>
+        <delete>
+            <fileset dir="${gui.build.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </delete>
+        <delete>
+            <fileset dir="${reporter.build.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </delete>
     </target>
 
 
@@ -53,7 +79,6 @@ Email: Vitaly.Sazanovich@gmail.com
             <format property="subversion" pattern="yyyy-MM-dd hh:mm:ss"/>
         </tstamp>
         <echo message="Build ${name}-${version} (${subversion})"/>
-
     </target>
 
 
@@ -73,25 +98,83 @@ Email: Vitaly.Sazanovich@gmail.com
         </javac>
     </target>
 
+    <target name="dev-compile-adserver" description="Compile the Java source code to adserver">
+        <javac
+                srcdir="${src.dir.main}"
+                destdir="${adserver.build.dir}"
+                classpathref="lib.class.path"
+                debug="on"
+                optimize="on"
+                nowarn="on"
+                includes="**/*.*"
+                memorymaximumsize="640M"
+                deprecation="false"
+                source="1.5"
+                target="1.5">
+        </javac>
+    </target>
 
-    <target name="war" description="Create binary distribution" depends="clean,init,compile,jar">
+    <target name="dev-compile-gui" description="Compile the Java source code">
+        <javac
+                srcdir="${src.dir.main}"
+                destdir="${gui.build.dir}"
+                classpathref="lib.class.path"
+                debug="on"
+                optimize="on"
+                nowarn="on"
+                includes="**/*.*"
+                memorymaximumsize="640M"
+                deprecation="false"
+                source="1.5"
+                target="1.5">
+        </javac>
+    </target>
+
+    <target name="dev-compile-reporter" description="Compile the Java source code">
+        <javac
+                srcdir="${src.dir.reporter}"
+                destdir="${reporter.build.dir}"
+                classpathref="lib.class.path"
+                debug="on"
+                optimize="on"
+                nowarn="on"
+                includes="**/*.*"
+                memorymaximumsize="640M"
+                deprecation="false"
+                source="1.5"
+                target="1.5">
+        </javac>
+    </target>
+
+    <target name="dev-compile-all" description="Compile the Java source code"
+            depends="dev-compile-adserver,dev-compile-gui,dev-compile-reporter">
+    </target>
+
+
+    <target name="dist" description="Create binary distribution" depends="clean,init,compile,jar">
         <war
-                basedir="${src.dir.gui}"
+                basedir="${src.dir.web-gui}"
                 excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,WEB-INF/classes/com/,src/"
-                destfile="${dist.dir}/${name}-gui.war"
-                webxml="${src.dir.gui}/WEB-INF/web.xml">
+                destfile="${dist.dir}/${name}.war"
+                webxml="${src.dir.web-gui}/WEB-INF/web.xml">
         </war>
         <war
-                basedir="${src.dir.adserver}"
+                basedir="${src.dir.web-adserver}"
                 excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,src/"
                 destfile="${dist.dir}/${name}-adserver.war"
-                webxml="${src.dir.adserver}/WEB-INF/web.xml">
+                webxml="${src.dir.web-adserver}/WEB-INF/web.xml">
         </war>
         <war
-                basedir="${src.dir.reporter}"
+                basedir="${src.dir.web-reporter}"
                 excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,src/"
                 destfile="${dist.dir}/${name}-reporter.war"
-                webxml="${src.dir.reporter}/WEB-INF/web.xml">
+                webxml="${src.dir.web-reporter}/WEB-INF/web.xml">
+        </war>
+        <war
+                basedir="${src.dir.site}"
+                excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,src/"
+                destfile="${dist.dir}/${name}-site.war"
+                webxml="${src.dir.site}/WEB-INF/web.xml">
         </war>
     </target>
 
@@ -118,6 +201,52 @@ Email: Vitaly.Sazanovich@gmail.com
         <copy todir="${lib.dir.core}" overwrite="true" flatten="false">
             <fileset file="${dist.dir}/${name}.jar"/>
         </copy>
+    </target>
+
+    <target name="test.prepare" depends="compile">
+        <war
+                basedir="${src.dir.web-gui}"
+                excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,WEB-INF/classes/com/,src/"
+                destfile="${dist.dir}/${name}-test.war"
+                webxml="${src.dir.web-gui}/WEB-INF/web.xml">
+            <lib dir="${lib.dir.commons}"/>
+            <lib dir="${lib.dir.misc}"/>
+            <lib dir="${lib.dir.cactus}"/>
+            <lib dir="${lib.dir.core}"/>
+        </war>
+    </target>
+
+    <target name="test" depends="test.prepare"
+            description="Run the tests on the defined containers">
+        <cactus warfile="${dist.dir}/${name}-test.war"
+                fork="yes"
+                printsummary="no"
+                haltonerror="on"
+                haltonfailure="on"
+                errorproperty="cactuserror">
+            <classpath>
+                <path refid="lib.class.path"/>
+                <path refid="cactus.lib.class.path"/>
+                <pathelement location="${build.dir}"/>
+            </classpath>
+            <containerset>
+                <resin3x
+                        dir="${cactus.home.resin3x}"
+                        resinconf="${cactus.home.resinconf}"
+                        port="${cactus.port}"
+                        />
+            </containerset>
+            <!--<formatter type="xml"/>-->
+            <batchtest>
+                <fileset dir="${src.dir.test}">
+                    <include name="**/*Test.java"/>
+                    <!--<exclude name="**/Test*All.java"/>-->
+                </fileset>
+            </batchtest>
+        </cactus>
+
+        <echo message="${errorproperty}"/>
+
     </target>
 
 
