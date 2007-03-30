@@ -1,0 +1,1 @@
+© 2007 AdSapient. All Rights Reserved. <a href="terms.jsp" class="bottom_text">Terms</a> | <a href="privacy.jsp" class="bottom_text">Privacy</a>
