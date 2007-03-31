@@ -23,25 +23,10 @@
  */
 package com.adsapient.adserver.filters.stateless;
 
-import com.maxmind.geoip.LookupService;
-
-import java.io.File;
-
-import java.net.URL;
-
 public class RequestParamsFilterProcessorTest {
-	public static LookupService cl = null;
 
 	public static void main(String[] args) {
 		try {
-			URL url = RequestParamsFilterProcessor.class.getClassLoader()
-					.getResource("setup/GeoIP.dat");
-			File f = new File(url.toURI());
-			String durgasIp = "125.22.42.194";
-			cl = new LookupService(f, LookupService.GEOIP_STANDARD);
-
-			String visitorCountry = cl.getCountry(durgasIp).getCode();
-			System.out.println(visitorCountry);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

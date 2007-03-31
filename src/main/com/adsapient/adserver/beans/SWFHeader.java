@@ -21,7 +21,7 @@
  * Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package com.paypod.adserver.beans;
+package com.adsapient.adserver.beans;
 
 import org.apache.log4j.Logger;
 

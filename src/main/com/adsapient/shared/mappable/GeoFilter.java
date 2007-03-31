@@ -40,7 +40,6 @@ import com.adsapient.shared.dao.HibernateEntityDao;
 import com.adsapient.gui.forms.FilterActionForm;
 import com.adsapient.gui.ContextAwareGuiBean;
 
-import com.maxmind.geoip.LookupService;
 
 import org.apache.log4j.Logger;
 
@@ -59,7 +58,6 @@ public class GeoFilter implements FilterInterface, IMappable {
 
 	private static final String relatedFiltersQueryName = "getRelatedGeoFilterIds";
 
-	public static LookupService cl = null;
 
 	private Integer bannerId;
 

@@ -21,7 +21,7 @@
  * Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
-package com.paypod.reporter;
+package com.adsapient.reporter;
 
 import com.adsapient.adserver.AdserverServlet;
 import com.adsapient.reporter.ReportsPropagator;

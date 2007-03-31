@@ -188,6 +188,7 @@
       <module fileurl="file://$PROJECT_DIR$/src/web-reporter/adsapient-reporter.iml" filepath="$PROJECT_DIR$/src/web-reporter/adsapient-reporter.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/reporter/reporter.iml" filepath="$PROJECT_DIR$/src/reporter/reporter.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/site/site.iml" filepath="$PROJECT_DIR$/src/site/site.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/web-site/web-site.iml" filepath="$PROJECT_DIR$/src/web-site/web-site.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" assert-keyword="true" jdk-15="true" project-jdk-name="1.5" />

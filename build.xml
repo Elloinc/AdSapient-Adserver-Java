@@ -17,10 +17,9 @@ Email: Vitaly.Sazanovich@gmail.com
     <property name="src.dir.web-gui" value="src/web-gui"/>
     <property name="src.dir.web-adserver" value="src/web-adserver"/>
     <property name="src.dir.web-reporter" value="src/web-reporter"/>
-    <property name="src.dir.site" value="src/site"/>
+    <property name="src.dir.site" value="src/web-site"/>
 
-    <property name="lib.dir.commons" value="lib/commons"/>
-    <property name="lib.dir.misc" value="lib/misc"/>
+    <property name="lib.dir.required" value="lib/required"/>
     <property name="lib.dir.core" value="lib/core"/>
     <property name="lib.dir.cactus" value="lib/cactus"/>
 
@@ -29,6 +28,7 @@ Email: Vitaly.Sazanovich@gmail.com
 
     <property name="adserver.build.dir" value="src/web-adserver/WEB-INF/classes"/>
     <property name="gui.build.dir" value="src/web-gui/WEB-INF/classes"/>
+    <property name="site.build.dir" value="src/web-site/WEB-INF/classes"/>
     <property name="reporter.build.dir" value="src/web-reporter/WEB-INF/classes"/>
 
     <property name="javac.debug" value="true"/>
@@ -39,10 +39,7 @@ Email: Vitaly.Sazanovich@gmail.com
     <property name="cactus.port" value="8989"/>
 
     <path id="lib.class.path">
-        <fileset dir="${lib.dir.commons}">
-            <include name="**/*.jar"/>
-        </fileset>
-        <fileset dir="${lib.dir.misc}">
+        <fileset dir="${lib.dir.required}">
             <include name="**/*.jar"/>
         </fileset>
     </path>
@@ -118,6 +115,22 @@ Email: Vitaly.Sazanovich@gmail.com
         <javac
                 srcdir="${src.dir.main}"
                 destdir="${gui.build.dir}"
+                classpathref="lib.class.path"
+                debug="on"
+                optimize="on"
+                nowarn="on"
+                includes="**/*.*"
+                memorymaximumsize="640M"
+                deprecation="false"
+                source="1.5"
+                target="1.5">
+        </javac>
+    </target>
+
+    <target name="dev-compile-site" description="Compile the Java source code">
+        <javac
+                srcdir="${src.dir.main}"
+                destdir="${site.build.dir}"
                 classpathref="lib.class.path"
                 debug="on"
                 optimize="on"
@@ -209,8 +222,7 @@ Email: Vitaly.Sazanovich@gmail.com
                 excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,WEB-INF/classes/com/,src/"
                 destfile="${dist.dir}/${name}-test.war"
                 webxml="${src.dir.web-gui}/WEB-INF/web.xml">
-            <lib dir="${lib.dir.commons}"/>
-            <lib dir="${lib.dir.misc}"/>
+            <lib dir="${lib.dir.required}"/>
             <lib dir="${lib.dir.cactus}"/>
             <lib dir="${lib.dir.core}"/>
         </war>

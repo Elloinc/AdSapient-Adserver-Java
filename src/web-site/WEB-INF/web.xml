@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+
+    <servlet>
+        <servlet-name>adsapient-sendMail</servlet-name>
+        <servlet-class>com.adsapient.gui.SendMailServlet</servlet-class>
+        <init-param>
+            <param-name>application</param-name>
+            <param-value>ApplicationResource</param-value>
+        </init-param>
+    </servlet>
+        <servlet>
+        <servlet-name>adsapient-redirector</servlet-name>
+        <servlet-class>com.adsapient.gui.RedirectorServlet</servlet-class>
+        <init-param>
+            <param-name>adsapient.com</param-name>
+            <param-value>index.jsp</param-value>
+        </init-param>
+            <init-param>
+            <param-name>ediew.com</param-name>
+            <param-value>/ediew</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adsapient-sendMail</servlet-name>
+        <url-pattern>/sendMail</url-pattern>
+    </servlet-mapping>
+</web-app>
