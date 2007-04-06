@@ -8,6 +8,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -49,6 +50,7 @@ public class SendMailServlet extends HttpServlet {
         //
         byte result = sendEmail(email, MAIL_SERVER_CONFIG.getProperty("recepient.email"),
                 APP_RES.getProperty("email.subject"), message);
+        request.setAttribute("__result", result);
         //
         String[] path = request.getHeader("referer").split("/");
         String input = "contact.jsp";
@@ -58,7 +60,10 @@ public class SendMailServlet extends HttpServlet {
                 input = input.split("\\?")[0];
             }
         }
-        response.sendRedirect(input + "?result=" + result);
+//        RequestDispatcher rd = request.getRequestDispatcher(input);
+//        rd.forward(request, response);
+//        response.sendRedirect(input);
+        request.getRequestDispatcher("contact.jsp").forward(request, response);
     }
 
     private String compileMessage(String from, String email, String comment) {
