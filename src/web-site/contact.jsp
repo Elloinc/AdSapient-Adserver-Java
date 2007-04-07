@@ -76,7 +76,7 @@
                         try {
                             result = Integer.valueOf((Byte) request.getAttribute("__result"));
                         } catch (Exception ex) {
-                            ex.printStackTrace();
+                            System.out.println(ex.getMessage());
                         }
                         if (SendMailServlet.APP_RES == null) {
                             result = SendMailServlet.READY;
