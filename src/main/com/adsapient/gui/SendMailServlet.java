@@ -83,6 +83,8 @@ public class SendMailServlet extends HttpServlet {
     ) {
 
         Session session = Session.getDefaultInstance(MAIL_SERVER_CONFIG, null);
+        session.getProperties().put("mail.smtp.localhost", "localhost");
+        session.setDebug(true);
         MimeMessage message = new MimeMessage(session);
         try {
             message.setFrom(new InternetAddress(aFromEmailAddr));

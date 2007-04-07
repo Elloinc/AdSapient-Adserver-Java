@@ -220,7 +220,16 @@
       <file leaf-file-name="SendMailServlet.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/SendMailServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="35" selection-start="3922" selection-end="3922" vertical-scroll-proportion="0.70035255">
+            <state line="86" column="29" selection-start="3643" selection-end="3643" vertical-scroll-proportion="0.60047">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adsapient.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/web-site/WEB-INF/adsapient.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="43" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -398,13 +407,31 @@
         <option name="myItemId" value="adsapient.ipr" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
       </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="web-site" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:D:\adsapient\src\web-site" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:D:\adsapient\src\web-site\WEB-INF" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" splitterProportion="0.5">
       <flattenPackages PackagesPane="false" />
       <showMembers />
       <showModules />
@@ -762,9 +789,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/web-site/WEB-INF/adsapient.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="43" selection-start="43" selection-end="43" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/required/mail-1.4.jar!/javax/mail/Session.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="8" selection-start="122" selection-end="132" vertical-scroll-proportion="0.040669855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/SendMailServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="35" selection-start="3922" selection-end="3922" vertical-scroll-proportion="0.70035255">
+        <state line="86" column="29" selection-start="3643" selection-end="3643" vertical-scroll-proportion="0.60047">
           <folding />
         </state>
       </provider>
