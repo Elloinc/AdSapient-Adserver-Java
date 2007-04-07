@@ -83,13 +83,12 @@ public class SendMailServlet extends HttpServlet {
     ) {
 
         Session session = Session.getDefaultInstance(MAIL_SERVER_CONFIG, null);
-        session.getProperties().put("mail.smtp.localhost", "localhost");
         MimeMessage message = new MimeMessage(session);
         try {
             message.setFrom(new InternetAddress(aFromEmailAddr));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(aToEmailAddr));
             message.setSubject(aSubject);
-            message.setText(aBody);            
+            message.setText(aBody);
             Transport.send(message);
             return SUCCESS;
         }
