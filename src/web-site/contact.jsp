@@ -86,7 +86,7 @@
                         } else if (result == SendMailServlet.FAILURE) {
                             out.println("<font style=\"color:red;\">" + SendMailServlet.APP_RES.getProperty("message.failure") + "</font>");
                         } else {
-                            out.println("Contact us using this form:");
+                            out.println("Contact us at Vitaly.Sazanovich_at_gmail.com (replace _at_ with @), while we setup smtp on our new hosting. Thanks!");
                         }
                     %>
 

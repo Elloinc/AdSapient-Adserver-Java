@@ -177,12 +177,12 @@ Email: Vitaly.Sazanovich@gmail.com
                 destfile="${dist.dir}/${name}-adserver.war"
                 webxml="${src.dir.web-adserver}/WEB-INF/web.xml">
         </war>
-        <war
-                basedir="${src.dir.web-reporter}"
-                excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,src/"
-                destfile="${dist.dir}/${name}-reporter.war"
-                webxml="${src.dir.web-reporter}/WEB-INF/web.xml">
-        </war>
+        <!--<war-->
+                <!--basedir="${src.dir.web-reporter}"-->
+                <!--excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,src/"-->
+                <!--destfile="${dist.dir}/${name}-reporter.war"-->
+                <!--webxml="${src.dir.web-reporter}/WEB-INF/web.xml">-->
+        <!--</war>-->
         <war
                 basedir="${src.dir.site}"
                 excludes="WEB-INF/classes/tmp/,WEB-INF/classes/work/,WEB-INF/work/,WEB-INF/tmp/,src/"
