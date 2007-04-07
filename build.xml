@@ -191,6 +191,10 @@ Email: Vitaly.Sazanovich@gmail.com
         </war>
     </target>
 
+    <target name="copy-custom-properties" if="adsapient.properties">
+        <move file="${build.dir}/${adsapient.properties}" tofile="${build.dir}/adsapient.properties" overwrite="true" flatten="false"/>
+    </target>
+
     <target name="jar" depends="clean,init,compile">
         <!--copying resources from the sources-->
         <copy todir="${build.dir}" overwrite="true" flatten="false">
@@ -199,6 +203,9 @@ Email: Vitaly.Sazanovich@gmail.com
                 <exclude name="com/"/>
             </fileset>
         </copy>
+
+        <antcall target="copy-custom-properties"/>
+
         <!--creating jar file-->
         <jar basedir="${build.dir}"
              destfile="${dist.dir}/${name}.jar"/>
