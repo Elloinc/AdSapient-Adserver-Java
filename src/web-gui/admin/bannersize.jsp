@@ -1,5 +1,7 @@
-<%@ page import="com.adsapient.util.I18nService"%>
 <%@ page import="com.adsapient.gui.forms.BannerSizeActionForm"%>
+<%@ page import="org.springframework.context.ApplicationContext"%>
+<%@ page import="com.adsapient.gui.ContextAwareGuiBean"%>
+<%@ page import="com.adsapient.shared.service.I18nService"%>
 <%@ taglib uri='/WEB-INF/struts-html.tld' prefix='html' %>
 <%@ taglib uri='/WEB-INF/struts-logic.tld' prefix='logic' %>
 <%@ taglib uri='/WEB-INF/struts-bean.tld' prefix='bean' %>
