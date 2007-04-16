@@ -6,7 +6,7 @@ drop table  keywordsrealtime;
 CREATE TABLE  keywordsrealtime (
     id BIGINT NOT NULL,
     PUBLISHERURL varchar(254) NOT NULL  ,
-    KEYWORDS VARCHAR(30000) NOT NULL ,
+    KEYWORDS VARCHAR(255) NOT NULL ,
     PRIMARY KEY (id),
     UNIQUE (PUBLISHERURL)
     );
