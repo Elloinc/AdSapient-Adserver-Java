@@ -8,7 +8,7 @@ CREATE TABLE  banner (
   USER_ID bigint NOT NULL ,
   CAMPAIN_ID bigint NOT NULL , 
   SIZE_ID bigint  ,
-  URL VARCHAR(30000) ,
+  URL VARCHAR(255) ,
   TYPE_ID varchar(64) NOT NULL ,
   BANNER_STATE_ID varchar(64) NOT NULL ,
   FILE_TEST varchar(254)  ,
