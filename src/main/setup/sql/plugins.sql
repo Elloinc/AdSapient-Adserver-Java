@@ -5,7 +5,7 @@ drop table  plugins;
 CREATE TABLE  plugins (
    ID bigint not null,
    CLASS_NAME varchar (240),
-   MAPPING_DATA VARCHAR(30000),
+   MAPPING_DATA VARCHAR(255),
    PLUGIN_NAME varchar(240),
    PRESENT varchar(2),
    TYPE_ID bigint,

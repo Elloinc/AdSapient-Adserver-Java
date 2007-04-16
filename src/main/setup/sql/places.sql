@@ -16,7 +16,7 @@ CREATE TABLE  places (
    COLUMN_COINT bigint,
    SORTING varchar(2),
    KEYWORDS varchar(2),
-   CATEGORYS VARCHAR(30000),
+   CATEGORYS VARCHAR(255),
    OWN_PLACES varchar(2),
    USER_ID bigint not null,
    PRIMARY KEY (ID)

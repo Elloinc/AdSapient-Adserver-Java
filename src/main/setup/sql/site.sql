@@ -10,7 +10,7 @@ CREATE TABLE  site (
    URL varchar(240) NOT NULL  ,
   NAME varchar(240) ,
   DESCRIPTION varchar(240) ,
-  CATEGORYS VARCHAR(30000),
+  CATEGORYS VARCHAR(255),
    CLICKS_CAMPAIN_ALLOW varchar(2), 
    RATE_ID bigint NOT NULL,
    STATE_ID bigint NOT NULL ,
