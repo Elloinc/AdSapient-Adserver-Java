@@ -17,6 +17,7 @@
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="preloadImages();">
 <center>
+    <%@ include file="tiles/ad.jsp" %>
     <table cellspacing="0" cellpadding="0" width="865" border="0">
         <tr><td align="center"><img alt="AdSapient Ad Serving Solutions" src="images/logo.gif"></td>
             <td align="right" valign="bottom"><map NAME="bg_Map">
