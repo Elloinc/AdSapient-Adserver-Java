@@ -74,6 +74,7 @@ public class JDBCService {
             try {
                 qweryString = (String) querrysIterator.next();
                 con = DriverManager.getConnection(url, userName, password);
+                
                 stmt = con.createStatement();
 
                 if (driver.equals(AdsapientConstants.HSSQLDRIVER)) {
