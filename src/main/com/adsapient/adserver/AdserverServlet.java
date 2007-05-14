@@ -23,9 +23,11 @@
  */
 package com.adsapient.adserver;
 
+import com.adsapient.adserver.reporter.ReporterScheduler;
 import com.adsapient.adserver.requestprocessors.*;
 import com.adsapient.shared.AdsapientConstants;
 import org.apache.log4j.Logger;
+import org.quartz.SchedulerException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -186,6 +188,16 @@ public class AdserverServlet extends HttpServlet {
                 .getBean("adserverModelBuilder");
         updateEntityProcessor = (UpdateEntityProcessor) appContext
                 .getBean("updateEntityProcessor");
+    }
+
+    public void destroy() {
+        ReporterScheduler reporterScheduler = (ReporterScheduler) appContext
+                .getBean("reporterScheduler");
+        try {
+            reporterScheduler.getSched().shutdown();
+        } catch (SchedulerException e) {
+            logger.error(e.getMessage(), e);
+        }
     }
 
     protected String[] getFileList() {

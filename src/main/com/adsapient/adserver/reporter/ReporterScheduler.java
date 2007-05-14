@@ -41,11 +41,21 @@ public class ReporterScheduler extends JobSchedulingDataProcessor {
     private String pathToJobs;
     private Map<String, String> quartzPropertiesMap;
 
+    public Scheduler getSched() {
+        return sched;
+    }
+
+    public void setSched(Scheduler sched) {
+        this.sched = sched;
+    }
+
+    private Scheduler sched;
+
     public void setup() {
         try {
             SchedulerFactory schedFact = new StdSchedulerFactory();
             ((StdSchedulerFactory) schedFact).initialize(quartzProperties);
-            Scheduler sched = schedFact.getScheduler();
+            sched = schedFact.getScheduler();
             String prefix = String.valueOf(System.currentTimeMillis());
             this.processFile(pathToJobs);
             for (Object j : jobsToSchedule) {
