@@ -122,7 +122,7 @@ public class DefaultBannerAction extends SecureAction {
                         params);
 
                 if ((count != null) && (count.size() > 0)) {
-                    Integer num = (Integer) count.get(0);
+                    Integer num = ((Long) count.get(0)).intValue();
 
                     if (num.longValue() != 0) {
                         form.setCreateAllowed(true);
