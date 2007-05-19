@@ -85,7 +85,8 @@
     <!--</bean>-->
 
     <bean name="/viewAccount"
-          class="com.adsapient.gui.actions.ViewAccountAction">
+          class="com.adsapient.gui.actions.ViewAccountAction"
+            autowire="byType">
         <property name="hibernateEntityDao">
             <ref bean="hibernateEntityDao"/>
         </property>

@@ -71,7 +71,7 @@ public class CharsetFilter implements Filter {
         HttpServletResponse response) throws ServletException {
         if (request.getAttribute(REQUEST_LANGUAGE) != null) {
             return;
-        }
+        }     
 
         try {
             request.setCharacterEncoding("UTF-8");
