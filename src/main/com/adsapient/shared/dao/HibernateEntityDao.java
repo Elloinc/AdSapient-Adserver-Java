@@ -28,7 +28,6 @@ import com.adsapient.gui.ContextAwareGuiBean;
 import com.adsapient.shared.AdsapientConstants;
 import com.adsapient.shared.service.LinkHelperService;
 import com.adsapient.shared.service.TimeKiller;
-import com.adsapient.shared.service.AdSapientHibernateService;
 import org.apache.log4j.Logger;
 import org.hibernate.*;
 import org.hibernate.criterion.Expression;
@@ -328,9 +327,18 @@ public class HibernateEntityDao extends HibernateDaoSupport {
         return (Collection) getHibernateTemplate().execute(new HibernateCallback() {
             public Object doInHibernate(Session session) throws HibernateException {
                 session.setCacheMode(CacheMode.IGNORE);
-                return session.createCriteria(hibernateObjectClass)
-                        .add(Expression.like(criteriaName1, criteriaValue1)
-                        ).add(Expression.like(criteriaName2, criteriaValue2)).list();
+                Criteria crit = session.createCriteria(hibernateObjectClass);
+                if (criteriaValue1 == null) {
+                    crit.add(Expression.isNull(criteriaName1));
+                } else {
+                    crit.add(Expression.eq(criteriaName1, criteriaValue1));
+                }
+                if (criteriaValue2 == null) {
+                    crit.add(Expression.isNull(criteriaName2));
+                } else {
+                    crit.add(Expression.eq(criteriaName2, criteriaValue2));
+                }
+                return crit.list();
             }
         });
     }

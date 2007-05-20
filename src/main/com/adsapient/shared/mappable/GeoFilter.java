@@ -102,11 +102,11 @@ public class GeoFilter implements FilterInterface, IMappable {
 	}
 
 	public String getPreferCities() {
-		if (preferCities == null) {
-			preferCities = CitiesService.getAllCitiesIndexes();
-		}
+//		if (preferCities == null) {
+//			preferCities = CitiesService.getAllCitiesIndexes();
+//		}
 
-		return preferCities;
+		return "";
 	}
 
 	public void setPreferCountrys(String preferCountrys) {
@@ -266,22 +266,6 @@ public class GeoFilter implements FilterInterface, IMappable {
 
 				form.getCountryNameToCodeCollection().add(lvb);
 				form.setFilterAction("update");
-			}
-		}
-
-		for (Iterator iter = CitiesService.getAllCities().iterator(); iter
-				.hasNext();) {
-			String cityCode = (String) iter.next();
-
-			if (!CitiesService.getCityNameByCode(cityCode).equals("n/a")) {
-				LabelValueBean city = new LabelValueBean(CitiesService
-						.getCityNameByCode(cityCode), cityCode);
-
-				if (containsCountry(cityCode)) {
-					form.getContainedCityNames().add(city);
-				}
-
-				form.getCityNameToCodeCollection().add(city);
 			}
 		}
 

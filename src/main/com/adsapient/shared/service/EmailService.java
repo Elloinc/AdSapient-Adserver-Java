@@ -141,7 +141,7 @@ public class EmailService {
         Properties props = System.getProperties();
         Message mesg;
 
-        props.put("mail.smtp.host", "mail.crickem.com");
+        props.put("mail.smtp.host", "mail.adsapient.com");
 
         session = Session.getDefaultInstance(props, null);
         session.setDebug(true);
