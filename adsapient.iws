@@ -133,6 +133,32 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/LinkHelperService.java" line="91" class="com.adsapient.shared.service.LinkHelperService" package="com.adsapient.shared.service">
+        <option name="ENABLED" value="true" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverServlet.java" line="94" class="com.adsapient.adserver.AdserverServlet" package="com.adsapient.adserver">
+        <option name="ENABLED" value="true" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -173,91 +199,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="HibernateEntityDao.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/dao/HibernateEntityDao.java">
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="361" column="28" selection-start="13466" selection-end="13466" vertical-scroll-proportion="0.5625">
+            <state line="210" column="28" selection-start="7526" selection-end="7526" vertical-scroll-proportion="0.5625">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HibernateTemplate.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/required/spring.jar!/org/springframework/orm/hibernate3/HibernateTemplate.class">
+      <file leaf-file-name="LinkHelperService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/LinkHelperService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="0" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.16789216">
+            <state line="109" column="54" selection-start="3577" selection-end="3577" vertical-scroll-proportion="0.54901963">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CharsetFilter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/CharsetFilter.java">
+      <file leaf-file-name="AdserverServlet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="0" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.15282792">
+            <state line="94" column="0" selection-start="3454" selection-end="3454" vertical-scroll-proportion="0.1768953">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="struts-config.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/web-gui/WEB-INF/struts-config.xml">
+      <file leaf-file-name="GetPlaceCodeProcessor.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/GetPlaceCodeProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="334" column="40" selection-start="15853" selection-end="15853" vertical-scroll-proportion="0.02045728">
+            <state line="78" column="39" selection-start="2552" selection-end="2552" vertical-scroll-proportion="0.52948254">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FiltersTemplateAction.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/actions/FiltersTemplateAction.java">
+      <file leaf-file-name="AdcodeTemplate.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/beans/AdcodeTemplate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="19" selection-start="4413" selection-end="4413" vertical-scroll-proportion="0.26113117">
+            <state line="46" column="50" selection-start="1579" selection-end="1579" vertical-scroll-proportion="0.45006016">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilterAction.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/actions/FilterAction.java">
+      <file leaf-file-name="AbstractAdsapientProcessor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/AbstractAdsapientProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="0" selection-start="3169" selection-end="3169" vertical-scroll-proportion="0.27918172">
+            <state line="80" column="34" selection-start="2511" selection-end="2511" vertical-scroll-proportion="0.5090253">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FiltersService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/FiltersService.java">
+      <file leaf-file-name="placeEdit.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/web-gui/publisher/placeEdit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="625" column="0" selection-start="23098" selection-end="23098" vertical-scroll-proportion="0.1740196">
+            <state line="21" column="31" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.4375">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeoFilter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/mappable/GeoFilter.java">
+      <file leaf-file-name="AdserverModelBuilder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverModelBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="269" column="9" selection-start="7680" selection-end="7680" vertical-scroll-proportion="0.29411766">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CitiesService.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/CitiesService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="1583" selection-end="1583" vertical-scroll-proportion="-0.14583333">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasicPropertyAccessor.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/lib/required/hibernate3.jar!/org/hibernate/property/BasicPropertyAccessor.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="2038" selection-end="2038" vertical-scroll-proportion="0.1740196">
+            <state line="387" column="0" selection-start="15923" selection-end="15923" vertical-scroll-proportion="0.30637255">
               <folding />
             </state>
           </provider>
@@ -306,38 +314,6 @@
       <PATH_ELEMENT>
         <option name="myItemId" value="adsapient" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="adsapient.ipr" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="adsapient" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="context" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="adsapient.ipr" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="adsapient" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="context" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="guicontext" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
     </PATH>
   </component>
@@ -482,17 +458,12 @@
   <component name="RestoreUpdateTree" />
   <component name="RunManager">
     <activeType name="Remote" />
-    <configuration selected="false" default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+    <configuration selected="false" default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
     </configuration>
     <configuration selected="false" default="true" type="JUnit" factoryName="JUnit">
       <module name="" />
@@ -510,13 +481,6 @@
         <value defaultName="wholeProject" />
       </option>
     </configuration>
-    <configuration selected="false" default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
     <configuration selected="false" default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
@@ -525,6 +489,18 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <module name="" />
+    </configuration>
+    <configuration selected="false" default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
     <configuration selected="true" default="false" name="Resin" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -589,7 +565,7 @@
     <layout>
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="8" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="7" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.18948655" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.17726162" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.32918552" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.25" order="1" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.24208145" order="8" />
@@ -696,79 +672,23 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/forms/FilterActionForm.java">
+    <entry file="file://$PROJECT_DIR$/src/main/setup/templates/adplacecode-regular.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="186" column="0" selection-start="6842" selection-end="6842" vertical-scroll-proportion="0.28388748">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/EmailService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="34" selection-start="6330" selection-end="6330" vertical-scroll-proportion="0.564951">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/context/guicontext/applicationContext-actions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="42" selection-start="3497" selection-end="3497" vertical-scroll-proportion="1.1612515">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/actions/ViewAccountAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="30" selection-start="1954" selection-end="1971" vertical-scroll-proportion="0.12274368">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/actions/EditCampainAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="36" selection-start="2832" selection-end="2832" vertical-scroll-proportion="1.1564626">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/required/hibernate3.jar!/org/hibernate/property/BasicPropertyAccessor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="2038" selection-end="2038" vertical-scroll-proportion="0.1740196">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/CitiesService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1583" selection-end="1583" vertical-scroll-proportion="-0.14583333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/mappable/GeoFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="269" column="9" selection-start="7680" selection-end="7680" vertical-scroll-proportion="0.29411766">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/FiltersService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="625" column="0" selection-start="23098" selection-end="23098" vertical-scroll-proportion="0.1740196">
+        <state line="3" column="128" selection-start="194" selection-end="226" vertical-scroll-proportion="0.0625">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/actions/FilterAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="0" selection-start="3169" selection-end="3169" vertical-scroll-proportion="0.27918172">
+        <state line="79" column="0" selection-start="3169" selection-end="3169" vertical-scroll-proportion="0.02045728">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/actions/FiltersTemplateAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="19" selection-start="4413" selection-end="4413" vertical-scroll-proportion="0.26113117">
+        <state line="108" column="19" selection-start="4413" selection-end="4413" vertical-scroll-proportion="0.02045728">
           <folding />
         </state>
       </provider>
@@ -782,21 +702,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/CharsetFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.15282792">
+        <state line="49" column="0" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.14681107">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/required/spring.jar!/org/springframework/orm/hibernate3/HibernateTemplate.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.16789216">
+        <state line="53" column="0" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.020833334">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/dao/HibernateEntityDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="361" column="28" selection-start="13466" selection-end="13466" vertical-scroll-proportion="0.5625">
+        <state line="361" column="28" selection-start="13466" selection-end="13466" vertical-scroll-proportion="0.020833334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/AbstractAdsapientProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="34" selection-start="2511" selection-end="2511" vertical-scroll-proportion="0.5090253">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/beans/AdcodeTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="50" selection-start="1579" selection-end="1579" vertical-scroll-proportion="0.45006016">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/LinkHelperService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="54" selection-start="3577" selection-end="3577" vertical-scroll-proportion="0.54901963">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverModelBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="387" column="0" selection-start="15923" selection-end="15923" vertical-scroll-proportion="0.30637255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/web-gui/publisher/placeEdit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="31" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.4375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="0" selection-start="3454" selection-end="3454" vertical-scroll-proportion="0.1768953">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="210" column="28" selection-start="7526" selection-end="7526" vertical-scroll-proportion="0.5625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/GetPlaceCodeProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="39" selection-start="2552" selection-end="2552" vertical-scroll-proportion="0.52948254">
           <folding />
         </state>
       </provider>

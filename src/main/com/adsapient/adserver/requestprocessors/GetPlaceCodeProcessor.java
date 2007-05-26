@@ -34,6 +34,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContextAware;
 
 import java.util.Map;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -90,7 +91,6 @@ public class GetPlaceCodeProcessor extends AbstractAdsapientProcessor{
 		AdcodeTemplate at = templates
 				.get(AdsapientConstants.PLACE_TYPE_ORDINARY);
 		String adcode = at.getAdCodeFromParameters(templateParams);
-
-		return adcode;
+        return adcode;
 	}
 }

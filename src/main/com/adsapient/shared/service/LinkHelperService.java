@@ -107,7 +107,7 @@ public class LinkHelperService {
 
             in.close();
 
-            return new String(sb.toString().getBytes(), "UTF-8").replaceAll(
+            return new String(sb.toString().getBytes()).replaceAll(
                     "\\s\\s", " ");
         } catch (Exception ex) {
             logger.error(ex.getMessage());

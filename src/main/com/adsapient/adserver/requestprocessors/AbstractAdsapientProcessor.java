@@ -88,7 +88,7 @@ public abstract class AbstractAdsapientProcessor extends HttpServlet {
 	protected void writeResponse(String str, HttpServletResponse response) {
 		try {
 			PrintWriter pw = response.getWriter();
-			pw.write(str);
+            pw.write(str);
 			pw.flush();
 			pw.close();
 		} catch (Exception ex) {
