@@ -70,8 +70,8 @@ public class PublisherAction extends SecureAction {
 
         form.setSitesCollection(sitesCollection);
 
-        if ("viewPlacess".equalsIgnoreCase(form.getAction())) {
-            return mapping.findForward("viewPlacess");
+        if ("viewPlaces".equalsIgnoreCase(form.getAction())) {
+            return mapping.findForward("viewPlaces");
         }
 
         return mapping.findForward("success");

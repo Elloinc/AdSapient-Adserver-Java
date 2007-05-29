@@ -127,13 +127,13 @@ width="100%">
                href="<%=response.encodeURL("placeEdit.do?placeAction=view&placesId="+places.getId())+"&userId="+places.getUserId() %>"><img
                     src="images/icons/edit.png" border="0"
                     title=
-                        <bean:message key="edit"/></a>
+                        '<bean:message key="edit"/>'></a>
                 <a class="tabledata"
                    href="<%=response.encodeURL("placeEdit.do?placeAction=remove&placesId="+places.getId())%>"
                    onClick="return window.confirm('<%=(i18nService.fetch("delete.confirm",session)+" "+places.getId())%>');"><img
                         src="images/icons/remove.png" border="0"
                         title=
-                            <bean:message key="remove"/></a></nobr>
+                            '<bean:message key="remove"/>'></a></nobr>
 
                             </td>
 

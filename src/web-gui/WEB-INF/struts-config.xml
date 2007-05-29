@@ -212,7 +212,7 @@
                 name="publisherActionForm" scope="request">
             <forward name="success" path="sites"/>
             <forward name="add" path="/publisherEdit.do"/>
-            <forward name="viewPlacess" path="adplaces"/>
+            <forward name="viewPlaces" path="adplaces"/>
         </action>
 
 
@@ -265,11 +265,11 @@
                 name="placesEditActionForm" validate="true" input="adplace.add"
                 scope="request">
             <forward name="success"
-                     path="/publisherView.do?action=viewPlacess">
+                     path="/publisherView.do?action=viewPlaces">
             </forward>
             <forward name="placeEdit" path="adplace.edit"/>
 
-            <forward name="viewSitePlacess"
+            <forward name="viewSitePlaces"
                      path="/publisher/sitePlacesView.jsp"/>
             <forward name="placeAdd" path="adplace.add"/>
         </action>

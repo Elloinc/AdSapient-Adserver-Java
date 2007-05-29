@@ -435,7 +435,7 @@
     <definition name="adplaces" extends="site.mainLayout">
         <put name="title" value="site.adplaceslist.title"/>
         <put name="menu" value="globalmenu"/>
-        <put name="body" value="/publisher/placessView.jsp"/>
+        <put name="body" value="/publisher/placesView.jsp"/>
     </definition>
     <definition name="adplace.edit" extends="site.mainLayout">
         <put name="title" value="adplace.edit.title"/>

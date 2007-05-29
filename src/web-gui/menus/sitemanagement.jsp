@@ -23,7 +23,7 @@
 
         <tr>
             <td width="5" heigh="10" class="leftborder"></td>
-            <td height="10" colspan="2" ><a class="menuitem" href="<%=response.encodeURL("publisherView.do?action=viewPlacess")%>">&nbsp;&nbsp;<bean:message key="site.adplaces"/></a></td>
+            <td height="10" colspan="2" ><a class="menuitem" href="<%=response.encodeURL("publisherView.do?action=viewPlaces")%>">&nbsp;&nbsp;<bean:message key="site.adplaces"/></a></td>
             <td width="6" heigh="10" class="rightborder"></td>
         </tr>
 

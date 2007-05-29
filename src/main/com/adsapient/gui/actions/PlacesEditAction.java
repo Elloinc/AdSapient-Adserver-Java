@@ -115,7 +115,7 @@ public class PlacesEditAction extends SecureAction {
                 form.setAction("init");
             }
 
-            return mapping.findForward("viewSitePlacess");
+            return mapping.findForward("viewSitePlaces");
         }
 
         if ("edit".equalsIgnoreCase(form.getAction())) {
