@@ -88,7 +88,7 @@
           autowire="byType"
           singleton="true">
     </bean>
-     <bean name="ratesService"
+    <bean name="ratesService"
           class="com.adsapient.shared.service.RatesService"
           autowire="byType"
           singleton="true">
@@ -97,5 +97,17 @@
           class="com.adsapient.shared.service.LabelService"
           autowire="byType"
           singleton="true">
+    </bean>
+    <bean name="jdbcService"
+          class="com.adsapient.shared.service.JDBCService"
+          autowire="byType"
+          singleton="true"
+          init-method="setup">
+        <property name="updateTotalsSQL">
+            <value>update totalsreports set entityid=?, entityclass=?, adviews=?, clicks=?, leads=?, sales=?, earnedspent=?, uniques=? where id=?;</value>
+        </property>
+        <property name="saveTotalsSQL">
+            <value>insert into totalsreports (entityid, entityclass, adviews, clicks, leads, sales, earnedspent, uniques) values(?,?,?,?,?,?,?,?);</value>
+        </property>
     </bean>
 </beans>

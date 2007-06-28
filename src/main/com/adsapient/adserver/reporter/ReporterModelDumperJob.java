@@ -24,69 +24,70 @@
 package com.adsapient.adserver.reporter;
 
 import com.adsapient.adserver.AdserverServlet;
-import com.adsapient.adserver.ReporterUpdater;
 import com.adsapient.adserver.beans.ReporterModel;
 import com.adsapient.adserver.beans.TotalsReporterModel;
-
 import com.adsapient.shared.dao.HibernateEntityDao;
 import com.adsapient.shared.mappable.TotalsReport;
-
+import com.adsapient.shared.service.JDBCService;
 import org.apache.log4j.Logger;
-
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
 public class ReporterModelDumperJob implements Job {
-	private static Logger logger = Logger
-			.getLogger(ReporterModelDumperJob.class);
+    private static Logger logger = Logger
+            .getLogger(ReporterModelDumperJob.class);
 
-	private ReporterModel reporterModel;
+    private ReporterModel reporterModel;
 
-	private TotalsReporterModel totalsReporterModel;
+    private TotalsReporterModel totalsReporterModel;
 
-	private HibernateEntityDao hibernateEntityDao;
+    private HibernateEntityDao hibernateEntityDao;
 
-	private ReporterUpdater reporterUpdater;
+    private ReportsDumper reportsDumper;
 
-	private ReportsDumper reportsDumper;
+    private JDBCService jdbcService;
 
-	private void init() {
-		if ((reporterModel == null) && (AdserverServlet.appContext != null)) {
-			reporterModel = (ReporterModel) AdserverServlet.appContext
-					.getBean("reporterModel");
-			totalsReporterModel = (TotalsReporterModel) AdserverServlet.appContext
-					.getBean("totalsReporterModel");
-			hibernateEntityDao = (HibernateEntityDao) AdserverServlet.appContext
-					.getBean("hibernateEntityDao");
-			reporterUpdater = (ReporterUpdater) AdserverServlet.appContext
-					.getBean("reporterUpdater");
-			reportsDumper = (ReportsDumper) AdserverServlet.appContext
-					.getBean("reportsDumper");
-		}
-	}
+    private void init() {
+        if ((reporterModel == null) && (AdserverServlet.appContext != null)) {
+            reporterModel = (ReporterModel) AdserverServlet.appContext
+                    .getBean("reporterModel");
+            totalsReporterModel = (TotalsReporterModel) AdserverServlet.appContext
+                    .getBean("totalsReporterModel");
+            hibernateEntityDao = (HibernateEntityDao) AdserverServlet.appContext
+                    .getBean("hibernateEntityDao");
+            reportsDumper = (ReportsDumper) AdserverServlet.appContext
+                    .getBean("reportsDumper");
+            jdbcService = (JDBCService) AdserverServlet.appContext
+                    .getBean("jdbcService");
+        }
+    }
 
-	public void execute(JobExecutionContext jobExecutionContext)
-			throws JobExecutionException {
-		long t1 = System.currentTimeMillis();
-		init();
+    public void execute(JobExecutionContext jobExecutionContext)
+            throws JobExecutionException {
+        long t1 = System.currentTimeMillis();
+        init();
 
-		if ((totalsReporterModel == null)
-				|| (totalsReporterModel.getEntityObjects() == null)) {
-			return;
-		}
+        if ((totalsReporterModel == null)
+                || (totalsReporterModel.getEntityObjects() == null)) {
+            return;
+        }
 
-		try {
-			for (String key : totalsReporterModel.getEntityObjects().keySet()) {
-				TotalsReport totalsReport = totalsReporterModel
-						.getEntityObjects().get(key);
-				totalsReport.adjustValues();
-				hibernateEntityDao.saveOrUpdate(totalsReport);
-			}
+        try {
+            for (String key : totalsReporterModel.getEntityObjects().keySet()) {
+                TotalsReport totalsReport = totalsReporterModel
+                        .getEntityObjects().get(key);
+                totalsReport.adjustValues();
+                if (totalsReport.getId() == null) {
+                    jdbcService.saveTotalsReport(totalsReport);
+                } else {
+                    jdbcService.updateTotalsReport(totalsReport);
+                }
+            }
 
-			reportsDumper.dumpReports();
-		} catch (Exception ex) {
-			logger.error(ex.getMessage(), ex);
-		}
-	}
+            reportsDumper.dumpReports();
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+        }
+    }
 }

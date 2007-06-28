@@ -62,7 +62,7 @@ public class GetAdProcessor extends AbstractAdsapientProcessor {
 	public void doGet(Map<String, Object> requestParams,
 			HttpServletResponse response) {
 		try {
-			reporterModelBuilder.registerEvent(requestParams);
+//			reporterModelBuilder.registerEvent(requestParams);
 
 			BannerImpl banner = (BannerImpl) requestParams
 					.get(AdsapientConstants.BANNER_REQUEST_PARAM_KEY);

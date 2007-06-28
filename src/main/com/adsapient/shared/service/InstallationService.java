@@ -136,7 +136,8 @@ public class InstallationService {
         }
 
         try {
-            JDBCService.test(sqlRequests);
+            JDBCService jdbcService =  (JDBCService) ContextAwareGuiBean.getContext().getBean("jdbcService");
+            jdbcService.test(sqlRequests);
         } catch (Exception e) {
             logger.info("Problem with database acces" + e.getMessage(), e);
             throw new PluginInstallerExeption("Problem with database acces"

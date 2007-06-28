@@ -1,6 +1,6 @@
 DROP TABLE totalsreports;
 CREATE TABLE  totalsreports (
-  id BIGINT NOT NULL,
+  id BIGINT NOT NULL AUTO_INCREMENT,
   entityid BIGINT NOT NULL,
   entityclass VARCHAR(255),
   adviews INT,

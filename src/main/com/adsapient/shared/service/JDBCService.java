@@ -24,13 +24,11 @@
 package com.adsapient.shared.service;
 
 import com.adsapient.shared.AdsapientConstants;
+import com.adsapient.shared.mappable.TotalsReport;
 import org.apache.log4j.Logger;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Properties;
@@ -48,41 +46,67 @@ public class JDBCService {
 
     public static final String HIBERNATE_DIALECT = "hibernate.dialect";
 
-    public static boolean test(Collection sqlQuerry) throws Exception {
-        InputStream stream = InstallationService.class.getClassLoader()
-                .getResourceAsStream("adsapient.properties");
-        Properties props = new Properties();
-        props.load(stream);
+    private String url;
+    private String driver;
+    private String userName;
+    private String password;
+    private String dialect;
 
-        String url = props.getProperty(HIBERNATE_URL);
-        String driver = props.getProperty(HIBERNATE_DRIVER);
-        String userName = props.getProperty(HIBERNATE_USERNAME);
-        String password = props.getProperty(HIBERNATE_PASSWORD);
-        String dialect = props.getProperty(HIBERNATE_DIALECT);
+    private String updateTotalsSQL;
+    private String saveTotalsSQL;
+
+    private Connection connection;
+
+    private PreparedStatement updateTotalsReportPreparedStatement;
+    private PreparedStatement saveTotalsReportPreparedStatement;
+
+    public void setup() {
+        try {
+            InputStream stream = InstallationService.class.getClassLoader()
+                    .getResourceAsStream("adsapient.properties");
+            Properties props = new Properties();
+            props.load(stream);
+
+            url = props.getProperty(HIBERNATE_URL);
+            driver = props.getProperty(HIBERNATE_DRIVER);
+            userName = props.getProperty(HIBERNATE_USERNAME);
+            password = props.getProperty(HIBERNATE_PASSWORD);
+            dialect = props.getProperty(HIBERNATE_DIALECT);
+
+            Class.forName(driver);
+            connection = DriverManager.getConnection(url, userName, password);
+            updateTotalsReportPreparedStatement = connection.prepareStatement(updateTotalsSQL);
+            saveTotalsReportPreparedStatement = connection.prepareStatement(saveTotalsSQL);
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+        }
+    }
+
+    public boolean test(Collection sqlQuerry) throws Exception {
 
         Iterator querrysIterator = sqlQuerry.iterator();
-        Connection con;
         String createString;
 
         Statement stmt;
 
-        Class.forName(driver);
 
         String qweryString = "";
 
         while (querrysIterator.hasNext()) {
             try {
                 qweryString = (String) querrysIterator.next();
-                con = DriverManager.getConnection(url, userName, password);
-                
-                stmt = con.createStatement();
+                if (connection == null || connection.isClosed()) {
+                    connection = DriverManager.getConnection(url, userName, password);
+                }
+
+                stmt = connection.createStatement();
 
                 if (driver.equals(AdsapientConstants.HSSQLDRIVER)) {
                     qweryString = qweryString.replaceFirst("CREATE TABLE", "CREATE CACHED TABLE");
                 }
                 stmt.executeUpdate(qweryString);
                 stmt.close();
-                con.close();
+                connection.close();
             } catch (SQLException ex) {
                 logger.error("SQLException: " + ex.getMessage());
                 logger.info("the querry is " + qweryString);
@@ -92,5 +116,69 @@ public class JDBCService {
         logger.info("finishing sql insert");
 
         return true;
+    }
+
+    public synchronized void updateTotalsReport(TotalsReport totalsReport) {
+        try {
+            if (connection == null || connection.isClosed()) {
+                connection = DriverManager.getConnection(url, userName, password);
+            }
+            updateTotalsReportPreparedStatement.setInt(1, totalsReport.getEntityid());
+            updateTotalsReportPreparedStatement.setString(2, totalsReport.getEntityclass());
+            updateTotalsReportPreparedStatement.setInt(3, totalsReport.getAdviews());
+            updateTotalsReportPreparedStatement.setInt(4, totalsReport.getClicks());
+            updateTotalsReportPreparedStatement.setInt(5, totalsReport.getLeads());
+            updateTotalsReportPreparedStatement.setInt(6, totalsReport.getSales());
+            updateTotalsReportPreparedStatement.setDouble(7, totalsReport.getEarnedspent());
+            updateTotalsReportPreparedStatement.setInt(8, totalsReport.getUniques());
+            updateTotalsReportPreparedStatement.setInt(9, totalsReport.getId());
+
+            updateTotalsReportPreparedStatement.execute();
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+        }
+    }
+
+    public String getUpdateTotalsSQL() {
+        return updateTotalsSQL;
+    }
+
+    public void setUpdateTotalsSQL(String updateTotalsSQL) {
+        this.updateTotalsSQL = updateTotalsSQL;
+    }
+
+    public String getSaveTotalsSQL() {
+        return saveTotalsSQL;
+    }
+
+    public void setSaveTotalsSQL(String saveTotalsSQL) {
+        this.saveTotalsSQL = saveTotalsSQL;
+    }
+
+    public void saveTotalsReport(TotalsReport totalsReport) {
+        try {
+            if (connection == null || connection.isClosed()) {
+                connection = DriverManager.getConnection(url, userName, password);
+            }
+            saveTotalsReportPreparedStatement.setInt(1, totalsReport.getEntityid());
+            saveTotalsReportPreparedStatement.setString(2, totalsReport.getEntityclass());
+            saveTotalsReportPreparedStatement.setInt(3, totalsReport.getAdviews());
+            saveTotalsReportPreparedStatement.setInt(4, totalsReport.getClicks());
+            saveTotalsReportPreparedStatement.setInt(5, totalsReport.getLeads());
+            saveTotalsReportPreparedStatement.setInt(6, totalsReport.getSales());
+            saveTotalsReportPreparedStatement.setDouble(7, totalsReport.getEarnedspent());
+            saveTotalsReportPreparedStatement.setInt(8, totalsReport.getUniques());
+
+            saveTotalsReportPreparedStatement.execute();
+
+            Statement s = connection.createStatement();
+            ResultSet rs = s.executeQuery("SELECT LAST_INSERT_ID();");
+            if (rs.next()) {
+                int id = rs.getInt(1);
+                totalsReport.setId(id);
+            }
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+        }
     }
 }
