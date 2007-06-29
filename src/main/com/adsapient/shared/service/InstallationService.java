@@ -136,7 +136,8 @@ public class InstallationService {
         }
 
         try {
-            JDBCService jdbcService =  (JDBCService) ContextAwareGuiBean.getContext().getBean("jdbcService");
+            JDBCService jdbcService = new JDBCService();//(JDBCService) ContextAwareGuiBean.getContext().getBean("jdbcService");
+            jdbcService.setup();
             jdbcService.test(sqlRequests);
         } catch (Exception e) {
             logger.info("Problem with database acces" + e.getMessage(), e);
