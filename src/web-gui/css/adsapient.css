@@ -52,7 +52,8 @@ a.tabletableheader {
 
 .tabledata {
     background-color: #D1DFFF;
-    text-align: left;
+    text-align: center;
+    vertical-align:center;
     font-size: 14px;
     font-family: sans-serif;
     color: Black;
@@ -62,7 +63,7 @@ a.tabletableheader {
 
 .tabledata-c {
     background-color: #D1DFFF;
-    text-align: right;
+    text-align: center;
     font-size: 14px;
     font-family: sans-serif;
     color: Black;
@@ -78,6 +79,7 @@ a.tabledata {
     color: Black;
     font-weight: normal;
     text-decoration: none;
+    vertical-align:center;
 }
 
 a.tabledata:hover {
@@ -91,7 +93,7 @@ a.tabledata:hover {
 }
 
 .tabdata {
-    text-align: left;
+    text-align: center;
     font-size: 14px;
     font-family: sans-serif;
     color: Black;
@@ -100,7 +102,7 @@ a.tabledata:hover {
 }
 
 a.tabdata {
-    text-align: left;
+    text-align: right;
     font-size: 14px;
     font-family: sans-serif;
     color: Black;
@@ -109,7 +111,7 @@ a.tabdata {
 }
 
 a.tabdata:hover {
-    text-align: left;
+    text-align: right;
     font-size: 14px;
     font-family: sans-serif;
     color: #E87D0D;
@@ -127,7 +129,7 @@ a.tabdata:hover {
 
 .menuitem {
     background-color: #D1DFFF;
-    text-align: left;
+    text-align: right;
     font-size: 14px;
     font-family: sans-serif;
     color: Black;
@@ -138,7 +140,7 @@ a.tabdata:hover {
 
 a.menuitem:hover {
     background-color: #D1DFFF;
-    text-align: left;
+    text-align: right;
     font-size: 14px;
     font-family: sans-serif;
     color: #E87D0D;
@@ -149,7 +151,7 @@ a.menuitem:hover {
 
 .maintext {
     background-color: #D1DFFF;
-    text-align: left;
+    text-align: right;
     font-size: 14px;
     font-family: sans-serif;
     color: Black;
@@ -159,7 +161,7 @@ a.menuitem:hover {
 
 .smalltext {
     background-color: #D1DFFF;
-    text-align: left;
+    text-align: right;
     font-size: 10px;
     font-family: sans-serif;
     color: Black;
