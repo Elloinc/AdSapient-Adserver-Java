@@ -203,7 +203,8 @@ public class AdserverModelBuilder {
             int type = si.getTypeId();
             m.put(AdsapientConstants.RESOURCE_TYPE_REQUEST_PARAM_KEY, type);
         } catch (Exception ex) {
-            m.put(AdsapientConstants.RESOURCE_TYPE_REQUEST_PARAM_KEY, null);
+            logger.error(ex.getMessage());
+            m.put(AdsapientConstants.RESOURCE_TYPE_REQUEST_PARAM_KEY, Type.WEB_RESOURCE);
         }
 
         String userAgent = request.getHeader("User-Agent");
