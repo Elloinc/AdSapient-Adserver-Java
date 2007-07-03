@@ -28,152 +28,155 @@ import com.adsapient.adserver.AdserverModelBuilder;
 import com.adsapient.adserver.beans.AdcodeTemplate;
 import com.adsapient.adserver.beans.AdserverModel;
 import com.adsapient.adserver.reporter.ReporterModelBuilder;
-
+import com.adsapient.shared.AdsapientConstants;
 import com.adsapient.shared.mappable.BannerImpl;
 import com.adsapient.shared.mappable.Type;
-import com.adsapient.shared.AdsapientConstants;
-
 import org.apache.log4j.Logger;
-
-import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 public class GetAdCodeProcessor extends AbstractAdsapientProcessor {
-	static Logger logger = Logger.getLogger(GetAdCodeProcessor.class);
+    static Logger logger = Logger.getLogger(GetAdCodeProcessor.class);
 
-	private AdserverDecisionProvider adserverDecisionProvider;
+    private AdserverDecisionProvider adserverDecisionProvider;
 
-	private AdserverModelBuilder adserverModelBuilder;
+    private AdserverModelBuilder adserverModelBuilder;
 
-	private ReporterModelBuilder reporterModelBuilder;
+    private ReporterModelBuilder reporterModelBuilder;
 
-	private AdserverModel adserverModel;
+    private AdserverModel adserverModel;
 
-	private GetPlaceCodeProcessor getPlaceCodeProcessor;
+    private GetPlaceCodeProcessor getPlaceCodeProcessor;
 
-	public GetPlaceCodeProcessor getGetPlaceCodeProcessor() {
-		return getPlaceCodeProcessor;
-	}
+    public GetPlaceCodeProcessor getGetPlaceCodeProcessor() {
+        return getPlaceCodeProcessor;
+    }
 
-	public void setGetPlaceCodeProcessor(
-			GetPlaceCodeProcessor getPlaceCodeProcessor) {
-		this.getPlaceCodeProcessor = getPlaceCodeProcessor;
-	}
+    public void setGetPlaceCodeProcessor(
+            GetPlaceCodeProcessor getPlaceCodeProcessor) {
+        this.getPlaceCodeProcessor = getPlaceCodeProcessor;
+    }
 
-	public AdserverModel getAdserverModel() {
-		return adserverModel;
-	}
+    public AdserverModel getAdserverModel() {
+        return adserverModel;
+    }
 
-	public void setAdserverModel(AdserverModel adserverModel) {
-		this.adserverModel = adserverModel;
-	}
+    public void setAdserverModel(AdserverModel adserverModel) {
+        this.adserverModel = adserverModel;
+    }
 
-	public AdserverModelBuilder getAdserverModelBuilder() {
-		return adserverModelBuilder;
-	}
+    public AdserverModelBuilder getAdserverModelBuilder() {
+        return adserverModelBuilder;
+    }
 
-	public void setAdserverModelBuilder(
-			AdserverModelBuilder adserverModelBuilder) {
-		this.adserverModelBuilder = adserverModelBuilder;
-	}
+    public void setAdserverModelBuilder(
+            AdserverModelBuilder adserverModelBuilder) {
+        this.adserverModelBuilder = adserverModelBuilder;
+    }
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) {
-	}
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
+    }
 
-	public AdserverDecisionProvider getAdserverDecisionProvider() {
-		return adserverDecisionProvider;
-	}
+    public AdserverDecisionProvider getAdserverDecisionProvider() {
+        return adserverDecisionProvider;
+    }
 
-	public void setAdserverDecisionProvider(
-			AdserverDecisionProvider adserverDecisionProvider) {
-		this.adserverDecisionProvider = adserverDecisionProvider;
-	}
+    public void setAdserverDecisionProvider(
+            AdserverDecisionProvider adserverDecisionProvider) {
+        this.adserverDecisionProvider = adserverDecisionProvider;
+    }
 
-	public void doGet(Map<String, Object> requestParams,
-			HttpServletResponse response) {
-		try {
-			Integer uniqueId = (Integer) requestParams
-					.get(AdsapientConstants.COOKIE_UNIQUE_ID_REQUEST_PARAM_KEY);
-			Cookie uniqueIdCookie = new Cookie(
-					AdsapientConstants.ADSERVER_UNIQUE_VISITOR_ID_COOKIENAME,
-					(uniqueId != null) ? Integer.toString(uniqueId) : null);
-			response.addCookie(uniqueIdCookie);
-			uniqueIdCookie.setMaxAge(Integer.MAX_VALUE);
+    public void doGet(Map<String, Object> requestParams,
+                      HttpServletResponse response) {
+        try {
+            Integer uniqueId = (Integer) requestParams
+                    .get(AdsapientConstants.COOKIE_UNIQUE_ID_REQUEST_PARAM_KEY);
+            Cookie uniqueIdCookie = new Cookie(
+                    AdsapientConstants.ADSERVER_UNIQUE_VISITOR_ID_COOKIENAME,
+                    (uniqueId != null) ? Integer.toString(uniqueId) : null);
+            response.addCookie(uniqueIdCookie);
+            uniqueIdCookie.setMaxAge(Integer.MAX_VALUE);
 
-			BannerImpl banner = (BannerImpl) requestParams
-					.get(AdsapientConstants.BANNER_REQUEST_PARAM_KEY);
+            BannerImpl banner = (BannerImpl) requestParams
+                    .get(AdsapientConstants.BANNER_REQUEST_PARAM_KEY);
 
-			if (banner == null) {
-				banner = getAd(requestParams);
-			}
+            if (banner == null) {
+                banner = getAd(requestParams);
+            }
 
-			if (banner.getTypeId().equals(Type.SUPERSTITIAL_BANNER)) {
-				Map<String, Object> templateParams = adserverModelBuilder
-						.buildTemplateParams(requestParams, banner);
-				requestParams.put(
-						AdsapientConstants.TEMPLATEID_REQUEST_PARAM_KEY,
-						AdsapientConstants.SUPERSTITIAL_TEMPLATEID);
+            if (banner == null) {
+                logger.fatal("Can't find ad even in defaults");
+                writeResponse("", response);
+                return;
+            }
 
-				AdcodeTemplate at = templates.get(requestParams
-						.get(AdsapientConstants.TEMPLATEID_REQUEST_PARAM_KEY));
-				String adcode = at.getAdCodeFromParameters(templateParams);
+            if (banner.getTypeId().equals(Type.SUPERSTITIAL_BANNER)) {
+                Map<String, Object> templateParams = adserverModelBuilder
+                        .buildTemplateParams(requestParams, banner);
+                requestParams.put(
+                        AdsapientConstants.TEMPLATEID_REQUEST_PARAM_KEY,
+                        AdsapientConstants.SUPERSTITIAL_TEMPLATEID);
 
-				writeResponse(adcode, response);
+                AdcodeTemplate at = templates.get(requestParams
+                        .get(AdsapientConstants.TEMPLATEID_REQUEST_PARAM_KEY));
+                String adcode = at.getAdCodeFromParameters(templateParams);
 
-				return;
-			}
+                writeResponse(adcode, response);
 
-			requestParams.put(AdsapientConstants.BANNER_REQUEST_PARAM_KEY,
-					banner);
+                return;
+            }
 
-			Map<String, Object> templateParams = adserverModelBuilder
-					.buildTemplateParams(requestParams, banner);
-			AdcodeTemplate at = getAdcodeTemplate(templateParams);
-			String adcode = at.getAdCodeFromParameters(templateParams);
+            requestParams.put(AdsapientConstants.BANNER_REQUEST_PARAM_KEY,
+                    banner);
+
+            Map<String, Object> templateParams = adserverModelBuilder
+                    .buildTemplateParams(requestParams, banner);
+            AdcodeTemplate at = getAdcodeTemplate(templateParams);
+            String adcode = at.getAdCodeFromParameters(templateParams);
             reporterModelBuilder.registerEvent(requestParams);
 
-			writeResponse(adcode, response);
-		} catch (Exception ex) {
-			logger.error(ex.getMessage(), ex);
-			writeResponse("", response);
-		}
-	}
+            writeResponse(adcode, response);
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
+            writeResponse("", response);
+        }
+    }
 
-	public BannerImpl getAd(Map<String, Object> requestParams) {
-		try {
-			BannerImpl banner = null;
+    public BannerImpl getAd(Map<String, Object> requestParams) {
+        try {
+            BannerImpl banner = null;
 
-			if (requestParams.get(AdsapientConstants.BANNER_REQUEST_PARAM_KEY) != null) {
-				banner = (BannerImpl) requestParams
-						.get(AdsapientConstants.BANNER_REQUEST_PARAM_KEY);
-			} else {
-				banner = adserverDecisionProvider.getAd(requestParams);
-			}
+            if (requestParams.get(AdsapientConstants.BANNER_REQUEST_PARAM_KEY) != null) {
+                banner = (BannerImpl) requestParams
+                        .get(AdsapientConstants.BANNER_REQUEST_PARAM_KEY);
+            } else {
+                banner = adserverDecisionProvider.getAd(requestParams);
+            }
 
-			return banner;
-		} catch (Exception ex) {
-			logger.error(ex.getMessage(), ex);
+            return banner;
+        } catch (Exception ex) {
+            logger.error(ex.getMessage(), ex);
 
-			return null;
-		}
-	}
+            return null;
+        }
+    }
 
-	private AdcodeTemplate getAdcodeTemplate(Map<String, Object> templateParams) {
-		AdcodeTemplate at = templates.get((Integer) templateParams
-				.get(AdsapientConstants.TEMPLATEID_REQUEST_PARAM_KEY) + 100);
+    private AdcodeTemplate getAdcodeTemplate(Map<String, Object> templateParams) {
+        AdcodeTemplate at = templates.get((Integer) templateParams
+                .get(AdsapientConstants.TEMPLATEID_REQUEST_PARAM_KEY) + 100);
 
-		return at;
-	}
+        return at;
+    }
 
-	public ReporterModelBuilder getReporterModelBuilder() {
-		return reporterModelBuilder;
-	}
+    public ReporterModelBuilder getReporterModelBuilder() {
+        return reporterModelBuilder;
+    }
 
-	public void setReporterModelBuilder(
-			ReporterModelBuilder reporterModelBuilder) {
-		this.reporterModelBuilder = reporterModelBuilder;
-	}
+    public void setReporterModelBuilder(
+            ReporterModelBuilder reporterModelBuilder) {
+        this.reporterModelBuilder = reporterModelBuilder;
+    }
 }
