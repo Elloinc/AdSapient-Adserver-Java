@@ -199,28 +199,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/web-site/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footnote.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/web-site/tiles/footnote.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="97" selection-end="97" vertical-scroll-proportion="0.02045728">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="adsapient.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/web-gui/css/adsapient.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="29" selection-start="446" selection-end="446" vertical-scroll-proportion="0.511432">
+            <state line="25" column="29" selection-start="446" selection-end="446" vertical-scroll-proportion="0.034907598">
               <folding />
             </state>
           </provider>
@@ -229,7 +211,7 @@
       <file leaf-file-name="GetAdCodeProcessor.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/GetAdCodeProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="53" selection-start="5816" selection-end="5816" vertical-scroll-proportion="0.5042118">
+            <state line="155" column="53" selection-start="5816" selection-end="5816" vertical-scroll-proportion="0.2915811">
               <folding />
             </state>
           </provider>
@@ -238,7 +220,7 @@
       <file leaf-file-name="AdserverServlet.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="73" selection-start="3555" selection-end="3555" vertical-scroll-proportion="0.6955475">
+            <state line="96" column="73" selection-start="3555" selection-end="3555" vertical-scroll-proportion="0.034907598">
               <folding />
             </state>
           </provider>
@@ -247,34 +229,61 @@
       <file leaf-file-name="AdserverModelBuilder.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverModelBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="38" selection-start="8064" selection-end="8064" vertical-scroll-proportion="0.4865196">
+            <state line="201" column="38" selection-start="8064" selection-end="8064" vertical-scroll-proportion="0.03601695">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestParamsFilterProcessor.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/filters/stateless/RequestParamsFilterProcessor.java">
+      <file leaf-file-name="applicationContext-database.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/context/sharedcontext/applicationContext-database.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.33333334">
+            <state line="99" column="7" selection-start="4736" selection-end="4736" vertical-scroll-proportion="0.2915811">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdsapientConstants.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/AdsapientConstants.java">
+      <file leaf-file-name="install.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/web-site/an/install.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="33" selection-start="1326" selection-end="1326" vertical-scroll-proportion="0.3273165">
+            <state line="137" column="20" selection-start="7268" selection-end="7268" vertical-scroll-proportion="0.98940676">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdserverDecisionProvider.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverDecisionProvider.java">
+      <file leaf-file-name="sitelist.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/web-gui/publisher/sitelist.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="51" selection-start="2598" selection-end="2598" vertical-scroll-proportion="0.3615196">
+            <state line="60" column="56" selection-start="3798" selection-end="3798" vertical-scroll-proportion="0.5783898">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TotalsReportService.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/TotalsReportService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="78" column="60" selection-start="2544" selection-end="2544" vertical-scroll-proportion="-10.763861">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adsapient.production.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/adsapient.production.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="35" selection-start="0" selection-end="991" vertical-scroll-proportion="0.55852157">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="213" column="41" selection-start="7735" selection-end="7735" vertical-scroll-proportion="0.03601695">
               <folding />
             </state>
           </provider>
@@ -323,38 +332,6 @@
       <PATH_ELEMENT>
         <option name="myItemId" value="adsapient" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="adsapient.ipr" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="adsapient" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="com.adsapient" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="adsapient.ipr" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="adsapient" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="com.adsapient" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="adserver" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
     </PATH>
   </component>
@@ -419,7 +396,7 @@
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:D:\adsapient" />
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       </PATH_ELEMENT>
     </PATH>
@@ -433,11 +410,59 @@
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:D:\adsapient" />
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:D:\adsapient\src" />
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient\src" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient\src\web-site" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient\src" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient\src\web-site" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient\src\web-site\an" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:C:\d\adsapient\src" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       </PATH_ELEMENT>
     </PATH>
@@ -446,7 +471,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -477,25 +502,6 @@
   <component name="RestoreUpdateTree" />
   <component name="RunManager">
     <activeType name="Remote" />
-    <configuration selected="false" default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration selected="false" default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-    </configuration>
     <configuration selected="false" default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
@@ -504,6 +510,13 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <module name="" />
+    </configuration>
+    <configuration selected="false" default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
     </configuration>
     <configuration selected="false" default="true" type="JUnit" factoryName="JUnit">
       <module name="" />
@@ -520,6 +533,18 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="wholeProject" />
       </option>
+    </configuration>
+    <configuration selected="false" default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
     <configuration selected="true" default="false" name="Resin" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -579,20 +604,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1688" height="1005" extended-state="0" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1448" height="855" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="8" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="7" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.24327628" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.14255014" order="0" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.32918552" order="1" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.25" order="1" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.26244345" order="8" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.2547684" order="8" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.4" order="6" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="3" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="8" />
       <window_info id="Favorites" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="3" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.14242055" order="1" />
+      <window_info id="Ant Build" active="true" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.1282235" order="1" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.25" order="2" />
       <window_info id="File View" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="3" />
@@ -692,107 +717,107 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/jobs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="12" selection-start="1556" selection-end="1556" vertical-scroll-proportion="0.02045728">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/setup/templates/adcode-flash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="640" selection-end="640" vertical-scroll-proportion="0.02045728">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/gui/ContextAwareGuiBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="37" selection-start="6209" selection-end="6209" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/JDBCService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="12" selection-start="4547" selection-end="4547" vertical-scroll-proportion="1.2585194">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/InstallationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="27" selection-start="4948" selection-end="4948" vertical-scroll-proportion="0.019976499">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/web-gui/admin/viewBannersize.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="53" selection-start="2870" selection-end="2870" vertical-scroll-proportion="0.39354068">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/web-site/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/AdsapientConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="33" selection-start="1326" selection-end="1326" vertical-scroll-proportion="0.3273165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverDecisionProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="51" selection-start="2598" selection-end="2598" vertical-scroll-proportion="0.3615196">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="73" selection-start="3555" selection-end="3555" vertical-scroll-proportion="0.6955475">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/GetAdCodeProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="53" selection-start="5816" selection-end="5816" vertical-scroll-proportion="0.5042118">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/web-gui/css/adsapient.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="29" selection-start="446" selection-end="446" vertical-scroll-proportion="0.511432">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/web-site/tiles/footnote.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="97" selection-end="97" vertical-scroll-proportion="0.02045728">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverModelBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="38" selection-start="8064" selection-end="8064" vertical-scroll-proportion="0.4865196">
+        <state line="38" column="33" selection-start="1326" selection-end="1326" vertical-scroll-proportion="0.03803132">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/filters/stateless/RequestParamsFilterProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.33333334">
+        <state line="53" column="48" selection-start="1909" selection-end="1909" vertical-scroll-proportion="0.7919463">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/adsapient.jboss.production.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="50" selection-start="996" selection-end="996" vertical-scroll-proportion="0.57894737">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/web-site/tiles/footnote.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/adsapient.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="938" selection-end="938" vertical-scroll-proportion="0.54919237">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="213" column="41" selection-start="7735" selection-end="7735" vertical-scroll-proportion="0.03601695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/adsapient.production.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="35" selection-start="0" selection-end="991" vertical-scroll-proportion="0.55852157">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/shared/service/TotalsReportService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="60" selection-start="2544" selection-end="2544" vertical-scroll-proportion="-10.763861">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/web-gui/publisher/sitelist.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="56" selection-start="3798" selection-end="3798" vertical-scroll-proportion="0.5783898">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/web-site/an/install.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="20" selection-start="7268" selection-end="7268" vertical-scroll-proportion="0.98940676">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/context/sharedcontext/applicationContext-database.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="7" selection-start="4736" selection-end="4736" vertical-scroll-proportion="0.2915811">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverModelBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="201" column="38" selection-start="8064" selection-end="8064" vertical-scroll-proportion="0.03601695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/AdserverServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="73" selection-start="3555" selection-end="3555" vertical-scroll-proportion="0.034907598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/adsapient/adserver/requestprocessors/GetAdCodeProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="53" selection-start="5816" selection-end="5816" vertical-scroll-proportion="0.2915811">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/web-gui/css/adsapient.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="29" selection-start="446" selection-end="446" vertical-scroll-proportion="0.034907598">
           <folding />
         </state>
       </provider>

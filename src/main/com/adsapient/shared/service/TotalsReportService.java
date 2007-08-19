@@ -76,7 +76,7 @@ public class TotalsReportService {
 		return intFormatter.format(0);
 	}
 
-	public String getTotalUnitsByEntity(Class clazz, int id, byte eventType) {
+	public String getTotalUnitsByEntity(Class clazz, Integer id, byte eventType) {
 		try {
 			Object[] criteria = new Object[] { "entityid", id, "entityclass",
 					clazz.getName() };
