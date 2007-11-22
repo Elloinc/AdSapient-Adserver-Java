@@ -115,7 +115,7 @@ voluntarily work part-time to deliver cutting-edge open source ad server softwar
 <a class="promotext2" href="gpl.txt" target="_blank">License (GPL v.2)</a><br/>
 
 <!--Free Download Manager code//--> <A href="http://www.freedownloadmanager.org/" title="Free Download Manager">
-<img src="http://www.freedownloadmanager.org/new/images/fdm_01.gif" width="88" height="31" border="0" alt = "Free Download Manager" > <br>Free Download Manager </A> <!--End of Free Download Manager code//-->
+<img src="http://www.freedownloadmanager.org/new/images/im1.gif" width="88" height="31" border="0" alt = "Free Download Manager" > <br>Free Download Manager </A> <!--End of Free Download Manager code//-->
 <br/>
 </td></tr></table></td>
 <td height="174" width="3" style="background-image: url(images/hor.gif);"></td>
